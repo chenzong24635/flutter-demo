@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
+
 import 'package:flutter1/widget/BasicWidget/index.dart';
 import 'package:flutter1/widget/LayoutWidget/index.dart';
 import 'package:flutter1/widget/ScrollWidget/index.dart';
+
+
+
 
 final List<String> myRoutesName = <String>[
   '基础组件',
@@ -9,12 +14,15 @@ final List<String> myRoutesName = <String>[
   '滚动组件',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "BasicWidget": (context) {return new BasicWidget();},
-  "LayoutWidget": (context) {return new LayoutWidget();},
-  "ScrollWidget": (context) {return new ScrollWidget();},
+  "/BasicWidget": (context) {return new BasicWidget();},
+  "/LayoutWidget": (context) {return new LayoutWidget();},
+  "/ScrollWidget": (context) {return new ScrollWidget();},
 };
 
-void main() => runApp(MyApp());
+void main() {
+  debugPaintSizeEnabled = !true;
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
