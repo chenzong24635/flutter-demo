@@ -4,19 +4,28 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter1/widget/BasicWidget/index.dart';
 import 'package:flutter1/widget/LayoutWidget/index.dart';
 import 'package:flutter1/widget/ScrollWidget/index.dart';
+import 'package:flutter1/widget/DecoratorWidget/index.dart';
+import 'package:flutter1/widget/OtherWidget/index.dart';
+import 'package:flutter1/demo.dart';
 
 
 
 
 final List<String> myRoutesName = <String>[
   '基础组件',
-  '布局组件',
+  '布局/容器组件',
   '滚动组件',
+  '装饰组件',
+  '其他组件',
+  'DemoPage',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "/BasicWidget": (context) {return new BasicWidget();},
-  "/LayoutWidget": (context) {return new LayoutWidget();},
-  "/ScrollWidget": (context) {return new ScrollWidget();},
+  "/BasicWidget": (context) => BasicWidget(),
+  "/LayoutWidget": (context) => LayoutWidget(),
+  "/ScrollWidget": (context) => ScrollWidget(),
+  "/DecoratorWidget": (context) => DecoratorWidget(),
+  "/OtherWidget": (context) => OtherWidget(),
+  "/DemoPage": (context) => DemoPage(),
 };
 
 void main() {
@@ -60,7 +69,7 @@ class MyHomePageState extends  State<MyHomePage> {
         leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
           icon: Icon(Icons.menu),
           onPressed: () {
-            Navigator.pop(context);
+            // Navigator.pop(context);
             // Navigator.of(context).pushReplacementNamed("/login");
           },
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip
@@ -116,23 +125,23 @@ class MyHomePageState extends  State<MyHomePage> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, // 设置floatingActionButton的位置
       // persistentFooterButtons: // 设置一组底部的Button
       // drawer|Widget-Drawer|抽屉菜单
-      body: new Container(
-        child: new GridView.builder(
+      body: Container(
+        child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3, //每行三列
             childAspectRatio: 1.0 //显示区域宽高相等
           ),
           itemCount: myRoutesName.length,
           itemBuilder: (context, index) {
-            return new InkWell(
+            return InkWell(
               onTap: () {
                 Navigator.of(context).pushNamed(routeLists[index]);
               },
-              child: new Card(
-                child: new Container(
+              child: Card(
+                child: Container(
                   alignment: Alignment.center,
                   // padding: EdgeInsets.all(15.0),
-                  child: new Text(myRoutesName[index],style:TextStyle(fontSize: 18.0)),
+                  child: Text(myRoutesName[index],style:TextStyle(fontSize: 18.0)),
                 ),
               ),
             );

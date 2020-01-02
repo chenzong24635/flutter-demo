@@ -14,11 +14,23 @@ import 'package:flutter1/widget/LayoutWidget/flex.dart';
 import 'package:flutter1/widget/LayoutWidget/flow.dart';
 import 'package:flutter1/widget/LayoutWidget/transform.dart';
 import 'package:flutter1/widget/LayoutWidget/stack.dart';
+import 'package:flutter1/widget/LayoutWidget/IndexedStack.dart';
 import 'package:flutter1/widget/LayoutWidget/positioned.dart';
 
 import 'package:flutter1/widget/LayoutWidget/constrainedBox.dart';
+import 'package:flutter1/widget/LayoutWidget/decoratedBox.dart';
 import 'package:flutter1/widget/LayoutWidget/fittedBox.dart';
 import 'package:flutter1/widget/LayoutWidget/aspectRatio.dart';
+import 'package:flutter1/widget/LayoutWidget/baseline.dart';
+import 'package:flutter1/widget/LayoutWidget/fractionallySizedBox.dart';
+import 'package:flutter1/widget/LayoutWidget/IntrinsicHeight.dart';
+import 'package:flutter1/widget/LayoutWidget/IntrinsicWidth.dart';
+import 'package:flutter1/widget/LayoutWidget/LimitedBox.dart';
+import 'package:flutter1/widget/LayoutWidget/Offstage.dart';
+import 'package:flutter1/widget/LayoutWidget/OverflowBox.dart';
+import 'package:flutter1/widget/LayoutWidget/SizedBox.dart';
+import 'package:flutter1/widget/LayoutWidget/SizedOverflowBox.dart';
+import 'package:flutter1/widget/LayoutWidget/CustomSingleChildLayout.dart';
 
 
 // import 'package:flutter1/widget/listview.dart';
@@ -37,10 +49,22 @@ final List<String> myRoutesName = <String>[
   'Flow',
   'Transform',
   'Stack',
+  'IndexedStack',
   'Positioned',
   'ConstrainedBox',
+  'DecoratedBox',
   'FittedBox',
   'AspectRatio',
+  'Baseline',
+  'FractionallySizedBox',
+  'IntrinsicHeight',
+  'IntrinsicWidth',
+  'LimitedBox',
+  'Offstage',
+  'OverflowBox',
+  'SizedBox',
+  'SizedOverflowBox',
+  'CustomSingleChildLayout',
   // 'ListView-滚动列表',
 ];
 Map<String, WidgetBuilder> myRoutes = {
@@ -56,10 +80,22 @@ Map<String, WidgetBuilder> myRoutes = {
   "FlowPage": (context) {return new FlowPage();},
   "TransformPage": (context) {return new TransformPage();},
   "StackPage": (context) {return new StackPage();},
+  "IndexedStackPage": (context) {return new IndexedStackPage();},
   "PositionedPage": (context) {return new PositionedPage();},
   "ConstrainedBoxPage": (context) {return new ConstrainedBoxPage();},
+  "DecoratedBoxPage": (context) {return new DecoratedBoxPage();},
   "FittedBoxPage": (context) {return new FittedBoxPage();},
   "AspectRatioPage": (context) {return new AspectRatioPage();},
+  "BaselinePage": (context) {return new BaselinePage();},
+  "FractionallySizedBoxPage": (context) {return new FractionallySizedBoxPage();},
+  "IntrinsicHeightPage": (context) {return new IntrinsicHeightPage();},
+  "IntrinsicWidthPage": (context) {return new IntrinsicWidthPage();},
+  "LimitedBoxPage": (context) {return new LimitedBoxPage();},
+  "OffstagePage": (context) {return new OffstagePage();},
+  "OverflowBoxPage": (context) {return new OverflowBoxPage();},
+  "SizedBoxPage": (context) {return new SizedBoxPage();},
+  "SizedOverflowBoxPage": (context) {return new SizedOverflowBoxPage();},
+  "CustomSingleChildLayoutPage": (context) {return new CustomSingleChildLayoutPage();},
   // "ListViewPage": (context) {return new ListViewPage();},
 };
 

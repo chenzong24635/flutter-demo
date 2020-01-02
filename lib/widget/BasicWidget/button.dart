@@ -1,5 +1,30 @@
 import "package:flutter/material.dart";
 
+/* 
+Material 组件库中提供了多种按钮组件如RaisedButton、FlatButton、OutlineButton
+都有如下相同点：
+  按下时都会有“水波动画”（又称“涟漪动画”，就是点击时按钮上会出现水波荡漾的动画）。
+  有一个onPressed属性来设置点击回调，当按钮按下时会执行该回调，如果不提供该回调则按钮会处于禁用状态，禁用状态不响应用户点击。
+*/
+
+/* 
+FlatButton({
+  ...  
+  this.textColor, //按钮文字颜色
+  this.color, //按钮背景颜色
+  this.colorBrightness,//按钮主题，默认是浅色主题 
+  this.splashColor, //点击时，水波动画中水波的颜色
+  this.highlightColor, //按钮按下时的背景颜色
+  this.disabledTextColor, //按钮禁用时的文字颜色
+  this.disabledColor,//按钮禁用时的背景颜色
+  this.padding, //padding
+  this.shape, //外形
+  this.elevation, // 控制阴影
+  @required this.onPressed, //按钮点击回调
+  @required this.child, //按钮的内容
+})
+*/
+
 class ButtonPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
@@ -7,21 +32,22 @@ class ButtonPage extends StatelessWidget{
       body: ListView(
         children: <Widget>[
           RaisedButton(
-            textColor: Colors.white, //文字颜色
-            color: Colors.blueAccent, //背景色
-            splashColor: Colors.red, // 点击时 水波动画中水波的颜色
-            highlightColor: Colors.green, // 按住时的背景色
-            // disabledTextColor: Color(0xoffaadd4), //按钮禁用时的文字颜色
-            // colorBrightness: , // 按钮主题，默认是浅色主题
+            textColor: Colors.white,
+            color: Colors.blueAccent,
+            splashColor: Colors.red,
+            highlightColor: Colors.green,
+            // disabledColor: Colors.orange,
+            // disabledTextColor: Color(0xoffaadd4),
+            // colorBrightness: ,
             padding: EdgeInsets.all(20),
-            shape: RoundedRectangleBorder( // 形状
+            shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(40),
                 topRight: Radius.circular(10),
               ),
             ), 
-            elevation: 15.0, // 控制阴影
-            onPressed: () {}, // 点击回调
+            elevation: 15.0,
+            onPressed: () {},
             child: Text("自定义的按钮外观"),
           ),
           Padding(padding:EdgeInsets.all(10)),

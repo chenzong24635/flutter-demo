@@ -2,25 +2,25 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import 'package:flutter1/widget/ScrollWidget/ListView.dart';
-import 'package:flutter1/widget/ScrollWidget/GridView.dart';
+import 'package:flutter1/widget/DecoratorWidget/BoxDecoration.dart';
+import 'package:flutter1/widget/listview.dart';
 
 
 final List<String> myRoutesName = <String>[
-  'ListView',
-  'GridView',
+  'BoxDecoration',
+  'ListView-滚动列表',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "ListViewPage": (context) => ListViewPage(),
-  "GridViewPage": (context) => GridViewPage(),
+  "BoxDecorationPage": (context) => BoxDecorationPage(),
+  "ListViewPage": (context) {return new ListViewPage();},
 };
 
 // void main() => runApp(MyApp());
 
-class ScrollWidget extends StatelessWidget{
+class DecoratorWidget extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Demo',
+      title: '装饰组件',
       home: MyHomePage(),
       routes: myRoutes
     );
@@ -41,7 +41,7 @@ class MyHomePageState extends  State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('滚动组件'),
+        title: Text('装饰组件'),
         leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
           icon: Icon(Icons.arrow_back),
           onPressed: () {

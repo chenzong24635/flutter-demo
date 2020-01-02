@@ -6,26 +6,22 @@ class MyBox extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return DecoratedBox(
-    child: Text('$cnt',style:TextStyle(color: Colors.blue)),
+    child: Text('$cnt',style:TextStyle(color: Colors.white)),
     decoration: BoxDecoration(color: Colors.red),
   );
   }
 }
 class ConstrainedBoxPage extends StatelessWidget {
-  Widget redBox= DecoratedBox(
-    child: Text('Box Box Box Box Box Box Box Box Box Box Box ',style:TextStyle(color: Colors.blue)),
-    decoration: BoxDecoration(color: Colors.red,),
-  );
-
+  String str = 'box box box box box box box box box box box box box box';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ConstrainedBox'),),
+      appBar: AppBar(title: Text('ConstrainedBox,UnconstrainedBox --尺寸限制类容器'),),
       body: ListView(
         children: <Widget>[
           Column(
             children: <Widget>[
-            Text('ConstrainedBox用于对子组件添加额外的约束',style: TextStyle(fontSize: 18.0)),
+            Text('ConstrainedBox用于对子组件添加额外的约束',style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold)),
             ConstrainedBox(
               constraints: BoxConstraints(
                 maxWidth: double.infinity, // 
@@ -35,7 +31,7 @@ class ConstrainedBoxPage extends StatelessWidget {
               ),
               child: Container(
                 height: 5.0, 
-                child: MyBox(cnt: '423'),
+                child: MyBox(cnt: str),
               ),
             ),
             Padding(padding: EdgeInsets.all(10),),
@@ -43,7 +39,7 @@ class ConstrainedBoxPage extends StatelessWidget {
               constraints: BoxConstraints.tightFor(width: 80.0,height: 80.0),
               //等价于
               //constraints: BoxConstraints(minHeight: 80.0,maxHeight: 80.0,minWidth: 80.0,maxWidth: 80.0)
-              child: redBox, 
+              child: MyBox(cnt: str),
             ),
             Padding(padding: EdgeInsets.all(10),),
             Text('如果某一个组件有多个父级ConstrainedBox限制，那么最终会是哪个生效?',style: TextStyle(fontSize: 18.0)),
@@ -53,24 +49,24 @@ class ConstrainedBoxPage extends StatelessWidget {
               constraints: BoxConstraints(maxWidth: 200.0,minWidth: 60.0, minHeight: 100.0), //父
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 310.0,minWidth: 100.0, minHeight: 20.0),//子
-                child: redBox,
+                child: MyBox(cnt: str),
               )
             ),
             Padding(padding: EdgeInsets.all(10),),
-            Text('UnconstrainedBox:不会对子组件产生任何限制，它允许其子组件按照其本身大小绘制',style: TextStyle(fontSize: 16.0)),
+            Text('UnconstrainedBox:不会对子组件产生任何限制，它允许其子组件按照其本身大小绘制',style: TextStyle(fontSize: 22.0,fontWeight: FontWeight.bold)),
             ConstrainedBox(
               constraints: BoxConstraints(minWidth: 60.0, minHeight: 100.0),   //父
               child: ConstrainedBox(
                 constraints: BoxConstraints(minWidth: 100.0, minHeight: 20.0),//子
-                child: redBox,
+                child: MyBox(cnt: '我被限制,minHeight为父级的100.0（取父子中最大值）'),
               ),
             ),
             ConstrainedBox(
               constraints: BoxConstraints(minWidth: 60.0, minHeight: 100.0),   //父
               child: UnconstrainedBox( //“去除”父级限制
                 child: ConstrainedBox(
-                  constraints: BoxConstraints(minWidth: 100.0, minHeight: 20.0),//子
-                  child: redBox,
+                  constraints: BoxConstraints(minWidth: 100.0, minHeight: 50.0),//子
+                  child: MyBox(cnt: '去除父级限制，minHeight为子元素的50.0，而不是父级的100.0'),
                 ),
               )
             ),
