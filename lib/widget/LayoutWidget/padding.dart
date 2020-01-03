@@ -1,5 +1,33 @@
 import "package:flutter/material.dart";
 
+//[]()
+//[官网](https://api.flutter.dev/flutter/widgets/Padding-class.html)
+/*
+作用：设置padding
+
+继承：
+Object > Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > SingleChildRenderObjectWidget > Padding
+
+构造函数：（类型 属性 = 默认值）
+Padding({
+  Key key,
+  EdgeInsetsGeometry padding, //padding值(@required)
+  Widget child,
+})
+
+EdgeInsetsGeometry是EdgeInsets以及EdgeInsetsDirectional的基类。
+在实际使用中不涉及到国际化，一般都是使用EdgeInsets。
+*/
+
+/*
+Flutter中并没有单独的Margin控件，在Container中有margin属性，看源码关于margin的实现。
+
+if (margin != null)
+  current = new Padding(padding: margin, child: current);
+
+不难看出，Flutter中淡化了margin以及padding的区别，margin实质上也是由Padding实现的。
+*/
+
 class PaddingPage extends StatelessWidget {
 
   @override

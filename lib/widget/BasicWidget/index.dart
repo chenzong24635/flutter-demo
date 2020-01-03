@@ -2,34 +2,40 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import 'package:flutter1/widget/BasicWidget/text.dart';
-import 'package:flutter1/widget/BasicWidget/textField.dart';
-import 'package:flutter1/widget/BasicWidget/button.dart';
-import 'package:flutter1/widget/BasicWidget/checkbox.dart';
-import 'package:flutter1/widget/BasicWidget/form.dart';
-import 'package:flutter1/widget/BasicWidget/image.dart';
-import 'package:flutter1/widget/BasicWidget/progress.dart';
-import 'package:flutter1/widget/BasicWidget/icon.dart';
+import 'package:flutter1/widget/BasicWidget/Text.dart';
+import 'package:flutter1/widget/BasicWidget/TextField.dart';
+import 'package:flutter1/widget/BasicWidget/Button.dart';
+import 'package:flutter1/widget/BasicWidget/Checkbox.dart';
+import 'package:flutter1/widget/BasicWidget/Switch.dart';
+import 'package:flutter1/widget/BasicWidget/Form.dart';
+import 'package:flutter1/widget/BasicWidget/Image.dart';
+import 'package:flutter1/widget/BasicWidget/Progress.dart';
+import 'package:flutter1/widget/BasicWidget/Placeholder.dart';
+import 'package:flutter1/widget/BasicWidget/Icon.dart';
 
 
 final List<String> myRoutesName = <String>[
   'Text',
   'TextField',
   'Button',
-  'Checkbox Switch',
+  'Checkbox',
+  'Switch',
   'Form',
   'Image',
   'Progress',
+  'Placeholder',
   'Icon',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "TextPage": (context) {return new TextPage();},
   "TextFieldPage": (context) {return new TextFieldPage();},
   "ButtonPage": (context) {return new ButtonPage();},
-  "CheckboxSwitchPage": (context) {return new CheckboxSwitchPage();},
+  "CheckboxPage": (context) {return new CheckboxPage();},
+  "SwitchPage": (context) {return new SwitchPage();},
   "FormPage": (context) {return new FormPage();},
   "ImagePage": (context) {return new ImagePage();},
   "ProgressPage": (context) {return new ProgressPage();},
+  "PlaceholderPage": (context) {return new PlaceholderPage();},
   "IconPage": (context) {return new IconPage();},
 };
 

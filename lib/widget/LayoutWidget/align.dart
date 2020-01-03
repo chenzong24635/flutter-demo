@@ -1,4 +1,32 @@
 import "package:flutter/material.dart";
+import "package:flutter1/widget/LayoutWidget/Center.dart";
+
+//[Flutter实战](https://book.flutterchina.club/chapter4/alignment.html)
+//[官网](https://api.flutter.dev/flutter/widgets/Align-class.html)
+/*
+作用：调整一个子元素在父元素中的位置
+
+继承：
+Object > Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > SingleChildRenderObjectWidget > Align
+
+构造函数：（类型 属性 = 默认值）
+Algin(
+  Key key: //
+  widthFactor:, //宽度因子，如果设置的话，Align的宽度就是child的宽度乘以这个值，不能为负数。
+  heightFactor:,//高度因子，如果设置的话，Align的高度就是child的高度乘以这个值，不能为负数。
+  AlignmentGeometry aligment, //对齐方式;AlignmentGeometry 是一个抽象类，它有两个常用的子类：Alignment和 FractionalOffset
+  Widget child,
+)
+
+alignment属性的用法:
+  Alignment.center, 
+  Alignment(0.0,0.0), // 在水平和垂直方向的偏移，坐标原点为矩形的中心
+    Alignment(-1.0, -1.0), //代表左侧顶点，
+    Alignment(-1.0, 1.0), //代表左侧底部
+    Alignment(1.0, -1.0), //代表右侧顶点，
+    Alignment(1.0, 1.0), //代表右侧底部，
+  FractionalOffset(0.2, 0.6), //同Alignment，但坐标原点为矩形的左侧顶点
+*/
 
 class AlignPage extends StatelessWidget {
 
@@ -25,7 +53,7 @@ class AlignPage extends StatelessWidget {
                 child: Container(
                   color: Colors.amber,
                   child: Align(
-                    alignment: Alignment(0.0,-0.0),
+                    // alignment: AlignmentGeometry.,
                     child:Text('Align')
                   ),
                 )
@@ -52,6 +80,12 @@ class AlignPage extends StatelessWidget {
               child: Text("xxx"),
             ),
           ),
+          RaisedButton(
+            child: Text('Center 布局'),
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => CenterPage()));
+            },
+          )
         ],
       ),
       

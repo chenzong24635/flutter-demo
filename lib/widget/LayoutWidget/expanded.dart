@@ -1,4 +1,21 @@
 import "package:flutter/material.dart";
+import "package:flutter1/widget/LayoutWidget/Flexible.dart";
+
+//[]()
+//[官网](https://api.flutter.dev/flutter/widgets/Expanded-class.html)
+/*
+作用：控制Row、Column、Flex等子组件布局，继承自Flexible
+
+继承：Object > Diagnosticable > DiagnosticableTree > Widget > ProxyWidget > ParentDataWidget<Flex> > Flexible > Expanded
+
+构造函数：（类型 属性 = 默认值）
+Expanded(
+  Key key,
+  int flex = 1, // 弹性系数，如果为0或null，则child是没有弹性的，即不会被扩伸占用的空间。如果大于0，所有的Expanded按照其flex的比例来分割主轴的全部空闲空间。
+  Widget child
+)
+
+*/
 
 class ExpandedPage extends StatelessWidget {
 
@@ -14,7 +31,6 @@ class ExpandedPage extends StatelessWidget {
           Row(
             children: <Widget>[
               Expanded(
-                flex: 2, //flex参数为弹性系数，如果为0或null，则child是没有弹性的，即不会被扩伸占用的空间。如果大于0，所有的Expanded按照其flex的比例来分割主轴的全部空闲空间。
                 child: Container(
                   color: Colors.amber,
                   height: 100,
@@ -36,6 +52,10 @@ class ExpandedPage extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          OutlineButton(
+            child: Text('Flexible布局',style:TextStyle(color: Colors.red)),
+            onPressed: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => FlexiblePage()))
           ),
         ],
       ),

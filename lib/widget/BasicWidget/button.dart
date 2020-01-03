@@ -1,28 +1,52 @@
 import "package:flutter/material.dart";
 
-/* 
+//[Flutter实战](https://book.flutterchina.club/chapter3/buttons.html)
+//[官网](https://api.flutter.dev/flutter/widgets/Button-class.html)
+/*
+用法：
 Material 组件库中提供了多种按钮组件如RaisedButton、FlatButton、OutlineButton
 都有如下相同点：
   按下时都会有“水波动画”（又称“涟漪动画”，就是点击时按钮上会出现水波荡漾的动画）。
   有一个onPressed属性来设置点击回调，当按钮按下时会执行该回调，如果不提供该回调则按钮会处于禁用状态，禁用状态不响应用户点击。
-*/
 
-/* 
-FlatButton({
-  ...  
-  this.textColor, //按钮文字颜色
-  this.color, //按钮背景颜色
-  this.colorBrightness,//按钮主题，默认是浅色主题 
-  this.splashColor, //点击时，水波动画中水波的颜色
-  this.highlightColor, //按钮按下时的背景颜色
-  this.disabledTextColor, //按钮禁用时的文字颜色
-  this.disabledColor,//按钮禁用时的背景颜色
-  this.padding, //padding
-  this.shape, //外形
-  this.elevation, // 控制阴影
-  @required this.onPressed, //按钮点击回调
-  @required this.child, //按钮的内容
-})
+继承： 
+Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > MaterialButton  > RaisedButton
+                                                                                          > FlatButton
+                                                                                          > OutlineButton
+
+构造函数：（类型 属性 = 默认值）
+
+FlatButton(
+  Color textColor, //按钮文字颜色
+  Color color, //按钮背景色
+  Color splashColor, //点击时，水波动画中水波的颜色
+  Color highlightColor, //按钮按下时的背景色
+  double elevation, // 阴影
+  EdgeInsetsGeometry padding, //padding
+  ShapeBorder shape, //外形
+  Duration animationDuration, //
+
+  onPressed, //(@required) 点击回调 
+  onLongPress, //(@required) 长按回调 
+  Widget child, //(@required)
+
+  Color hoverColor //指针悬停时的背景色
+  double hoverElevation // 指针悬停时的阴影
+
+  bool enableFeedback, // 检测到的手势是否应提供听觉和/或触觉反馈
+  Brightness colorBrightness,//按钮主题，默认是浅色主题 
+
+  bool autofocus = false //是否为焦点
+  double focusElevation, //按钮具有输入焦点时的阴影
+  Color focusColor  = false //当按钮具有输入焦点时，其“材质”的填充颜色。
+  FocusNode focusNode, //一个可选的焦点节点
+
+  Color disabledTextColor, //按钮禁用时的文字颜色
+  Color disabledColor,//按钮禁用时的背景颜色
+  double disabledElevation, //禁用时的阴影
+  int hashCode, // 哈希码
+  ....
+)
 */
 
 class ButtonPage extends StatelessWidget{
@@ -32,10 +56,13 @@ class ButtonPage extends StatelessWidget{
       body: ListView(
         children: <Widget>[
           RaisedButton(
+            hoverColor : Colors.red,
+            autofocus: true,
             textColor: Colors.white,
             color: Colors.blueAccent,
             splashColor: Colors.red,
             highlightColor: Colors.green,
+            disabledElevation: 2.0,
             // disabledColor: Colors.orange,
             // disabledTextColor: Color(0xoffaadd4),
             // colorBrightness: ,
@@ -56,6 +83,7 @@ class ButtonPage extends StatelessWidget{
           RaisedButton(
             child: Text("RaisedButton 漂浮按钮"),
             onPressed: () {},
+            onLongPress: () {},
           ),
           Padding(padding:EdgeInsets.all(10)),
           Divider(),
@@ -68,6 +96,7 @@ class ButtonPage extends StatelessWidget{
           Divider(),
           Text('OutlineButton 默认有一个边框，不带阴影且背景透明。按下后，边框颜色会变亮、同时出现背景和阴影(较弱)，'),
           OutlineButton(
+            
             onPressed: () {},
             child: Text("OutlineButton 带边框按钮"),
           ),

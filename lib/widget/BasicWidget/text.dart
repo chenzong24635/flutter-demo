@@ -1,4 +1,37 @@
 import "package:flutter/material.dart";
+//[Flutter实战](https://book.flutterchina.club/chapter3/text.html)
+//[官网](https://api.flutter.dev/flutter/widgets/Text-class.html)
+/*
+用法：
+
+继承： 
+
+构造函数：（类型 属性 = 默认值）
+Text(
+  String str, //文本内容，不能为 null
+  bool softWrap = true, // 是否自动换行
+  TextAlign textAlign = TextAlign.left, // 文本对齐方式
+  TextDirection textDirection = TextDirection.ltr, // 文本方向
+  TextOverflow overflow = TextOverflow.visible, // 文字溢出后处理 clip（剪裁）、fade（渐隐）、ellipsis（省略）
+  int maxLines, //最大行数限制
+  int textScaleFactor = 1.0, // 字体显示倍率,相对于父元素字体的大小的倍数，默认值为1.0
+  TextStyle style //样式
+),
+
+TextStyle属性：
+TextStyle(
+    color: Color(0xffffffff),
+    fontSize: 16.0,
+    height: 2.0, //行高，但它并不是一个绝对值，而是一个因子，具体的行高等于fontSize*height。
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.bold,
+    background: new Paint()..color=Colors.blueAccent,
+    //下划线样式
+    decoration: TextDecoration.lineThrough,
+    decorationColor: Colors.red,
+    decorationStyle: TextDecorationStyle.wavy,
+)
+*/
 
 class TextPage extends StatelessWidget{
   Widget build(BuildContext context){

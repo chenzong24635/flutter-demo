@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter1/widget/LayoutWidget/IndexedStack.dart';
 
 class StackPage extends StatelessWidget{
   Widget build(BuildContext context){
@@ -81,6 +82,13 @@ class StackPage extends StatelessWidget{
               )        
             ],
           ),
+          Padding(padding: EdgeInsets.all(20.0),),
+          OutlineButton(
+            child: Text('IndexedStack布局'),
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => IndexedStackPage()));
+            },
+          )
         ],
       )
     );

@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import 'package:flutter1/widget/OtherWidget/Clip.dart';
+// import 'package:flutter1/widget/OtherWidget/Clip.dart';
 import 'package:flutter1/widget/listview.dart';
 
 
 final List<String> myRoutesName = <String>[
-  'Clip',
+  // 'Clip',
   'ListView-滚动列表',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "ClipPage": (context) => ClipPage(),
+  // "ClipPage": (context) => ClipPage(),
   "ListViewPage": (context) => ListViewPage(),
 };
 

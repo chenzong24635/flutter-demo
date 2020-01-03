@@ -1,5 +1,21 @@
 import 'package:flutter/material.dart';
 
+/* 
+构造函数：
+Transform({
+  Key key,
+  @required this.transform,
+  this.alignment,
+  this.origin, //旋转点，相对于左上角顶点的偏移。默认旋转点事左上角顶点。
+  this.transformHitTests = true, // 点击区域是否也做相应的改变。
+  Widget child,
+})
+
+Transform也提供下面三种构造函数：
+  Transform.rotate
+  Transform.translate
+  Transform.scale
+*/
 class TransformPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(

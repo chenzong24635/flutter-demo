@@ -1,8 +1,46 @@
 import 'package:flutter/material.dart';
 
+
+Widget list1 = ListView(
+  children: <Widget>[
+    ListTile(
+      title: Text('我要发布'),
+      trailing: Icon(Icons.send),
+    ),
+    Divider(),
+    ListTile(
+      title: Text('注销'),
+      trailing: Icon(Icons.exit_to_app),
+    )
+  ]
+);
+
+Widget list2 = ListView.builder(
+  // 必须指定列表项的长度
+  itemCount: 4,
+  // Item 项的构建器
+  itemBuilder: (BuildContext ctx, int i) {
+    return Text('aaa');
+  }
+);
+
 class ListViewPage extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
+    return ListViewBox();
+  }
+}
+
+class ListViewBox extends StatefulWidget{
+  @override
+  _ListViewBoxState createState() => _ListViewBoxState();
+}
+
+class _ListViewBoxState extends State<ListViewBox>{
+
+  @override
+  Widget build(BuildContext context){
     List<Widget> list = <Widget>[];
     List<Icon> icons = <Icon>[
       Icon(Icons.add_a_photo),
@@ -37,7 +75,7 @@ class ListViewPage extends StatelessWidget {
         leading: icons[i],
         trailing: Icon(Icons.keyboard_arrow_right),
         onTap: (){
-          Navigator.pushNamed(context, "detailPage", arguments: data[i]);
+          // Navigator.pushNamed(context, "detailPage", arguments: data[i]);
         },
       ));
     }
@@ -46,11 +84,12 @@ class ListViewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("List Page"),
       ),
+      // body: list2,
       body: Center(
         child: ListView(
           children: list,
-        )
-      )
+        ),
+      ),
     );
   }
 }

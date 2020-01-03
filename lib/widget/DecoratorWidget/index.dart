@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
+import 'package:flutter1/widget/DecoratorWidget/Opacity.dart';
+import 'package:flutter1/widget/DecoratorWidget/Clip.dart';
 import 'package:flutter1/widget/DecoratorWidget/BoxDecoration.dart';
 import 'package:flutter1/widget/listview.dart';
 
 
 final List<String> myRoutesName = <String>[
+  'Opacity',
+  'Clip',
   'BoxDecoration',
   'ListView-滚动列表',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "BoxDecorationPage": (context) => BoxDecorationPage(),
+  "OpacityPage": (context) => OpacityPage(),
+  "ClipPage": (context) => ClipPage(),
   "ListViewPage": (context) {return new ListViewPage();},
 };
 

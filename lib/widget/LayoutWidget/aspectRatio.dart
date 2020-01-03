@@ -5,20 +5,7 @@ class AspectRatioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Demo',
-      home: MyHomePage(),
-      // routes: myRoutes
-    );
-    /* return Scaffold(
-      appBar: AppBar(title: Text('AspectRatio'),),
-      body: Column(
-        children: <Widget>[
-          Text('2')
-        ],
-      ),
-      
-    ); */
+    return MyHomePage();
   }
 }
 
@@ -33,13 +20,6 @@ class MyHomePageState extends  State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('AspectRatio'),
-        leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyApp()));
-          },
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip
-        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
