@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-//[官网](https://api.flutter.dev/flutter/widgets/Checkbox-class.html)
+//[Checkbox](https://api.flutter.dev/flutter/material/Checkbox-class.html)
 /*
 作用：复选框
 
@@ -8,16 +8,20 @@ import "package:flutter/material.dart";
 Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > Checkbox
 
 构造函数：（类型 属性 = 默认值）
-Checkbox(
-  bool value:, // 是否选中此复选框
-  bool tristate = false,// 是否为三态,为true时，value的值会增加一个状态null
-  Color activeColor, //选中时的颜色
-  Color focusColor, //具有输入焦点时的颜色
-  Color hoverColor, //指针悬停时的颜色
-  bool autofocus = false, //自动聚焦
-  onChanged
-  ....
-)
+
+const Checkbox({
+  Key key,
+  @required this.onChanged,
+  @required bool value, // 是否选中此复选框
+  bool tristate = false, // 是否为三态,为true时，value的值会增加一个状态null
+  Color activeColor, // 选中时的颜色
+  Color checkColor, // 选中时 选中图标的颜色
+  Color hoverColor, // 指针悬停时的颜色
+  Color focusColor, // 具有输入焦点时的颜色
+  bool autofocus = false, // 是否自动聚焦
+  FocusNode focusNode, // 一个可选的焦点节点
+  MaterialTapTargetSize materialTapTargetSize, // 配置点击目标的最小大小
+})
 */
 
 class CheckboxPage extends StatelessWidget {
@@ -52,6 +56,7 @@ class _CheckBoxState extends State<CheckBox> {
           value: _checkboxSelected,
           activeColor: Colors.red, 
           tristate: true,
+          materialTapTargetSize:MaterialTapTargetSize.shrinkWrap,
           onChanged:(value){
             setState(() {
               _checkboxSelected = value;

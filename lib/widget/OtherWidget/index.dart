@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-// import 'package:flutter1/widget/OtherWidget/Clip.dart';
-import 'package:flutter1/widget/listview.dart';
+// import 'package:flutter1/widget/OtherWidget/.dart';
 
 
 final List<String> myRoutesName = <String>[
   // 'Clip',
-  'ListView-滚动列表',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   // "ClipPage": (context) => ClipPage(),
-  "ListViewPage": (context) => ListViewPage(),
 };
 
 // void main() => runApp(MyApp());
@@ -20,7 +17,6 @@ Map<String, WidgetBuilder> myRoutes = {
 class OtherWidget extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: '其他组件',
       home: MyHomePage(),
       routes: myRoutes
     );

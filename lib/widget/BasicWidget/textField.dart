@@ -1,5 +1,14 @@
 import "package:flutter/material.dart";
 
+//[TextField](https://api.flutter.dev/flutter/material/TextField-class.html)
+/*
+作用：文本输入框
+
+继承： Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > TextField
+
+构造函数：（类型 属性 = 默认值）
+*/
+
 class TextFieldPage extends StatelessWidget {
 
   @override

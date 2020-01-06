@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-// [官网](https://api.flutter.dev/flutter/widgets/Icon-class.html)
-// [Flutter实战](https://book.flutterchina.club/chapter3/img_and_icon.html)
+// [Icon](https://api.flutter.dev/flutter/widgets/Icon-class.html)
 // [Material Design所有图标](https://material.io/resources/icons/?style=baseline)
 /*
 作用： 图标
@@ -15,16 +14,17 @@ Flutter默认包含了一套Material Design的字体图标，在pubspec.yaml文�
   flutter:
     uses-material-design: true
 
-继承： Object Diagnosticable DiagnosticableTree Widget StatelessWidget Icon
+继承： Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > Icon
 
-构造函数：
-Icon(
-  IconData icon //图标
+构造函数：（类型 属性 = 默认值）
+const Icon(
+  IconData icon{ //图标
+  Key key,
   String semanticLabel // 图标的语义标签
   Color color // 颜色
   double size // icon大小
   TextDirection textDirection //方向
-)
+})
 */
 
 class IconPage extends StatelessWidget {

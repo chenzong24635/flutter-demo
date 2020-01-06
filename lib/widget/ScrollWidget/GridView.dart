@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+//[Grid](https://docs.flutter.io/flutter/widgets/GridView-class.html)
 /*
-GridView和ListView的大多数参数都是相同的
+作用：GridView和ListView的大多数参数都是相同的
+
+继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > ScrollView > BoxScrollView > GridView
 
 构造函数：
-//类型 属性 = 默认值
+
 GridView({
   Axis scrollDirection = Axis.vertical, //滚动方向。Axis.vertical-垂直方向（默认）；Axis.horizontal-水平方向
   bool reverse = false, // 是否反向排列 children
@@ -84,8 +87,7 @@ Widget grid = GridView(
       childAspectRatio: 1.0 //宽高比为1时，子widget
   ),
   children:<Widget>[
-    Text('GridView'),
-    Icon(Icons.ac_unit),
+    Icon(Icons.ac_unit,color: Colors.yellowAccent,),
     Icon(Icons.airport_shuttle),
     Icon(Icons.all_inclusive),
     Icon(Icons.beach_access),
@@ -102,7 +104,7 @@ Widget grid1 = GridView(
       childAspectRatio: 2.0 //宽高比为2
   ),
   children: <Widget>[
-    Icon(Icons.ac_unit),
+    Icon(Icons.ac_unit,color: Colors.green,),
     Icon(Icons.airport_shuttle),
     Icon(Icons.all_inclusive),
     Icon(Icons.beach_access),
@@ -118,8 +120,7 @@ Widget grid_count = GridView.count(
   crossAxisCount: 3,
   childAspectRatio: 1.0,
   children:<Widget>[
-    Text('GridView.count'),
-    Icon(Icons.ac_unit),
+    Icon(Icons.ac_unit,color: Colors.red,),
     Icon(Icons.airport_shuttle),
     Icon(Icons.all_inclusive),
     Icon(Icons.beach_access),
@@ -134,8 +135,7 @@ Widget grid_extent = GridView.extent(
   maxCrossAxisExtent: 120.0,
   childAspectRatio: 2.0,
   children: <Widget>[
-    Text('GridView.extent'),
-    Icon(Icons.ac_unit),
+    Icon(Icons.ac_unit,color: Colors.amber,),
     Icon(Icons.airport_shuttle),
     Icon(Icons.all_inclusive),
     Icon(Icons.beach_access),
@@ -161,7 +161,10 @@ class GridViewPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("GridView"),
       ),
-      body: grid_extent,
+      body: grid,
+      // body: grid1,
+      // body: grid_extent,
+      // body: grid_count,
     );
   }
 }

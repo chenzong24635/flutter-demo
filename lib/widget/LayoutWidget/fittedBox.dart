@@ -15,7 +15,7 @@ class FittedBoxPage extends StatelessWidget {
             ),
             Text('1.如果外部有约束的话，按照外部约束调整自身尺寸，然后缩放调整child，按照指定的条件进行布局；'),
             Text('2.如果没有外部约束条件，则跟child尺寸一致，指定的缩放以及位置属性将不起作用。'),
-            Image.asset('lib/images/FittedBox.png'),
+            Image.asset('images/FittedBox.png'),
             Container(
               color: Colors.amberAccent,
               width: 300.0,

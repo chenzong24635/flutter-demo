@@ -6,6 +6,7 @@ import 'package:flutter1/widget/LayoutWidget/Container.dart';
 import 'package:flutter1/widget/LayoutWidget/padding.dart';
 import 'package:flutter1/widget/LayoutWidget/Align.dart';
 import 'package:flutter1/widget/LayoutWidget/Center.dart';
+import 'package:flutter1/widget/LayoutWidget/Card.dart';
 import 'package:flutter1/widget/LayoutWidget/Row.dart';
 import 'package:flutter1/widget/LayoutWidget/Column.dart';
 import 'package:flutter1/widget/LayoutWidget/Flexible.dart';
@@ -46,6 +47,7 @@ final List<String> myRoutesName = <String>[
   'Padding',
   'Align',
   'Center',
+  'Card',
   'Row',
   'Column',
   'Flexible',
@@ -81,6 +83,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "PaddingPage": (context) {return new PaddingPage();},
   "AlignPage": (context) {return new AlignPage();},
   "CenterPage": (context) {return new CenterPage();},
+  "CardPage": (context) {return new CardPage();},
   "RowPage": (context) {return new RowPage();},
   "ColumnPage": (context) {return new ColumnPage();},
   "FlexiblePage": (context) {return new FlexiblePage();},

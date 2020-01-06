@@ -1,174 +1,91 @@
-import "package:flutter/material.dart";
-
-// [参考](https://book.flutterchina.club/chapter5/material_scaffold.html)
-
-// AppBar
-/* 
-
-AppBar({
-  Key key,
-  this.leading, //导航栏最左侧Widget，常见为抽屉菜单按钮或返回按钮。
-  this.automaticallyImplyLeading = true, //如果leading为null，是否自动实现默认的leading按钮
-  this.title,// 页面标题
-  this.actions, // 导航栏右侧菜单
-  this.bottom, // 导航栏底部菜单，通常为Tab按钮组
-  this.elevation = 4.0, // 导航栏阴影
-  this.centerTitle, //标题是否居中 
-  this.backgroundColor,
-  ...   //其它属性见源码注释
-})
-
-*/
-
-// Scaffold
-// TabBar
-// 底部导航
+// import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class DemoPage extends StatelessWidget {
-
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ScaffoldRoute();
+    return MyHomePage();
   }
 }
 
-class ScaffoldRoute extends StatefulWidget {
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key key}) : super(key: key);
+
   @override
-  _ScaffoldRouteState createState() => _ScaffoldRouteState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _ScaffoldRouteState extends State<ScaffoldRoute> with SingleTickerProviderStateMixin{
-  int _selectedIndex = 1;
-  TabController _tabController; //需要定义一个Controller
-  List tabs = ["新闻", "历史", "图片"];
-
-  @override
-  void initState() {
-    super.initState();
-    // 创建Controller  
-    _tabController = TabController(length: tabs.length, vsync: this);
-    /* _tabController.addListener((){  
-      switch(_tabController.index){
-        case 1: ...;
-        case 2: ... ;   
-      }
-    }); */
-  }
+class _MyHomePageState extends State<MyHomePage> {
+  bool showTipItem = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar( //导航栏
-        title: Text("demo Page"), 
-        actions: <Widget>[ //导航栏右侧菜单
-          IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
-            Navigator.of(context).pop();
-          }),
-        ],
-        bottom: TabBar(   //生成Tab菜单
-          controller: _tabController,
-          tabs: tabs.map((e) => Tab(text: e)).toList()
-        ),
+      appBar: AppBar(
+        title: new Text("AnimTipDemoPage"),
       ),
-      drawer: new MyDrawer(), //抽屉
-      /* bottomNavigationBar: BottomNavigationBar( // 底部导航
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('Home')),
-          BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
-          BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: _onItemTapped,
-      ), */
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.white,
-        shape: CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
-        child: Row(
-          children: [
-            IconButton(icon: Icon(Icons.home)),
-            SizedBox(), //中间位置空出
-            IconButton(icon: Icon(Icons.business)),
-          ],
-          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton( //悬浮按钮
-          child: Icon(Icons.add),
-          onPressed:_onAdd
-      ),
-      body: TabBarView(
-        controller: _tabController,
-        children: tabs.map((e) { //创建3个Tab页
-          return Container(
-            alignment: Alignment.center,
-            child: Text(e, textScaleFactor: 5),
-          );
-        }).toList(),
-      ),
-    );
-  }
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-  void _onAdd(){
-  }
-}
-
-class MyDrawer extends StatelessWidget {
-  const MyDrawer({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: MediaQuery.removePadding(
-        context: context,
-        //移除抽屉菜单顶部默认留白
-        removeTop: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(top: 38.0),
-              child: Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: ClipOval(
-                      child: Image.asset(
-                        "lib/images/a.jpg",
-                        width: 50,
+      body: Container(
+        child: new Column(children: [
+          Container(
+            child: AnimatedSwitcher(
+              switchInCurve: Cubic(0.4, 0.0, 0.2, 1.0),
+              switchOutCurve: Cubic(1.0, 0.1, 1.0, 0.1),
+              transitionBuilder: (child, anim) {
+                return SlideTransition(
+                    child: child,
+                    position: Tween<Offset>(
+                      begin: Offset(0.0, -1.0),
+                      end: Offset(0.0, 0.0),
+                    ).animate(anim));
+              },
+              duration: Duration(milliseconds: 500),
+              child: showTipItem
+                  ? Container(
+                      alignment: Alignment.centerLeft,
+                      width: MediaQuery.of(context).size.width,
+                      height: 70,
+                      key: ValueKey("TipItem"),
+                      color: Colors.amber,
+                      child: new Row(
+                        children: <Widget>[
+                          new Icon(Icons.ac_unit,
+                              color: Colors.white, size: 13),
+                          new SizedBox(
+                            width: 10,
+                          ),
+                          new Text(
+                            "StickText",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
                       ),
+                    )
+                  : new Container(
+                      key: ValueKey("hideItem"),
                     ),
-                  ),
-                  Text(
-                    "Wendux",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  )
-                ],
+            ),
+          ),
+          new Expanded(
+            child: new Container(
+              child: new Center(
+                child: new FlatButton(
+                  onPressed: () {
+                    setState(() {
+                      showTipItem = true;
+                    });
+                    Future.delayed(Duration(seconds: 1), () {
+                      setState(() {
+                        showTipItem = false;
+                      });
+                    });
+                  },
+                  child: new Text("Click Me"),
+                ),
               ),
             ),
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  ListTile(
-                    leading: const Icon(Icons.add),
-                    title: const Text('Add account'),
-                  ),
-                  ListTile(
-                    leading: const Icon(Icons.settings),
-                    title: const Text('Manage accounts'),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+          )
+        ]),
       ),
     );
   }

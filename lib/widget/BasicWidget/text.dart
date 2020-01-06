@@ -1,22 +1,30 @@
 import "package:flutter/material.dart";
-//[Flutter实战](https://book.flutterchina.club/chapter3/text.html)
-//[官网](https://api.flutter.dev/flutter/widgets/Text-class.html)
+//[Text](https://api.flutter.dev/flutter/widgets/Text-class.html)
+//[RichText](https://api.flutter.dev/flutter/widgets/RichText-class.html)
+//[DefaultTextStyle](https://api.flutter.dev/flutter/widgets/DefaultTextStyle-class.html)
 /*
-用法：
+用法：文本
 
-继承： 
+继承： Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > Text
 
 构造函数：（类型 属性 = 默认值）
-Text(
-  String str, //文本内容，不能为 null
-  bool softWrap = true, // 是否自动换行
-  TextAlign textAlign = TextAlign.left, // 文本对齐方式
-  TextDirection textDirection = TextDirection.ltr, // 文本方向
-  TextOverflow overflow = TextOverflow.visible, // 文字溢出后处理 clip（剪裁）、fade（渐隐）、ellipsis（省略）
-  int maxLines, //最大行数限制
-  int textScaleFactor = 1.0, // 字体显示倍率,相对于父元素字体的大小的倍数，默认值为1.0
-  TextStyle style //样式
-),
+const Text(
+  String data, // 文本内容，不能为 null
+  {  
+    Key key,
+    TextStyle style //样式
+    StrutStyle strutStyle, // 使用的支撑杆样式。 支撑杆样式定义支撑杆，该支撑杆设置最小的垂直布局指标
+    TextAlign textAlign = TextAlign.left, // 文本对齐方式
+    TextDirection textDirection = TextDirection.ltr, // 文本方向
+    Locale locale, // 当可以根据区域设置以不同的方式呈现相同的Unicode字符时，用于选择字体
+    bool softWrap = true, // 是否自动换行
+    TextOverflow overflow = TextOverflow.visible, // 文字溢出后处理 clip（剪裁）、fade（渐隐）、ellipsis（省略）
+    int textScaleFactor = 1.0, // 字体显示倍率,相对于父元素字体的大小的倍数，默认值为1.0
+    int maxLines, //最大行数限制
+    String semanticsLabel, // 语义标签
+    TextWidthBasis textWidthBasis, // 定义如何测量渲染文本的宽度。
+  }
+)
 
 TextStyle属性：
 TextStyle(
@@ -31,17 +39,53 @@ TextStyle(
     decorationColor: Colors.red,
     decorationStyle: TextDecorationStyle.wavy,
 )
+const TextStyle({
+  this.inherit = true,
+  this.color,
+  this.backgroundColor,
+  this.fontSize,
+  this.fontWeight,
+  this.fontStyle,
+  this.letterSpacing,
+  this.wordSpacing,
+  this.textBaseline,
+  this.height,
+  this.locale,
+  this.foreground,
+  this.background,
+  this.shadows,
+  this.fontFeatures,
+  this.decoration,
+  this.decorationColor,
+  this.decorationStyle,
+  this.decorationThickness,
+  this.debugLabel,
+  String fontFamily,
+  List<String> fontFamilyFallback,
+  String package,
+}) 
+*/
+
+/*
+const TextSpan({
+  this.text,
+  this.children,
+  TextStyle style,
+  this.recognizer,
+  this.semanticsLabel,
+})
 */
 
 class TextPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
-      appBar: AppBar(title: Text("Text"),),
+      appBar: AppBar(title: Text("Text RichText TextSpan"),),
       body: ListView(
         children: <Widget>[
           Text('Text 用法:',style: TextStyle(color: Colors.black,fontSize: 24.0),),
           Text(
             "I am a Text"*6,  //字符串重复六次
+            semanticsLabel: 'fss',
             // softWrap: true, // 是否自动换行（默认true）
             // textAlign: TextAlign.right, // 文本对齐方式 (默认left)
             // textDirection: TextDirection.rtl, // 文本方向(默认ltr)
@@ -71,6 +115,7 @@ class TextPage extends StatelessWidget{
               children: [
                 TextSpan(
                   text: "Home: ",
+                  semanticsLabel:'daa',
                   style: TextStyle(
                     color: Colors.red
                   ), 

@@ -5,19 +5,20 @@ import 'package:flutter1/main.dart';
 import 'package:flutter1/widget/DecoratorWidget/Opacity.dart';
 import 'package:flutter1/widget/DecoratorWidget/Clip.dart';
 import 'package:flutter1/widget/DecoratorWidget/BoxDecoration.dart';
-import 'package:flutter1/widget/listview.dart';
+import 'package:flutter1/widget/DecoratorWidget/Chip.dart';
 
 
 final List<String> myRoutesName = <String>[
   'Opacity',
   'Clip',
   'BoxDecoration',
-  'ListView-滚动列表',
+  'Chip',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "OpacityPage": (context) => OpacityPage(),
   "ClipPage": (context) => ClipPage(),
-  "ListViewPage": (context) {return new ListViewPage();},
+  "BoxDecorationPage": (context) => BoxDecorationPage(),
+  "ChipPage": (context) => ChipPage(),
 };
 
 // void main() => runApp(MyApp());
@@ -25,7 +26,6 @@ Map<String, WidgetBuilder> myRoutes = {
 class DecoratorWidget extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: '装饰组件',
       home: MyHomePage(),
       routes: myRoutes
     );
@@ -46,7 +46,7 @@ class MyHomePageState extends  State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('装饰组件'),
+        title: Text('装饰/其他组件'),
         leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
           icon: Icon(Icons.arrow_back),
           onPressed: () {

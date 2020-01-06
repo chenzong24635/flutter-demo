@@ -2,41 +2,53 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
+// import 'package:flutter1/widget/BasicWidget/Scaffold.dart';
 import 'package:flutter1/widget/BasicWidget/Text.dart';
 import 'package:flutter1/widget/BasicWidget/TextField.dart';
 import 'package:flutter1/widget/BasicWidget/Button.dart';
 import 'package:flutter1/widget/BasicWidget/Checkbox.dart';
+import 'package:flutter1/widget/BasicWidget/Radio.dart';
 import 'package:flutter1/widget/BasicWidget/Switch.dart';
 import 'package:flutter1/widget/BasicWidget/Form.dart';
 import 'package:flutter1/widget/BasicWidget/Image.dart';
 import 'package:flutter1/widget/BasicWidget/Progress.dart';
+import 'package:flutter1/widget/BasicWidget/Slider.dart';
 import 'package:flutter1/widget/BasicWidget/Placeholder.dart';
 import 'package:flutter1/widget/BasicWidget/Icon.dart';
+import 'package:flutter1/widget/BasicWidget/FlutterLogo.dart';
 
 
 final List<String> myRoutesName = <String>[
+  // 'Scaffold',
   'Text',
   'TextField',
   'Button',
   'Checkbox',
+  'Radio',
   'Switch',
   'Form',
   'Image',
   'Progress',
+  'Slider',
   'Placeholder',
   'Icon',
+  'FlutterLogo',
 ];
 Map<String, WidgetBuilder> myRoutes = {
+  // "ScaffoldPage": (context) {return new ScaffoldPage();},
   "TextPage": (context) {return new TextPage();},
   "TextFieldPage": (context) {return new TextFieldPage();},
   "ButtonPage": (context) {return new ButtonPage();},
   "CheckboxPage": (context) {return new CheckboxPage();},
+  "RadioPage": (context) {return new RadioPage();},
   "SwitchPage": (context) {return new SwitchPage();},
   "FormPage": (context) {return new FormPage();},
   "ImagePage": (context) {return new ImagePage();},
   "ProgressPage": (context) {return new ProgressPage();},
+  "SliderPage": (context) {return new SliderPage();},
   "PlaceholderPage": (context) {return new PlaceholderPage();},
   "IconPage": (context) {return new IconPage();},
+  "FlutterLogoPage": (context) {return new FlutterLogoPage();},
 };
 
 // void main() => runApp(MyApp());
@@ -44,7 +56,6 @@ Map<String, WidgetBuilder> myRoutes = {
 class BasicWidget extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Demo',
       home: MyHomePage(),
       routes: myRoutes
     );

@@ -22,7 +22,7 @@ class IndexedStackPage extends StatelessWidget {
           alignment: Alignment(0.1, 0.6),
           children: [
             CircleAvatar(
-              backgroundImage: AssetImage('lib/images/a.jpg'),
+              backgroundImage: AssetImage('images/a.jpg'),
               radius: 100.0,
             ),
             Container(

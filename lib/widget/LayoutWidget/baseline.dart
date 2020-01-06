@@ -31,7 +31,7 @@ class BaselinePage extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           Text('一般用于文字排版'),
-          Image.asset('lib/images/Baseline.jpg'),
+          Image.asset('images/Baseline.jpg'),
           Row(children: <Widget>[
             new Baseline(
               baseline: 50.0, 

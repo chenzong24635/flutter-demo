@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
 
+//[]()
+/*
+作用：
+
+继承：
+
+构造函数：（类型 属性 = 默认值）
+
+*/
+
 class ClipPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 头像  
-    Widget avatar = Image.asset("lib/images/a.jpg", width: 200.0);
+    Widget avatar = Image.asset("images/a.jpg", width: 200.0);
     return Scaffold(
       appBar: AppBar(title:Text('Clip')),
       body:ListView(
@@ -40,7 +50,7 @@ class ClipPage extends StatelessWidget {
             Text('CircleAvatar-头像'),
             CircleAvatar(
               radius: 36.0,
-              backgroundImage: AssetImage("lib/images/a.jpg"),
+              backgroundImage: AssetImage("images/a.jpg"),
             ), 
           ],
         )],

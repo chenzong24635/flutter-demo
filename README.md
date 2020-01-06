@@ -1,6 +1,5 @@
 
-//[Flutter实战]()
-//[官网](https://api.flutter.dev/flutter/widgets/Padding-class.html)
+//[Padding](https://api.flutter.dev/flutter/widgets/Padding-class.html)
 /*
 作用：
 
@@ -18,7 +17,6 @@
 # 参考：
 [官网-中文](https://flutterchina.club/widgets/layout/)  
 [Flutter实战](https://book.flutterchina.club/)  
-[github的](https://github.com/yang7229693/flutter-study)  
 [github的](https://github.com/kangshaojun/flutter-book/)  
 [github的](https://github.com/chenBingX/CoorChiceArticale/tree/master/Flutter)  
 

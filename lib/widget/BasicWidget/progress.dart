@@ -1,5 +1,34 @@
 import "package:flutter/material.dart";
 
+//[LinearProgressIndicator](https://api.flutter.dev/flutter/material/LinearProgressIndicator-class.html)
+//[CircularProgressIndicator](https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html)
+/*
+作用：进度条,进度指示器(线性，圆形)
+
+继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > ProgressIndicator > LinearProgressIndicator
+                                                                                                  CircularProgressIndicator
+
+构造函数：（类型 属性 = 默认值）
+const LinearProgressIndicator({
+  Key key,
+  double value, // 当前的进度，取值范围为[0,1]；如果value为null时则指示器会执行一个循环动画（模糊进度）；当value不为null时，指示器为一个具体进度的进度条。
+  Color backgroundColor, // 指示器的背景色
+  Animation<Color> valueColor, // 进度条背景色
+  String semanticsLabel,
+  String semanticsValue,
+})
+
+const CircularProgressIndicator({
+  Key key,
+  double value,
+  Color backgroundColor,
+  Animation<Color> valueColor,
+  this.strokeWidth = 4.0, // 进度条的粗细
+  String semanticsLabel,
+  String semanticsValue,
+}) 
+*/
+
 class ProgressPage extends StatelessWidget {
 
   @override
@@ -16,8 +45,7 @@ class ProgressBox extends StatefulWidget {
   _ProgressBoxState createState() => new _ProgressBoxState();
 }
 
-class _ProgressBoxState extends State<ProgressBox>
-    with SingleTickerProviderStateMixin {
+class _ProgressBoxState extends State<ProgressBox> with SingleTickerProviderStateMixin {
   AnimationController _animationController;
 
   @override
@@ -52,14 +80,14 @@ class _ProgressBoxState extends State<ProgressBox>
               Padding(padding: EdgeInsets.all(20),),
               Text('进度条显示50%'),
               LinearProgressIndicator(
-                value: .5, // 当前的进度，取值范围为[0,1]；如果value为null时则指示器会执行一个循环动画（模糊进度）；当value不为null时，指示器为一个具体进度的进度条。
-                backgroundColor: Colors.grey[200], // 指示器的背景色
-                valueColor: AlwaysStoppedAnimation(Colors.blue), // 进度条背景色
+                value: .5, 
+                backgroundColor: Colors.grey[200], 
+                valueColor: AlwaysStoppedAnimation(Colors.blue), 
               ),
               Padding(padding: EdgeInsets.all(20),),
               Text('模糊进度条(会执行一个旋转动画)'),
               CircularProgressIndicator(
-                strokeWidth: 10.0, // 进度条的粗细
+                strokeWidth: 10.0, 
                 backgroundColor: Colors.grey[200],
                 valueColor: AlwaysStoppedAnimation(Colors.blue),
               ),

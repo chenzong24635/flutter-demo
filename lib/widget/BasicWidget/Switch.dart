@@ -2,23 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-//[官网](https://api.flutter.dev/flutter/widgets/Switch-class.html)
+//[Switch](https://api.flutter.dev/flutter/widgets/Switch-class.html)
 /*
-作用：单选开关
+作用：开关按钮
 
 继承：
 Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > Switch
 
 构造函数：（类型 属性 = 默认值）
-Checkbox(
-  bool value:, // 是否选中此复选框
-  Color activeColor, //选中时的颜色
-  Color focusColor, //具有输入焦点时的颜色
-  Color hoverColor, //指针悬停时的颜色
-  bool autofocus = false, //自动聚焦
-  onChanged
-  ....
-)
+const Switch({
+  Key key,
+  @required this.value, // 是否打开
+  @required this.onChanged,
+  this.activeColor, //打开时的颜色
+  this.activeTrackColor,
+  this.inactiveThumbColor,
+  this.inactiveTrackColor,
+  this.activeThumbImage, //打开时的背景图
+  this.inactiveThumbImage, //关闭时的背景图
+  this.materialTapTargetSize,
+  this.dragStartBehavior = DragStartBehavior.start,
+  this.focusColor,
+  this.hoverColor,
+  this.focusNode,
+  this.autofocus = false,
+})
+
 */
 
 class SwitchPage extends StatelessWidget {
@@ -61,8 +70,8 @@ class _SwitchBoxState extends State<SwitchBox> {
             activeTrackColor:Colors.yellow,
             inactiveThumbColor:Colors.pink[200],
             inactiveTrackColor:Colors.black,
-            activeThumbImage:AssetImage('lib/images/a.jpg'),
-            // inactiveThumbImage:AssetImage('lib/images/th.jpg'),
+            activeThumbImage:AssetImage('images/a.jpg'),
+            // inactiveThumbImage:AssetImage('images/th.jpg'),
             dragStartBehavior:DragStartBehavior.start,
 
             value: this.valuea,

@@ -37,14 +37,14 @@ class MyHomePageState extends  State<MyHomePage> {
           Text('普通的Image'),
           Container(
             height: 100.0,
-            child: Image.asset("lib/images/th.jpg"),
+            child: Image.asset("images/th.jpg"),
           ),
           Text('包在AspectRatio的Image'),
           Container(
             height: 100.0,
             child: AspectRatio(
               aspectRatio: 1.5, 
-              child: Image.asset("lib/images/th.jpg")
+              child: Image.asset("images/th.jpg")
             ),
           ),
         ],

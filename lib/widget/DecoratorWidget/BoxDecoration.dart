@@ -47,7 +47,7 @@ class BoxDecorationPage extends StatelessWidget {
               color: Colors.white,
               shape: BoxShape.circle,
               image: DecorationImage(
-                  image: ExactAssetImage("lib/images/th.jpg"),
+                  image: ExactAssetImage("images/th.jpg"),
                   fit: BoxFit.cover
               ),
               boxShadow: [ //阴影,可以指定多个

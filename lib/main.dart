@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'package:flutter1/widget/ScaffoldWidget/Scaffold.dart';
 import 'package:flutter1/widget/BasicWidget/index.dart';
 import 'package:flutter1/widget/LayoutWidget/index.dart';
 import 'package:flutter1/widget/ScrollWidget/index.dart';
+import 'package:flutter1/widget/AlertWidget/Alert.dart';
 import 'package:flutter1/widget/DecoratorWidget/index.dart';
-import 'package:flutter1/widget/OtherWidget/index.dart';
+// import 'package:flutter1/widget/OtherWidget/index.dart';
 import 'package:flutter1/demo.dart';
 
 
 
 
 final List<String> myRoutesName = <String>[
+  'Scaffold',
   '基础组件',
   '布局/容器组件',
   '滚动组件',
-  '装饰组件',
-  '其他组件',
+  'Alert弹窗',
+  '装饰/其他组件',
+  // '其他组件',
   'DemoPage',
 ];
 Map<String, WidgetBuilder> myRoutes = {
+  "/Scaffold": (context) => ScaffoldPage(),
   "/BasicWidget": (context) => BasicWidget(),
   "/LayoutWidget": (context) => LayoutWidget(),
   "/ScrollWidget": (context) => ScrollWidget(),
+  "/Alert": (context) => AlertPage(),
   "/DecoratorWidget": (context) => DecoratorWidget(),
-  "/OtherWidget": (context) => OtherWidget(),
+  // "/OtherWidget": (context) => OtherWidget(),
   "/DemoPage": (context) => DemoPage(),
 };
 
@@ -36,7 +42,6 @@ void main() {
 class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'Demo',
       home: MyHomePage(),
       routes: myRoutes
     );
@@ -61,42 +66,8 @@ class MyHomePageState extends  State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(msg + count.toString()),
-        backgroundColor: Colors.blue,
-        brightness: Brightness.dark, // 状态栏上的颜色
-        elevation: 5.0, // AppBar 的悬浮高度。值越大下方阴影就越大
-        titleSpacing: 30, // 设置 title 的间距
-        toolbarOpacity: 0.5, // AppBar的透明度
-        leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            // Navigator.pop(context);
-            // Navigator.of(context).pushReplacementNamed("/login");
-          },
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip
-        ),
-        actions: <Widget>[ // 右边的操作按钮
-          IconButton(
-            icon: Icon(Icons.camera),
-            onPressed: () {},
-            tooltip: 'camera Button Clicked!'
-          ),
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: () {},
-            tooltip: 'Share Button Clicked!'
-          ),
-        ],
-        // flexibleSpace:  //配合ScrollView实现下拉展开效果
-        /* bottom: TabBar(
-          labelColor: Colors.black,
-          unselectedLabelColor: Colors.grey,
-          indicatorColor: Colors.white,
-          controller: tabController,
-          tabs: tabs.map((e) => Tab(text: e)).toList()
-        ), */
       ),
       backgroundColor: Colors.grey[300],
-      resizeToAvoidBottomInset: false, // 是否避免键盘弹起时挡住视图。默认为true。为false键盘会覆盖在视图上
       bottomNavigationBar: BottomNavigationBar(// 底部导航栏
         items: [
           BottomNavigationBarItem(
@@ -123,8 +94,6 @@ class MyHomePageState extends  State<MyHomePage> {
         child: Icon(Icons.add),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, // 设置floatingActionButton的位置
-      // persistentFooterButtons: // 设置一组底部的Button
-      // drawer|Widget-Drawer|抽屉菜单
       body: Container(
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -138,9 +107,7 @@ class MyHomePageState extends  State<MyHomePage> {
                 Navigator.of(context).pushNamed(routeLists[index]);
               },
               child: Card(
-                child: Container(
-                  alignment: Alignment.center,
-                  // padding: EdgeInsets.all(15.0),
+                child: Center(
                   child: Text(myRoutesName[index],style:TextStyle(fontSize: 18.0)),
                 ),
               ),

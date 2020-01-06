@@ -15,7 +15,7 @@ class StackPage extends StatelessWidget{
             children: [
               // 第一个 Widget
               CircleAvatar(
-                backgroundImage: AssetImage('lib/images/th.jpg'),
+                backgroundImage: AssetImage('images/th.jpg'),
                 radius: 100,
               ),
               // 第二个 Widget

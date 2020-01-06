@@ -1,20 +1,20 @@
 import "package:flutter/material.dart";
 
-//[]()
-//[官网](https://api.flutter.dev/flutter/widgets/Placeholder-class.html)
+//[Placeholder](https://api.flutter.dev/flutter/widgets/Placeholder-class.html)
 /*
 作用：
 
 继承：占位符
-Object Diagnosticable DiagnosticableTree Widget StatelessWidget Placeholder
+Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > Placeholder
 
 构造函数：
-Placeholder({
+
+const Placeholder({
   Key key,
-  Color color , // 设置占位符颜色
-  double strokeWidth ,//设置画笔宽度
-  double fallbackWidth ,//设置占位符宽度
-  double fallbackHeight ,//设置占位符高度
+  this.color = const Color(0xFF455A64), // 占位符颜色
+  this.strokeWidth = 2.0, //占位符框中的线宽
+  this.fallbackWidth = 400.0, // 占位符宽度
+  this.fallbackHeight = 400.0, // 占位符高度
 })
 */
 
