@@ -21,6 +21,5 @@
 [github的](https://github.com/chenBingX/CoorChiceArticale/tree/master/Flutter)  
 
 # demo
-[github的](https://github.com/think-ing/flutter_demo/)  
 [gsy_flutter_demo](https://github.com/CarGuo/gsy_flutter_demo)  
-[flutter-osc](https://github.com/yubo725/flutter-osc)
+[flutter-go - flutter 开发者帮助 APP，包含 flutter 常用 140+ 组件的demo 演示与中文文档](https://github.com/alibaba/flutter-go)  

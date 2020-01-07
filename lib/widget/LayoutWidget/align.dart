@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import "package:flutter/material.dart";
 import "package:flutter1/widget/LayoutWidget/Center.dart";
 
@@ -28,13 +29,34 @@ alignment属性的用法:
   FractionalOffset(0.2, 0.6), //同Alignment，但坐标原点为矩形的左侧顶点
 */
 
-class AlignPage extends StatelessWidget {
+class AlignPage extends StatefulWidget {
+  AlignPage({Key key}) : super(key: key);
 
+  @override
+  _AlignPageState createState() => _AlignPageState();
+}
+
+class _AlignPageState extends State<AlignPage> {
+  getAlign(x) {
+    return Align(
+      child: new Container(
+        height: 20,
+        width: 20,
+        decoration: BoxDecoration(
+            color: Colors.green,
+            borderRadius: BorderRadius.all(Radius.circular(10))),
+      ),
+      alignment: Alignment(math.cos(x * math.pi), math.sin(x * math.pi)),
+    );
+  }
+  
+  int size = 20;
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Align'),),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           Align(
             // key: //
@@ -80,12 +102,25 @@ class AlignPage extends StatelessWidget {
               child: Text("xxx"),
             ),
           ),
+          Container(
+            alignment: Alignment(0, 0),
+            child: Container(
+              height: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width,
+              child: Stack(
+                children: List.generate(size, (index) {
+                  return getAlign(index.toDouble() / size / 2);
+                }),
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0,),
           RaisedButton(
             child: Text('Center 布局'),
             onPressed: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => CenterPage()));
             },
-          )
+          ),
         ],
       ),
       

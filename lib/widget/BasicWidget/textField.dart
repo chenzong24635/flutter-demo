@@ -31,6 +31,8 @@ class _TextFieldBoxState extends State<TextFieldBox> {
   FocusNode focusNode3 = new FocusNode();
   FocusScopeNode focusScopeNode;
 
+  final TextEditingController controller = new TextEditingController(text: "init Text");
+
   @override
   Widget build(BuildContext context){
     return  ListView(
@@ -133,6 +135,19 @@ class _TextFieldBoxState extends State<TextFieldBox> {
             );
           },
         ),
+        SizedBox(height: 20.0,),
+        Text('Controller的运用',style: TextStyle(fontSize: 20.0),),
+        Column(children: <Widget>[
+          TextField(
+            controller: controller,
+          ),
+          RaisedButton(
+            child: Text('changeValue'),
+            onPressed: (){
+              controller.text = "Changed By Button";
+            },
+          )
+        ],)
       ],
     );
   }

@@ -14,7 +14,7 @@ class ClipPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 头像  
-    Widget avatar = Image.asset("images/a.jpg", width: 200.0);
+    Widget avatar = Image.asset("images/a.jpg", width: 100.0);
     return Scaffold(
       appBar: AppBar(title:Text('Clip')),
       body:ListView(
@@ -43,15 +43,33 @@ class ClipPage extends StatelessWidget {
             Divider(),
             Text('ClipRRect-剪裁为圆角矩形'),
             ClipRRect(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(35.0),
               child: avatar,
             ), 
             Divider(),
+            Text('其他圆角'),
+            SizedBox(height: 30.0,),
             Text('CircleAvatar-头像'),
             CircleAvatar(
               radius: 36.0,
               backgroundImage: AssetImage("images/a.jpg"),
-            ), 
+            ),
+            new Text("BoxDecoration 圆角"),
+            new Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage("images/a.jpg"),
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(35.0))),
+            ),
+            new SizedBox(
+              height: 10,
+            ),
+            SizedBox(height: 40.0,) 
           ],
         )],
       ),

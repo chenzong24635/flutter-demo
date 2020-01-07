@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter1/widget/LayoutWidget/Positioned1.dart';
 
+/*
+
+const Positioned({
+  Key key,
+  this.left,
+  this.top,
+  this.right,
+  this.bottom,
+  this.width,
+  this.height,
+  @required Widget child,
+})
+*/
+
 class PositionedPage extends StatelessWidget{
   Widget build(BuildContext context){
     return Scaffold(
@@ -12,7 +26,7 @@ class PositionedPage extends StatelessWidget{
               Image.network("https://cn.bing.com/th?id=OHR.FrozenTree_ZH-CN9591258534_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp"),
               Positioned(
                 top: 10,
-                left: 10,
+                left: MediaQuery.of(context).size.width / 5,
                 child: Text(
                   '这里是定位的文本',
                   style:TextStyle(

@@ -92,6 +92,7 @@ class TextPage extends StatelessWidget{
             overflow: TextOverflow.ellipsis, // 文字溢出后处理（默认visible）
             maxLines: 2, //最大行数限制
             textScaleFactor: 2, // 字体显示倍率,相对于父元素字体的大小的倍数，默认值为1.0
+            // strutStyle: StrutStyle(forceStrutHeight: true, height: 2.0), //设置行高
             style: TextStyle(
               color: Color(0xffffffff),
               fontSize: 16.0,

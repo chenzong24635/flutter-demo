@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import './CustomMultiChildLayout1.dart';
+
 //[参考](https://docs.flutter.io/flutter/widgets/CustomSingleChildLayout-class.html)
 /*
 作用：类似CustomSingleChildLayout，可控制多个
@@ -22,34 +24,39 @@ delegate可以控制这些因素：
 */
 
 class CustomMultiChildLayoutPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('CustomMultiChildLayout'),),
-      body: Container(
-  width: 200.0,
-  height: 100.0,
-  color: Colors.yellow,
-  child: CustomMultiChildLayout(
-    delegate: TestLayoutDelegate(),
-    children: <Widget>[
-      LayoutId(
-        id: TestLayoutDelegate.title,
-        child: new Text("This is title",
-            style: TextStyle(fontSize: 20.0, color: Colors.black)),
+      appBar: AppBar(
+        title: Text('CustomMultiChildLayout'),
       ),
-      LayoutId(
-        id: TestLayoutDelegate.description,
-        child: new Text("This is description",
-            style: TextStyle(fontSize: 14.0, color: Colors.red)),
-      ),
-    ],
-  ),
-),
+      body: Column(children: <Widget>[
+        Container(
+          width: 200.0,
+          height: 100.0,
+          color: Colors.yellow,
+          child: CustomMultiChildLayout(
+            delegate: TestLayoutDelegate(),
+            children: <Widget>[
+              LayoutId(
+                id: TestLayoutDelegate.title,
+                child: new Text("This is title",
+                    style: TextStyle(fontSize: 20.0, color: Colors.black)),
+              ),
+            ],
+          ),
+        ),
+        RaisedButton(
+          child: Text('更多'),
+          onPressed: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context)=> CustomMultiChildLayout1Page()));
+          },
+        ),
+      ],)
     );
   }
 }
+
 class TestLayoutDelegate extends MultiChildLayoutDelegate {
   TestLayoutDelegate();
 
@@ -58,8 +65,7 @@ class TestLayoutDelegate extends MultiChildLayoutDelegate {
 
   @override
   void performLayout(Size size) {
-    final BoxConstraints constraints =
-        new BoxConstraints(maxWidth: size.width);
+    final BoxConstraints constraints = new BoxConstraints(maxWidth: size.width);
 
     final Size titleSize = layoutChild(title, constraints);
     positionChild(title, new Offset(0.0, 0.0));
@@ -72,4 +78,3 @@ class TestLayoutDelegate extends MultiChildLayoutDelegate {
   @override
   bool shouldRelayout(TestLayoutDelegate oldDelegate) => false;
 }
-

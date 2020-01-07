@@ -7,7 +7,7 @@ import 'package:flutter1/widget/LayoutWidget/index.dart';
 import 'package:flutter1/widget/ScrollWidget/index.dart';
 import 'package:flutter1/widget/AlertWidget/Alert.dart';
 import 'package:flutter1/widget/DecoratorWidget/index.dart';
-// import 'package:flutter1/widget/OtherWidget/index.dart';
+import 'package:flutter1/widget/Cases/index.dart';
 import 'package:flutter1/demo.dart';
 
 
@@ -20,7 +20,7 @@ final List<String> myRoutesName = <String>[
   '滚动组件',
   'Alert弹窗',
   '装饰/其他组件',
-  // '其他组件',
+  '常用例子',
   'DemoPage',
 ];
 Map<String, WidgetBuilder> myRoutes = {
@@ -30,7 +30,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "/ScrollWidget": (context) => ScrollWidget(),
   "/Alert": (context) => AlertPage(),
   "/DecoratorWidget": (context) => DecoratorWidget(),
-  // "/OtherWidget": (context) => OtherWidget(),
+  "/CasesWidget": (context) => CasesWidget(),
   "/DemoPage": (context) => DemoPage(),
 };
 
