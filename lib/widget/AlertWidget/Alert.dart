@@ -7,13 +7,15 @@ import 'package:flutter/cupertino.dart';
 //[showDialog](https://api.flutter.dev/flutter/material/showDialog-class.html)
 //[SimpleDialog](https://api.flutter.dev/flutter/material/SimpleDialog-class.html)
 //[AlertDialog](https://api.flutter.dev/flutter/material/AlertDialog-class.html)
+//[BottomSheet](https://api.flutter.dev/flutter/material/BottomSheet-class.html)
+
 
 // AlertDialog和SimpleDialog都使用了Dialog类
 
 /*
-作用：
+作用：弹窗 交互
 
-继承：
+继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > AlertDialog
 
 构造函数：（类型 属性 = 默认值）
 const AlertDialog({
@@ -40,12 +42,47 @@ class AlertPage extends StatefulWidget {
 }
 
 class _AlertPageState extends State<AlertPage> {
+  List _list = ["分享", "选择", "收藏"];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('弹窗'),
+        title: Text('弹窗 交换'),
+        actions: <Widget>[
+          PopupMenuButton(
+            child: Icon(Icons.more), //点击此子Widget，显示菜单
+            //选择的事件
+            onSelected: (val) {
+              print(val); //value值
+            },
+            itemBuilder: (ctx) {
+              var list = new List<PopupMenuEntry>();
+              for (int i = 0; i < _list.length; i++) {
+                if (i != _list.length - 1) {
+                  list.addAll([
+                    //菜单项
+                    PopupMenuItem(child: Text(_list[i]), value: _list[i]),
+                    //下划线
+                    PopupMenuDivider(
+                      height: 1.0,
+                    )
+                  ]);
+                } else {
+                  list.addAll([
+                    //菜单项
+                    PopupMenuItem(
+                      child: Text(_list[i]),
+                      value: _list[i],
+                    )
+                  ]);
+                }
+              }
+              print(list);
+              return list.toList();
+            }
+          )
+        ],
       ),
       body: Wrap(
         children: <Widget>[
@@ -111,21 +148,13 @@ class _AlertPageState extends State<AlertPage> {
                   style: TextStyle(fontSize: 18, color: Colors.red),
                 ),
               ),
+              // _PopupMenuButton(context),
               RaisedButton(
                 onPressed: () {
                   _showLoadingDialog(context);
                 },
                 child: Text(
                   'Loading',
-                  style: TextStyle(fontSize: 18, color: Colors.red),
-                ),
-              ),
-              RaisedButton(
-                onPressed: () {
-                  _showDatePicker1(context);
-                },
-                child: Text(
-                  '_showDatePicker1',
                   style: TextStyle(fontSize: 18, color: Colors.red),
                 ),
               ),
@@ -185,7 +214,17 @@ class _AlertPageState extends State<AlertPage> {
       context: context,
       builder: (_) => AlertDialog(
         title: Text('提示'),
-        content: Text('这是一个Dialog！'),
+        content: SingleChildScrollView(
+          child: ListBody(
+            children: <Widget>[
+              Text('You will never be satisfied.'),
+              Text('You\’re like me. I’m never satisfied.'),
+              Text('You\’re like me. I’m never satisfied.'),
+              Text('You\’re like me. I’m never satisfied.'),
+              Text('You\’re like me. I’m never satisfied.'),
+            ],
+          ),
+        ),
         actions: <Widget>[
           FlatButton(
             onPressed: () {
@@ -349,18 +388,6 @@ class _AlertPageState extends State<AlertPage> {
           }),
         );
       },
-    );
-  }
-
-  Future<DateTime> _showDatePicker1(BuildContext context) {
-    var date = DateTime.now();
-    return showDatePicker(
-      context: context,
-      initialDate: date,
-      firstDate: date,
-      lastDate: date.add( //未来30天可选
-        Duration(days: 30),
-      ),
     );
   }
 

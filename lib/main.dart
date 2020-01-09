@@ -11,8 +11,6 @@ import 'package:flutter1/widget/Cases/index.dart';
 import 'package:flutter1/demo.dart';
 
 
-
-
 final List<String> myRoutesName = <String>[
   'Scaffold',
   '基础组件',
@@ -42,8 +40,18 @@ void main() {
 class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
+      title: 'demo',
       home: MyHomePage(),
-      routes: myRoutes
+      // initialRoute: '/Scaffold', //初始 路由
+      routes: myRoutes,
+      theme: ThemeData( //所有页面主题配置(会被Scaffold的appBar的样式覆盖)
+        //应用程序整体主题的亮度
+        brightness: Brightness.light,
+        //App主要部分的背景色
+        primaryColor: Colors.lightGreen[600],
+        //前景色（文本、按钮等）
+        accentColor: Colors.orange[600],
+      ),
     );
   }
 }
@@ -66,6 +74,9 @@ class MyHomePageState extends  State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(msg + count.toString()),
+        backgroundColor: Colors.amber,
+        toolbarOpacity: .8,
+        bottomOpacity: .6,
       ),
       backgroundColor: Colors.grey[300],
       bottomNavigationBar: BottomNavigationBar(// 底部导航栏

@@ -2,17 +2,23 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import 'package:flutter1/widget/ScrollWidget/ListView.dart';
-import 'package:flutter1/widget/ScrollWidget/GridView.dart';
+import './ListView.dart';
+import './GridView.dart';
+import './SingleChildScrollView.dart';
+import './Scrollbar.dart';
 
 
 final List<String> myRoutesName = <String>[
   'ListView',
   'GridView',
+  'SingleChildScrollViewPage',
+  'Scrollbar',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "ListViewPage": (context) => ListViewPage(),
   "GridViewPage": (context) => GridViewPage(),
+  "SingleChildScrollViewPage": (context) => SingleChildScrollViewPage(),
+  "ScrollbarPage": (context) => ScrollbarPage(),
 };
 
 // void main() => runApp(MyApp());

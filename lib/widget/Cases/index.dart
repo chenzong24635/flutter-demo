@@ -36,7 +36,7 @@ final List<String> myRoutesName = <String>[
   'DropSelect',
   '创建全局悬浮按键',
   '验证码输入框',
-  '键盘是否弹起',
+  '监听键盘是否弹起',
   'TickClickDemoPage',
   '提示弹框',
 ];

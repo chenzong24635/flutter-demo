@@ -26,6 +26,9 @@ class ClipPage extends StatelessWidget {
             Text('ClipOval-裁剪为圆形'),
             ClipOval(child: avatar),
             Divider(),
+            Text('ClipPath -路径裁剪'),
+            ClipPath(child: avatar,clipper: TriangleCliper(),),
+            Divider(),
             Text('ClipRect-将溢出部分剪裁'),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -75,4 +78,25 @@ class ClipPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class TriangleCliper extends CustomClipper<Path> {
+  //获取裁剪范围
+  @override
+  Path getClip(Size size) {
+    //左上角为(0,0)
+    var path = Path();
+    path.moveTo(50.0, 50.0);//起始点
+    path.lineTo(50.0, 0);//(50.0,50.0)->(50.0, 0)
+    path.lineTo(100.0, 100.0);//(50.0,0)->(100.0, 100.0)
+    path.close();//
+    return path;
+  }
+
+  //是否重新裁剪
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
+  }
+
 }

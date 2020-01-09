@@ -39,8 +39,10 @@ class BottomNavigationBarPage extends StatefulWidget {
 }
 
 class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
+  //当前选中项的索引
   int _selectedIndex = 1;
   
+  //设置当前索引为index值
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -55,9 +57,9 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
         BottomNavigationBarItem(icon: Icon(Icons.business), title: Text('Business')),
         BottomNavigationBarItem(icon: Icon(Icons.school), title: Text('School')),
       ],
-      currentIndex: _selectedIndex,
-      fixedColor: Colors.blue,
-      onTap: _onItemTapped,
+      currentIndex: _selectedIndex, //当前选中项的索引
+      fixedColor: Colors.blue, //选项中项的颜色
+      onTap: _onItemTapped, //选择按下处理
     );
   }
 }

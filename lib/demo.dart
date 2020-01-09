@@ -1,92 +1,79 @@
-// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DemoPage extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MyHomePage();
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class DemoPage extends StatefulWidget {
+  DemoPage({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _DemoPageState createState() => _DemoPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  bool showTipItem = false;
-
+class _DemoPageState extends State<DemoPage> {
+   String selectValue;
+  List _list = ["分享", "选择", "收藏"];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text("AnimTipDemoPage"),
+        title: Text("自定义组件"),
       ),
-      body: Container(
-        child: new Column(children: [
-          Container(
-            child: AnimatedSwitcher(
-              switchInCurve: Cubic(0.4, 0.0, 0.2, 1.0),
-              switchOutCurve: Cubic(1.0, 0.1, 1.0, 0.1),
-              transitionBuilder: (child, anim) {
-                return SlideTransition(
-                    child: child,
-                    position: Tween<Offset>(
-                      begin: Offset(0.0, -1.0),
-                      end: Offset(0.0, 0.0),
-                    ).animate(anim));
-              },
-              duration: Duration(milliseconds: 500),
-              child: showTipItem
-                  ? Container(
-                      alignment: Alignment.centerLeft,
-                      width: MediaQuery.of(context).size.width,
-                      height: 70,
-                      key: ValueKey("TipItem"),
-                      color: Colors.amber,
-                      child: new Row(
-                        children: <Widget>[
-                          new Icon(Icons.ac_unit,
-                              color: Colors.white, size: 13),
-                          new SizedBox(
-                            width: 10,
-                          ),
-                          new Text(
-                            "StickText",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
-                    )
-                  : new Container(
-                      key: ValueKey("hideItem"),
-                    ),
-            ),
-          ),
-          new Expanded(
-            child: new Container(
-              child: new Center(
-                child: new FlatButton(
-                  onPressed: () {
-                    setState(() {
-                      showTipItem = true;
-                    });
-                    Future.delayed(Duration(seconds: 1), () {
-                      setState(() {
-                        showTipItem = false;
-                      });
-                    });
-                  },
-                  child: new Text("Click Me"),
-                ),
+      body:               RaisedButton(
+                child: new Text('选择日期'),
+                onPressed: () {
+                  // 调用函数打开
+                  showDatePicker(
+                      context: context,
+                      initialDate: new DateTime.now(),
+                      firstDate: new DateTime.now().subtract(new Duration(days: 30)), // 减 30 天
+                      lastDate: new DateTime.now().add(new Duration(days: 30)),       // 加 30 天
+                  ).then((DateTime val) {
+                      print(val);   // 2018-07-12 00:00:00.000
+                  }).catchError((err) {
+                      print(err);
+                  });
+                },
               ),
-            ),
-          )
-        ]),
-      ),
     );
   }
+  _onChanged(String value) {
+    //更新对象的状态
+    setState(() {
+      selectValue = value;
+    });
+  }
+}
+
+class DateM extends StatefulWidget {
+  DateM({Key key}) : super(key: key);
+
+  @override
+  _DateMState createState() => _DateMState();
+}
+
+class _DateMState extends State<DateM> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: Text('sd'),);
+  }
+}
+
+
+
+//返回城市列表，写法一
+List<DropdownMenuItem> _getItems() {
+  List<DropdownMenuItem> items = new List();
+  //value 表示DropdownButton.onChanged的返回值
+  items.add(DropdownMenuItem(child: Text("北京"), value: "BJ"));
+  items.add(DropdownMenuItem(child: Text("上海"), value: "SH"));
+  items.add(DropdownMenuItem(child: Text("广州"), value: "GZ"));
+  items.add(DropdownMenuItem(child: Text("深圳"), value: "SZ"));
+  return items;
+}
+
+//返回城市列表，写法二
+List<DropdownMenuItem<String>> _getCityList() {
+  var list = ["北京", "上海", "广州", "深圳"];
+  return list.map((item) => DropdownMenuItem(
+    value: item,
+    child: Text(item),
+  )).toList();
 }

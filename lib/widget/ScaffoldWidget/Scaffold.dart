@@ -91,29 +91,29 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
       key: scaffoldKey,
       // backgroundColor: Colors.amber,
       appBar: AppBar(
-      title: Text("Scaffold"), 
-      backgroundColor: Colors.red,
-      toolbarOpacity: .8,
-      bottomOpacity: .6,
-      actions: <Widget>[ 
-        /* IconButton(
-          icon: const Icon(Icons.add_alert),
-          tooltip: 'Show Snackbar',
-          onPressed: () {
-            scaffoldKey.currentState.showSnackBar(snackBar);
-          },
-        ), 
-        IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
-          Navigator.of(context).pop();
-        }), */
-      ],
-      bottom: TabBar(  
-        controller: _tabController,
-        tabs: tabs.map((e) => Tab(text: e)).toList()
+        title: Text("Scaffold"), 
+        backgroundColor: Colors.red,
+        toolbarOpacity: .8,
+        bottomOpacity: .6,
+        actions: <Widget>[ 
+          IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              scaffoldKey.currentState.showSnackBar(snackBar);
+            },
+          ), 
+          IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
+            Navigator.of(context).pop();
+          }),
+        ],
+        bottom: TabBar(  
+          controller: _tabController,
+          tabs: tabs.map((e) => Tab(text: e)).toList()
+        ),
       ),
-    ),
-      // drawer: DrawerPage(),
-      endDrawer: DrawerPage(), 
+      drawer: DrawerPage(),
+      // endDrawer: DrawerPage(), 
       drawerEdgeDragWidth: 100.0,
       drawerScrimColor: Colors.brown,
       // bottomSheet: DrawerPage(), 

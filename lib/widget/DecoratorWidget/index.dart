@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import 'package:flutter1/widget/DecoratorWidget/Opacity.dart';
-import 'package:flutter1/widget/DecoratorWidget/Clip.dart';
-import 'package:flutter1/widget/DecoratorWidget/BoxDecoration.dart';
-import 'package:flutter1/widget/DecoratorWidget/Chip.dart';
+import './Opacity.dart';
+import './Clip.dart';
+import './BoxDecoration.dart';
+import './Chip.dart';
 
 
 final List<String> myRoutesName = <String>[

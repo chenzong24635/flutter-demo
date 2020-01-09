@@ -17,12 +17,14 @@ const Form({
 }) 
 */
 
+// Form FormField TextFormField
+
 class FormPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Form FormField TextFormField'),
+          title: Text('Form表单基础用法'),
         ),
         body: FormBox());
   }
@@ -36,7 +38,25 @@ class FormBox extends StatefulWidget {
 class _FormBoxState extends State<FormBox> {
   TextEditingController _unameController = new TextEditingController();
   TextEditingController _pwdController = new TextEditingController();
-  GlobalKey _formKey = new GlobalKey<FormState>();
+  
+  //全局Key用来获取Form表单组件
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  //用户名
+  String userName;
+  //密码
+  String password;
+
+  void login() {
+    //读取当前的Form状态
+    var loginForm = _formKey.currentState;
+
+    //验证Form表单
+    if (loginForm.validate()) {
+      loginForm.save();
+      print('userName:' + userName + ' password:' + password);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +79,11 @@ class _FormBoxState extends State<FormBox> {
                 // 校验用户名
                 validator: (v) {
                   return v.trim().length > 0 ? null : "用户名不能为空";
-                }
+                },
+                //接收输入值
+                onSaved: (value) {
+                  userName = value;
+                },
               ),
               TextFormField(
                 controller: _pwdController,
@@ -71,7 +95,10 @@ class _FormBoxState extends State<FormBox> {
                 //校验密码
                 validator: (v) {
                   return v.trim().length > 5 ? null : "密码不能少于6位";
-                }
+                },
+                onSaved: (value) {
+                  password = value;
+                },
               ),
               // 登录按钮
               Padding(
@@ -93,8 +120,10 @@ class _FormBoxState extends State<FormBox> {
                           // 通过后再提交数据。
                           if ((_formKey.currentState as FormState).validate()) {
                             //验证通过提交数据
+                            login();
                           }
                         },
+                        
                       ),
                     ),
                   ],
