@@ -17,9 +17,13 @@
 # 参考：
 [官网-中文](https://flutterchina.club/widgets/layout/)  
 [Flutter实战](https://book.flutterchina.club/)  
-[github的](https://github.com/kangshaojun/flutter-book/)  
-[github的](https://github.com/chenBingX/CoorChiceArticale/tree/master/Flutter)  
 
-# demo
+[Flutter完整开发实战详解系列，GSY Flutter 系列专栏整合，不定期更新](https://guoshuyu.cn/home/wx/)    
 [gsy_flutter_demo](https://github.com/CarGuo/gsy_flutter_demo)  
+
+[flutter-widget](https://flutter-widget.live/basics/introduction)    
+
+[flutter-book](https://github.com/kangshaojun/flutter-book/)  
+
+
 [flutter-go - flutter 开发者帮助 APP，包含 flutter 常用 140+ 组件的demo 演示与中文文档](https://github.com/alibaba/flutter-go)  
