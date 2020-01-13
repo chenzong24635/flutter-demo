@@ -13,7 +13,6 @@ Map<String, WidgetBuilder> myRoutes = {
   "/ScaffoldPage": (context) => ScaffoldPage(),
 };
 
-// void main() => runApp(MyApp());
 
 class ScaffoldWidget extends StatelessWidget{
   Widget build(BuildContext context){

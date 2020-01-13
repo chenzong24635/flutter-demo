@@ -13,7 +13,6 @@ import '../IOSWidget/CupertinoAlertDialog.dart';
 import '../IOSWidget/CupertinoActionSheet.dart';
 import '../IOSWidget/CupertinoActivityIndicator.dart';
 import '../IOSWidget/CupertinoContextMenu.dart';
-import '../IOSWidget/CupertinoDatePicker.dart';
 
 //[对话框详解](https://book.flutterchina.club/chapter7/dailog.html)
 
@@ -92,7 +91,6 @@ class _AlertPageState extends State<AlertPage> {
               CupertinoActionSheetPage(),
               CupertinoContextMenuPage(),
               CustomizePage(),
-              CupertinoDatePickerPage(),
             ],
           )],
       ),

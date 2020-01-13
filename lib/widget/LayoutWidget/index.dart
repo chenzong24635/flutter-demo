@@ -12,6 +12,7 @@ import './Row.dart';
 import './Column.dart';
 import './Flexible.dart';
 import './Expanded.dart';
+import './ExpansionPanelList.dart';
 import './Wrap.dart';
 import './Flex.dart';
 import './Flow.dart';
@@ -19,6 +20,7 @@ import './Flow.dart';
 import './Table.dart';
 import './DataTable.dart';
 import './Transform.dart';
+import './RotatedBox.dart';
 import './Stack.dart';
 import './IndexedStack.dart';
 import './Positioned.dart';
@@ -39,6 +41,7 @@ import './Offstage.dart';
 import './OverflowBox.dart';
 import './SizedBox.dart';
 import './SizedOverflowBox.dart';
+import './PhysicalModel.dart';
 import './ListBody.dart';
 import './CustomSingleChildLayout.dart';
 import './CustomMultiChildLayout.dart';
@@ -58,12 +61,14 @@ final List<String> myRoutesName = <String>[
   'Column',
   'Flexible',
   'Expanded',
+  'ExpansionPanelList',
   'Wrap',
   'Flex',
   'Flow',
   'Table',
   'DataTable',
   'Transform',
+  'RotatedBox',
   'Stack',
   'IndexedStack',
   'Positioned',
@@ -82,6 +87,7 @@ final List<String> myRoutesName = <String>[
   'OverflowBox',
   'SizedBox',
   'SizedOverflowBox',
+  'PhysicalModel',
   'ListBody',
   'CustomSingleChildLayout',
   'CustomMultiChildLayout',
@@ -98,12 +104,14 @@ Map<String, WidgetBuilder> myRoutes = {
   "/ColumnPage": (context) {return new ColumnPage();},
   "/FlexiblePage": (context) {return new FlexiblePage();},
   "/ExpandedPage": (context) {return new ExpandedPage();},
+  "/ExpansionPanelListPage": (context) {return new ExpansionPanelListPage();},
   "/WrapPage": (context) {return new WrapPage();},
   "/FlexPage": (context) {return new FlexPage();},
   "/FlowPage": (context) {return new FlowPage();},
   "/TablePage": (context) {return new TablePage();},
   "/DataTablePage": (context) {return new DataTablePage();},
   "/TransformPage": (context) {return new TransformPage();},
+  "/RotatedBoxPage": (context) {return new RotatedBoxPage();},
   "/StackPage": (context) {return new StackPage();},
   "/IndexedStackPage": (context) {return new IndexedStackPage();},
   "/PositionedPage": (context) {return new PositionedPage();},
@@ -122,6 +130,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "/OverflowBoxPage": (context) {return new OverflowBoxPage();},
   "/SizedBoxPage": (context) {return new SizedBoxPage();},
   "/SizedOverflowBoxPage": (context) {return new SizedOverflowBoxPage();},
+  "/PhysicalModelPage": (context) {return new PhysicalModelPage();},
   "/ListBodyPage": (context) {return new ListBodyPage();},
   "/CustomSingleChildLayoutPage": (context) {return new CustomSingleChildLayoutPage();},
   "/CustomMultiChildLayoutPage": (context) {return new CustomMultiChildLayoutPage();},

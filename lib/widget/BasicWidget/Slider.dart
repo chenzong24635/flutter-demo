@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import '../IOSWidget/CupertinoSlider.dart';
+
 //[Slider](https://api.flutter.dev/flutter/material/Slider-class.html)
 /*
 作用：滑动条
@@ -100,6 +102,9 @@ class _SliderBoxState extends State<SliderBox> {
                 });
               },
             ),
+            SizedBox(height: 20.0,),
+            Text('IOS风格'),
+            CupertinoSliderPage(),
           ],
         )
       ],

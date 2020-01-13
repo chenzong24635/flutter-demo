@@ -6,6 +6,7 @@ import 'package:flutter1/main.dart';
 // import 'package:flutter1/widget/BasicWidget/Scaffold.dart';
 import './Text.dart';
 import './Button.dart';
+import './Image.dart';
 import './DropdownButton.dart';
 import './PopupMenuButton.dart';
 import './Checkbox.dart';
@@ -14,24 +15,29 @@ import './Switch.dart';
 import './Divider.dart';
 import './Form.dart';
 import './TextField.dart';
-import './Image.dart';
+import './InkWell.dart';
+import './Stepper.dart';
 import './Progress.dart';
 import './Slider.dart';
+import './RefreshIndicator.dart';
 import './Placeholder.dart';
 import './ShowDatePicker.dart';
 import './Icon.dart';
 import './FlutterLogo.dart';
-
+import './Tooltip.dart';
 import './Opacity.dart';
 import './Clip.dart';
 import './BoxDecoration.dart';
 import './Chip.dart';
 import './Banner.dart';
+import './Dismissible.dart';
+import './Draggable.dart';
 
 
 final List<String> myRoutesName = <String>[
   'Text',
   'Button',
+  'Image',
   'DropdownButton',
   'PopupMenuButton',
   'Checkbox',
@@ -40,23 +46,29 @@ final List<String> myRoutesName = <String>[
   'Divider',
   'Form',
   'TextField',
-  'Image',
+  'InkWell',
+  'Stepper',
   'Progress',
   'Slider',
+  'RefreshIndicator',
   'Placeholder',
   'DatePicker TimePicker',
   'Icon',
   'FlutterLogo',
+  'Tooltip',
   'Opacity',
   'Clip',
   'BoxDecoration',
   'Chip',
   'Banner',
+  'Dismissible',
+  'Draggable',
 ];
 
 Map<String, WidgetBuilder> myRoutes = {
   "/TextPage": (context) {return new TextPage();},
   "/ButtonPage": (context) {return new ButtonPage();},
+  "/ImagePage": (context) {return new ImagePage();},
   "/DropdownButtonPage": (context) {return new DropdownButtonPage();},
   "/PopupMenuButtonPage": (context) {return new PopupMenuButtonPage();},
   "/CheckboxPage": (context) {return new CheckboxPage();},
@@ -65,18 +77,23 @@ Map<String, WidgetBuilder> myRoutes = {
   "/DividerPage": (context) {return new DividerPage();},
   "/FormPage": (context) {return new FormPage();},
   "/TextFieldPage": (context) {return new TextFieldPage();},
-  "/ImagePage": (context) {return new ImagePage();},
+  "/InkWellPage": (context) {return new InkWellPage();},
+  "/StepperPage": (context) {return new StepperPage();},
   "/ProgressPage": (context) {return new ProgressPage();},
   "/SliderPage": (context) {return new SliderPage();},
+  "/RefreshIndicatorPage": (context) {return new RefreshIndicatorPage();},
   "/PlaceholderPage": (context) {return new PlaceholderPage();},
   "/ShowDatePickerPage": (context) {return new ShowDatePickerPage();},
   "/IconPage": (context) {return new IconPage();},
   "/FlutterLogoPage": (context) {return new FlutterLogoPage();},
+  "/TooltipPage": (context) {return new TooltipPage();},
   "/OpacityPage": (context) => OpacityPage(),
   "/ClipPage": (context) => ClipPage(),
   "/BoxDecorationPage": (context) => BoxDecorationPage(),
   "/ChipPage": (context) => ChipPage(),
   "/BannerPage": (context) => BannerPage(),
+  "/DismissiblePage": (context) => DismissiblePage(),
+  "/DraggablePage": (context) => DraggablePage(),
 };
 
 class BasicWidget extends StatelessWidget{

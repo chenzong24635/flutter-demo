@@ -1,29 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-Widget list1 = ListView(
-  children: <Widget>[
-    ListTile(
-      title: Text('我要发布'),
-      trailing: Icon(Icons.send),
-    ),
-    Divider(),
-    ListTile(
-      title: Text('注销'),
-      trailing: Icon(Icons.exit_to_app),
-    )
-  ]
-);
-
-Widget list2 = ListView.builder(
-  // 必须指定列表项的长度
-  itemCount: 4,
-  // Item 项的构建器
-  itemBuilder: (BuildContext ctx, int i) {
-    return Text('aaa');
-  }
-);
-
 class ListViewPage extends StatelessWidget {
   
   @override
@@ -84,12 +60,39 @@ class _ListViewBoxState extends State<ListViewBox>{
       appBar: AppBar(
         title: Text("List Page"),
       ),
-      // body: list2,
-      body: Center(
-        child: ListView(
-          children: list,
-        ),
-      ),
+      body: list2,
+      // body: Center(
+      //   child: ListView(
+      //     children: list,
+      //   ),
+      // ),
     );
   }
 }
+
+//ListView构造函数适用于小列表
+Widget list1 = ListView(
+  children: <Widget>[
+    ListTile(
+      title: Text('我要发布'),
+      trailing: Icon(Icons.send),
+    ),
+    Divider(),
+    ListTile(
+      title: Text('注销'),
+      trailing: Icon(Icons.exit_to_app),
+    )
+  ]
+);
+
+//为了处理包含大量数据的列表，最好使用ListView.builder构造函数。
+//ListView的构造函数需要一次创建所有项目，
+//但ListView.builder的构造函数不需要，它将在列表项滚动到屏幕上时创建该列表项。
+Widget list2 = ListView.builder(
+  // 必须指定列表项的长度
+  itemCount: 34,
+  // Item 项的构建器
+  itemBuilder: (BuildContext ctx, int i) {
+    return Text('aaa',style: TextStyle(fontSize: 22.0),);
+  }
+);

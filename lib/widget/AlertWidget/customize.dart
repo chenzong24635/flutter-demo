@@ -11,7 +11,7 @@ class CustomizePage extends StatelessWidget {
           _showMyCustomLoadingDialog(context);
         },
         child: Text(
-          '自定义',
+          '自定义loading',
           style: TextStyle(fontSize: 18),
         ),
       );

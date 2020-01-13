@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 //[Scrollbar](https://api.flutter.dev/flutter/material/Scrollbar-class.html)
 /*
-作用：一行末端对齐的按钮，如果没有足够的水平空间，则排成一列。
+作用：滚动指示器（滚动条），如果要给可滚动组件添加滚动条，只需将Scrollbar作为可滚动组件的任意一个父级组件即可
 
 继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > Scrollbar
 

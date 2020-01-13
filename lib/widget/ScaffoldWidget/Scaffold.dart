@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // import './AppBar.dart';
+import './SliverAppBar.dart';
 import './Drawer.dart';
 import './BottomNavigationBar.dart';
 import './BottomNavigationBar1.dart';
@@ -64,13 +65,19 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
   List tabs = ["A", "B", "C"];
   List<Widget> tabs1 = [
     Column(
-      children: <Widget>[Text('aaa'),Text('aaa'),Text('aaa')],
+      children: <Widget>[
+        Text('PageA',style: TextStyle(fontSize: 22.0),),
+      ],
     ),
     Column(
-      children: <Widget>[Text('bbb'),Text('b'),Text('b')],
+      children: <Widget>[
+        Text('PageB',style: TextStyle(fontSize: 22.0),)
+      ],
     ),
     Column(
-      children: <Widget>[Text('ccc'),Text('c'),Text('c')],
+      children: <Widget>[
+        Text('PageC',style: TextStyle(fontSize: 22.0),)
+      ],
     ),
   ];
 
@@ -96,11 +103,11 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
         toolbarOpacity: .8,
         bottomOpacity: .6,
         actions: <Widget>[ 
-          IconButton(
-            icon: const Icon(Icons.add_alert),
-            tooltip: 'Show Snackbar',
+          FlatButton(
+            child: Text('SliverAppBarPage用法'),
             onPressed: () {
-              scaffoldKey.currentState.showSnackBar(snackBar);
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverAppBarPage()));
+              // scaffoldKey.currentState.showSnackBar(snackBar);
             },
           ), 
           IconButton(icon: Icon(Icons.arrow_back), onPressed: () {

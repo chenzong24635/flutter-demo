@@ -1,5 +1,17 @@
 import 'package:flutter/material.dart';
 
+//[](https://api.flutter.dev/flutter/material/PopupMenuButton-class.html)
+/*
+作用：
+  按下时显示菜单，
+  并因为选择了某个项目而将其关闭，则调用onSelected。
+  传递给onSelected的值是所选菜单项的值。
+
+继承：
+
+构造函数：（类型 属性 = 默认值）
+
+*/
 class PopupMenuButtonPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _PopupMenuButtonState();
@@ -22,6 +34,7 @@ class _PopupMenuButtonState extends State<PopupMenuButtonPage> {
   void _select(String value) {
     setState(() {
       title = value;
+      print(value);
     });
   }
 

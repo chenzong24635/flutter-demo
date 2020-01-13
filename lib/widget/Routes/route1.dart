@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toast/toast.dart';
-import 'widget/Packages/toast.dart';
-import 'widget/Packages/flutter_swiper.dart';
-//
+
+//从新页面返回数据给上一个页面
+//https://flutterchina.club/cookbook/navigation/returning-data/
 class DemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,8 +19,7 @@ class SelectionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return new RaisedButton(
       onPressed: () {
-        Navigator.push(context,MaterialPageRoute(builder: (context)=>flutter_swiper_page()));
-        // _navigateAndDisplaySelection(context);
+        _navigateAndDisplaySelection(context);
       },
       child: new Text('Pick an option, any option!'),
     );

@@ -12,13 +12,15 @@ class FullScreenImagePage extends StatelessWidget {
         child: Center(
           child: new InkWell(
             onTap: () {
-              Navigator.of(context).push(new MaterialPageRoute(
+              Navigator.of(context).push(
+                new MaterialPageRoute(
                   builder: (context) {
                     return FullScreenImage();
                   },
-                  fullscreenDialog: true));
+                  fullscreenDialog: true
+                )
+              );
             },
-
             /// Hero  tag 共享
             child: new Hero(
               tag: "image",

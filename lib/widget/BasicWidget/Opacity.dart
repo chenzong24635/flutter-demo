@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
-//[参考](https://api.flutter.dev/flutter/widgets/Icon-class.html)
+//[](https://api.flutter.dev/flutter/widgets/Opacity-class.html)
 /* 
+作用：透明度
+
+构造函数：
 Opacity(
   double opacity	//透明度。如果想要一个 Widget 消失，那就设置 0.0
   Widget child

@@ -4,6 +4,7 @@ import '../LayoutWidget/ButtonBar.dart';
 import '../IOSWidget/CupertinoButton.dart';
 
 //[RaisedButton](https://api.flutter.dev/flutter/widgets/RaisedButton-class.html)
+//[ToggleButtons](https://api.flutter.dev/flutter/material/ToggleButtons-class.html)
 /*
 用法：
 Material 组件库中提供了多种按钮组件如RaisedButton、FlatButton、OutlineButton
@@ -54,7 +55,16 @@ const RaisedButton({
 
 */
 
-class ButtonPage extends StatelessWidget{
+class ButtonPage extends StatefulWidget {
+  ButtonPage({Key key}) : super(key: key);
+
+  @override
+  _ButtonPageState createState() => _ButtonPageState();
+}
+
+class _ButtonPageState extends State<ButtonPage> {
+  List<bool> isSelected = [true,false,false];
+  @override
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(title: Text('Button')),
@@ -137,7 +147,20 @@ class ButtonPage extends StatelessWidget{
           Divider(),
           Center(child: Text('IOS风格的按钮',style:TextStyle(fontSize: 20.0)),),
           CupertinoButtonPage(),
-          H15
+          H15,
+          ToggleButtons(
+            children: <Widget>[
+              Icon(Icons.ac_unit),
+              Icon(Icons.call),
+              Icon(Icons.cake),
+            ],
+            onPressed: (int index) {
+              setState(() {
+                isSelected[index] = !isSelected[index];
+              });
+            },
+            isSelected: isSelected,
+          ),
         ],
       )
     );

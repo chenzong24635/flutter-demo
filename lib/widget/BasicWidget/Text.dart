@@ -1,4 +1,7 @@
 import "package:flutter/material.dart";
+
+import './SelectableText.dart';
+
 //[Text](https://api.flutter.dev/flutter/widgets/Text-class.html)
 //[RichText](https://api.flutter.dev/flutter/widgets/RichText-class.html)
 //[DefaultTextStyle](https://api.flutter.dev/flutter/widgets/DefaultTextStyle-class.html)
@@ -193,6 +196,19 @@ class TextPage extends StatelessWidget{
           Directionality(
             textDirection: TextDirection.rtl, // 设置文本方向
             child:Text('Directionality 设置文本方向'),
+          ),
+          Text('SelectableText--可选的文本',style: TextStyle(color: Colors.black,fontSize: 17.0),),
+          SelectableTextPage(),
+          Padding(padding: EdgeInsets.all(15),),
+          Text(
+            '1'*5
+          ),
+          //大小写转换
+          Text(
+            'aaa'.toUpperCase()
+          ),
+          Text(
+            'AAA'.toLowerCase()
           ),
         ],
       )

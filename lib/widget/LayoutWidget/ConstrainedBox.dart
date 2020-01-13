@@ -1,5 +1,25 @@
 import "package:flutter/material.dart";
 
+//[ConstrainedBox](https://api.flutter.dev/flutter/widgets/ConstrainedBox-class.html)
+/*
+作用：尺寸限制类容器
+
+继承：Object Diagnosticable DiagnosticableTree Widget RenderObjectWidget SingleChildRenderObjectWidget ConstrainedBox
+
+构造函数：（类型 属性 = 默认值）
+  ConstrainedBox({
+    Key key,
+    BoxConstraints @required this.constraints,
+    Widget child,
+  })
+
+  const BoxConstraints({
+    this.minWidth = 0.0,
+    this.maxWidth = double.infinity,
+    this.minHeight = 0.0,
+    this.maxHeight = double.infinity,
+  })
+*/
 class MyBox extends StatelessWidget{
   MyBox({@required this.cnt});
   String cnt;

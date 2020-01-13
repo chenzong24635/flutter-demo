@@ -1,5 +1,36 @@
 import 'package:flutter/material.dart';
 
+//[](https://api.flutter.dev/flutter/material/DropdownButton-class.html)
+/*
+作用：下拉列表
+
+继承：Object Diagnosticable DiagnosticableTree Widget StatefulWidget DropdownButton
+
+构造函数：（类型 属性 = 默认值）
+  DropdownButton({
+    Key key,
+    @required this.items,
+    this.selectedItemBuilder,
+    this.value,
+    this.hint,
+    this.disabledHint,
+    @required this.onChanged,
+    this.elevation = 8,
+    this.style,
+    this.underline,
+    this.icon,
+    this.iconDisabledColor,
+    this.iconEnabledColor,
+    this.iconSize = 24.0,
+    this.isDense = false,
+    this.isExpanded = false,
+    this.itemHeight = kMinInteractiveDimension,
+    this.focusColor,
+    this.focusNode,
+    this.autofocus = false,
+  })
+*/
+
 class DropdownButtonPage extends StatefulWidget {
   DropdownButtonPage({Key key}) : super(key: key);
 

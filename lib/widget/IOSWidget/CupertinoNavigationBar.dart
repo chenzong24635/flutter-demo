@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 
 //https://api.flutter.dev/flutter/cupertino/CupertinoNavigationBar-class.html
 //IOS风格 头部返回栏
+//通常和CupertinoPageScaffold一起使用
 class CupertinoNavigationBarPage extends StatelessWidget {
 
   @override

@@ -10,10 +10,11 @@ import 'package:flutter1/widget/Cases/index.dart';
 import 'package:flutter1/widget/IOSWidget/index.dart';
 import 'package:flutter1/demo.dart';
 
+// https://api.flutter.dev/flutter/material/MaterialApp-class.html
 
 final List<String> myRoutesName = <String>[
   'Scaffold',
-  '基础/装饰组件',
+  '基础/其他组件',
   '布局/容器组件',
   '滚动组件',
   'Alert弹窗',

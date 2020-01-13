@@ -7,6 +7,7 @@ import './GridView.dart';
 import './CustomScrollView.dart';
 import './SingleChildScrollView.dart';
 import './Scrollbar.dart';
+import './PageView.dart';
 
 
 final List<String> myRoutesName = <String>[
@@ -15,6 +16,7 @@ final List<String> myRoutesName = <String>[
   'CustomScrollView',
   'SingleChildScrollViewPage',
   'Scrollbar',
+  'PageView',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "/ListViewPage": (context) => ListViewPage(),
@@ -22,6 +24,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "/CustomScrollViewPage": (context) => CustomScrollViewPage(),
   "/SingleChildScrollViewPage": (context) => SingleChildScrollViewPage(),
   "/ScrollbarPage": (context) => ScrollbarPage(),
+  "/PageViewPage": (context) => PageViewPage(),
 };
 
 // void main() => runApp(MyApp());

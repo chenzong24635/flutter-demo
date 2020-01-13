@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 //[]()
 //[官网](https://api.flutter.dev/flutter/widgets/Padding-class.html)
 /*
-作用：设置padding
+作用：设置padding,不支持负数，所以如果你需要用到负数的情况下，推荐使用 Transform 。
 
 继承：
 Object > Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > SingleChildRenderObjectWidget > Padding
