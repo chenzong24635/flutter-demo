@@ -2,8 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter1/widget/LayoutWidget/Row.dart";
 import "package:flutter1/widget/LayoutWidget/Expanded.dart";
 
-//[Flutter实战](https://book.flutterchina.club/chapter4/row_and_column.html)
-//[官网](https://api.flutter.dev/flutter/widgets/Column-class.html)
+//https://api.flutter.dev/flutter/widgets/Column-class.html
 /*
 作用：线性布局,沿垂直方向排布子组件; Row和Column都继承自Flex
     参数和Row一样，不同的是布局方向为垂直，主轴纵轴正好相反

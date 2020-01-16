@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 
-//[](https://api.flutter.dev/flutter/widgets/RotatedBox-class.html)
+//https://api.flutter.dev/flutter/widgets/RotatedBox-class.html
 /*
 作用：旋转组件
 
 继承：Object Diagnosticable DiagnosticableTree Widget RenderObjectWidget SingleChildRenderObjectWidget RotatedBox
 
 构造函数：（类型 属性 = 默认值）
-
+  const RotatedBox({
+    Key key,
+    @required this.quarterTurns,
+    Widget child,
+  }) 
 */
 
 class RotatedBoxPage extends StatelessWidget {
@@ -18,7 +22,7 @@ class RotatedBoxPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('RotatedBox'),),
       body: RotatedBox(
-        quarterTurns: 3,
+        quarterTurns: 1,
         child: const Text('Hello World!'),
       ),
     );

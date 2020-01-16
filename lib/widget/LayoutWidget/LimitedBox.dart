@@ -1,9 +1,9 @@
 import "package:flutter/material.dart";
 
-//[参考]()
-//[参考](https://api.flutter.dev/flutter/widgets/LimitedBox-class.html)
+//https://api.flutter.dev/flutter/widgets/LimitedBox-class.html
 /*
-作用：将child限制在其设定的最大宽高中的，但是这个限定是有条件的。当LimitedBox最大宽度不受限制时，child的宽度就会受到这个最大宽度的限制，同理高度。
+作用：将child限制在其设定的最大宽高中的，但是这个限定是有条件的。
+      当LimitedBox最大宽度不受限制时，child的宽度就会受到这个最大宽度的限制，同理高度。
 
 继承关系：Object Diagnosticable DiagnosticableTree Widget RenderObjectWidget SingleChildRenderObjectWidget LimitedBox
 

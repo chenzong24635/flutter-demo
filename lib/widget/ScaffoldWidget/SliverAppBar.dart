@@ -30,8 +30,8 @@ const SliverAppBar({
   this.centerTitle,     //标题是否居中
   this.titleSpacing = NavigationToolbar.kMiddleSpacing,
   this.expandedHeight,     //展开高度
-  this.floating = false,       //是否随着滑动隐藏标题
   this.pinned = false,  //是否固定在顶部
+  this.floating = false,       //是否随着滑动隐藏AppBar
   this.snap = false,   //与floating结合使用
 })
 

@@ -1,78 +1,78 @@
 import 'package:flutter/material.dart';
 
-//从新页面返回数据给上一个页面
-//https://flutterchina.club/cookbook/navigation/returning-data/
+//页面跳转返回数据
+
+//第一个页面
 class DemoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Returning Data Demo'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("页面跳转返回数据示例"),
       ),
-      body: new Center(child: new SelectionButton()),
+      body: Center(
+        child: RouteButton(),
+      ),
     );
   }
 }
 
-class SelectionButton extends StatelessWidget {
+//跳转按钮
+class RouteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new RaisedButton(
+    return RaisedButton(
       onPressed: () {
-        _navigateAndDisplaySelection(context);
+        _navigateToSecondPage(context);
       },
-      child: new Text('Pick an option, any option!'),
+      child: Text('跳转到第二个页面'),
     );
   }
 
-  // A method that launches the SelectionScreen and awaits the result from
-  // Navigator.pop!
-  _navigateAndDisplaySelection(BuildContext context) async {
-    // Navigator.push returns a Future that will complete after we call
-    // Navigator.pop on the Selection Screen!
+  //路由至第二个页面
+  _navigateToSecondPage(BuildContext context) async {
+    //压栈操作并等待页面返回操作
     final result = await Navigator.push(
       context,
-      new MaterialPageRoute(builder: (context) => new SelectionScreen()),
+      MaterialPageRoute(builder: (context) => SecondPage()),
     );
-
-    // After the Selection Screen returns a result, show it in a Snackbar!
-    Scaffold
-        .of(context)
-        .showSnackBar(new SnackBar(content: new Text("$result")));
+    //读取并显示返回值
+    Scaffold.of(context).showSnackBar(SnackBar(content: Text("$result")));
   }
 }
 
-class SelectionScreen extends StatelessWidget {
+//第二个页面
+class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(
-        title: new Text('Pick an option'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("选择一条数据"),
       ),
-      body: new Center(
-        child: new Column(
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new RaisedButton(
+              child: RaisedButton(
                 onPressed: () {
-                  // Close the screen and return "Yep!" as the result
-                  Navigator.pop(context, 'Yep!');
+                  //出栈带上参数 返回到上一个页面
+                  Navigator.pop(context, 'hi google');
                 },
-                child: new Text('Yep!'),
+                child: Text('hi google'),
               ),
             ),
-            new Padding(
+            Padding(
               padding: const EdgeInsets.all(8.0),
-              child: new RaisedButton(
+              child: RaisedButton(
                 onPressed: () {
-                  // Close the screen and return "Nope!" as the result
-                  Navigator.pop(context, 'Nope.');
+                  //出栈带上参数 返回到上一个页面
+                  Navigator.pop(context, 'hi flutter');
                 },
-                child: new Text('Nope.'),
+                child: Text('hi flutter'),
               ),
-            )
+            ),
           ],
         ),
       ),

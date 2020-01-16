@@ -12,6 +12,7 @@ import './Row.dart';
 import './Column.dart';
 import './Flexible.dart';
 import './Expanded.dart';
+import './Expansion/ExpansionTile.dart';
 import './ExpansionPanelList.dart';
 import './Wrap.dart';
 import './Flex.dart';
@@ -51,7 +52,7 @@ import './CustomMultiChildLayout.dart';
 
 
 final List<String> myRoutesName = <String>[
-  'Container',
+  'Container ',
   'Padding',
   'Align',
   'Center',
@@ -61,6 +62,7 @@ final List<String> myRoutesName = <String>[
   'Column',
   'Flexible',
   'Expanded',
+  'ExpansionTile',
   'ExpansionPanelList',
   'Wrap',
   'Flex',
@@ -104,6 +106,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "/ColumnPage": (context) {return new ColumnPage();},
   "/FlexiblePage": (context) {return new FlexiblePage();},
   "/ExpandedPage": (context) {return new ExpandedPage();},
+  "/ExpansionTilePage": (context) {return new ExpansionTilePage();},
   "/ExpansionPanelListPage": (context) {return new ExpansionPanelListPage();},
   "/WrapPage": (context) {return new WrapPage();},
   "/FlexPage": (context) {return new FlexPage();},

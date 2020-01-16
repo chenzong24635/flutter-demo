@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-//[](https://api.flutter.dev/flutter/widgets/Draggable-class.html)
+//https://api.flutter.dev/flutter/widgets/Draggable-class.html
+//https://api.flutter.dev/flutter/widgets/LongPressDraggable-class.html
+
+//https://api.flutter.dev/flutter/widgets/DragTarget-class.html
 /*
 作用：
   Draggable能够让您的小部件被用户拖拽
@@ -16,7 +19,8 @@ import 'package:flutter/material.dart';
   我们刷新这个offset就改变了Positioned的位置
 
 
-继承：Object Diagnosticable DiagnosticableTree Widget StatefulWidget Draggable
+继承: Object Diagnosticable DiagnosticableTree Widget StatefulWidget Draggable
+      Object Diagnosticable DiagnosticableTree Widget StatefulWidget Draggable LongPressDraggable
 
 构造函数：（类型 属性 = 默认值）
   const Draggable({
@@ -61,7 +65,7 @@ class _DraggablePageState extends State<DraggablePage> {
             widgetColor: Colors.redAccent,
           ),
           Center(
-            child: DragTarget(
+            child: DragTarget(//拖动Widget时接收数据的Widget。
               onAccept: (Color color) {
                 _draggableColor = color;
               }, 
@@ -105,7 +109,7 @@ class _DraggableWidgetState extends State<DraggableWidget> {
     return Positioned(
         left: offset.dx,
         top: offset.dy,
-        child: Draggable(
+        child: Draggable( //也可使用 LongPressDraggable 长按后拖动
           data: widget.widgetColor,
           child: Container(
             width: 100.0,

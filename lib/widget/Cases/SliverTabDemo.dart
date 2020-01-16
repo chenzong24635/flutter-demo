@@ -21,7 +21,7 @@ class _SliverTabDemoPageState extends State<SliverTabDemoPage>
   final double tabIconSize = 30;
   final List<List> dataList = [
     List(30),
-    List(2),
+    List(5),
     List(8),
     List(40),
   ];
@@ -101,7 +101,7 @@ class _SliverTabDemoPageState extends State<SliverTabDemoPage>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: new Text("SliverTabDemoPage"),
+        title: new Text("SliverTabDemoPag4e"),
       ),
       body: NestedScrollView(
         controller: scrollController,

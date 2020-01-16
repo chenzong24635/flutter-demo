@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
-//[]()
-//[官网](https://api.flutter.dev/flutter/widgets/Container-class.html)
+//https://api.flutter.dev/flutter/widgets/Container-class.html
 /*
 作用：控制子widget的绘制，大小，定位，填充，约束等的容器
 

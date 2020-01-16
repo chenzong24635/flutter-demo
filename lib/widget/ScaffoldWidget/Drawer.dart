@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './BottomNavigationBar.dart';
+import './BottomNavigationBar1.dart';
 
 //[Drawer](https://api.flutter.dev/flutter/material/Drawer-class.html)
 /*
@@ -51,13 +53,14 @@ class DrawerPage extends StatelessWidget {
                 children: <Widget>[
                   ListTile(
                     leading: const Icon(Icons.add),
-                    title: const Text('BottomNavigationBarPage'),
+                    title: const Text('A'),
                     onTap: (){
+                      // Navigator.push(context,MaterialPageRoute(builder: (context)=>BottomNavigationBarPage()));
                     },
                   ),
                   ListTile(
                     leading: const Icon(Icons.settings),
-                    title: const Text('BottomNavigationBarPage1'),
+                    title: const Text('B'),
                     onTap: (){
                     },
                   ),

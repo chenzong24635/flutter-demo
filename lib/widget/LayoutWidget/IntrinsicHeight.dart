@@ -1,8 +1,8 @@
 import "package:flutter/material.dart";
 
-//[参考](https://juejin.im/post/5b4b31ee5188251a901877c4#heading-18)
+// https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
 /*
-作用是调整child到固定的高度，将可能高度不受限制的child，调整到一个合适并且合理的尺寸。
+作用：将它的子widget的高度调整其本身实际的高度
 但是应该尽量少用，因为其效率问题。
 
 

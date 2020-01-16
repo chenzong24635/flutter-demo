@@ -23,7 +23,7 @@ class FullScreenImagePage extends StatelessWidget {
             },
             /// Hero  tag 共享
             child: new Hero(
-              tag: "image",
+              tag: "image", //唯一标记，前后两个路由页Hero的tag必须相同
               child: new Image.asset(
                 "images/a.jpg",
                 fit: BoxFit.cover,
@@ -50,11 +50,12 @@ class FullScreenImage extends StatelessWidget {
         child: new Container(
           alignment: Alignment.center,
           child: new Hero(
-            tag: "image",
+            tag: "image", //唯一标记，前后两个路由页Hero的tag必须相同
             child: new Image.asset(
               "images/a.jpg",
               fit: BoxFit.cover,
-              width: MediaQuery.of(context).size.width,
+              width: double.infinity,
+              // width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.width,
             ),
           ),

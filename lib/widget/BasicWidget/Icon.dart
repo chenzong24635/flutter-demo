@@ -34,36 +34,32 @@ class IconPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Icon')),
       body: GridView.count(
-        crossAxisCount: 4,
+        crossAxisCount: 2,
         children: <Widget>[
           Icon(Icons.account_box, color: Colors.black, size: 16,textDirection:TextDirection.rtl),
-          Icon(Icons.add_a_photo, color: Colors.red, size: 18,semanticLabel: '23'),
-          Icon(Icons.add_circle, color: Colors.black, size: 22),
-          Icon(Icons.android, color: Colors.orange, size: 24),
-          Icon(Icons.cast_connected, color: Colors.black, size: 26),
-          Icon(Icons.verified_user, color: Colors.green, size: 28),
-          Icon(Icons.dashboard, color: Colors.black, size: 30),
-          Icon(Icons.account_box, color: Colors.black, size: 16),
-          Icon(Icons.add_a_photo, color: Colors.red, size: 18),
-          Icon(Icons.add_circle, color: Colors.black, size: 22),
-          Icon(Icons.android, color: Colors.orange, size: 24),
-          Icon(Icons.cast_connected, color: Colors.black, size: 26),
-          Icon(Icons.verified_user, color: Colors.green, size: 28),
-          Icon(Icons.dashboard, color: Colors.black, size: 30),
-          Icon(Icons.account_box, color: Colors.black, size: 16),
-          Icon(Icons.add_a_photo, color: Colors.red, size: 18),
-          Icon(Icons.add_circle, color: Colors.black, size: 22),
-          Icon(Icons.android, color: Colors.orange, size: 24),
-          Icon(Icons.cast_connected, color: Colors.black, size: 26),
-          Icon(Icons.verified_user, color: Colors.green, size: 28),
-          Icon(Icons.dashboard, color: Colors.black, size: 30),
-          Icon(Icons.account_box, color: Colors.black, size: 16),
-          Icon(Icons.add_a_photo, color: Colors.red, size: 18),
-          Icon(Icons.add_circle, color: Colors.black, size: 22),
-          Icon(Icons.android, color: Colors.orange, size: 24),
-          Icon(Icons.cast_connected, color: Colors.black, size: 26),
-          Icon(Icons.verified_user, color: Colors.green, size: 28),
-          Icon(Icons.dashboard, color: Colors.black, size: 30),
+          Icon( // 自定义的Icon
+            IconData( //字体图标
+              0xe567,
+              fontFamily: 'MaterialIcons',
+              matchTextDirection: true,
+            ),
+            color: Colors.red
+          ),
+          ImageIcon( //图片一定要png，加载出来是纯色的背景图片，颜色通过color定义
+            AssetImage('images/FittedBox.png'),
+            color: Colors.amber
+          ),
+          ImageIcon( //
+            AssetImage('images/a.jpg'),
+            color: Colors.red
+          ),
+          IconTheme( //为图标提供属性，必须是Icon的父级
+            data: IconThemeData(
+              color: Colors.blue,
+              opacity: .7,
+            ),
+            child: Icon(Icons.favorite)
+          )
         ],
       )
     );

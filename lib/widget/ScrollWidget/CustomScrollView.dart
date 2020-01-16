@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 CustomScrollView 中通常添加的是 Sliver 系列的 Widget，
 比如 SliverList、SliverGrid、SliverPadding 等，因为它们本身没有包含滚动，所以能被统一成一个整体滚动。
 
+它可以包含多种滚动模型，举个例子，假设有一个页面，顶部需要一个GridView，底部需要一个ListView，而要求整个页面的滑动效果是统一的，即它们看起来是一个整体，
+
 
 继承：Object Diagnosticable DiagnosticableTree Widget StatelessWidget ScrollView CustomScrollView
 
@@ -32,11 +34,11 @@ class CustomScrollViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('CustomScrollView'),),
+      // appBar: AppBar(title: Text('CustomScrollView'),),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            title: Text('SliverAppBar'),
+            title: Text('CustomScrollView'),
             backgroundColor: Colors.amber,
             pinned: true,
             floating: true,
@@ -65,11 +67,11 @@ class CustomScrollViewPage extends StatelessWidget {
                   child: Text('grid item $index'),
                 );
               },
-              childCount: 20,
+              childCount: 15,
             ),
           ),
           SliverFixedExtentList(
-            itemExtent: 50.0,
+            itemExtent: 40.0,
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(
@@ -78,6 +80,7 @@ class CustomScrollViewPage extends StatelessWidget {
                   child: Text('list item $index'),
                 );
               },
+              childCount: 10,
             ),
           ),
         ],

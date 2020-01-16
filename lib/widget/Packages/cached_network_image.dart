@@ -10,14 +10,13 @@ class cached_image_network_page extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('使用缓存图片'),),
-      body: Column(children: <Widget>[
-        Text('da'),
-        // CachedNetworkImage(
-        //     imageUrl: url,
-        //     placeholder: (context, url) => CircularProgressIndicator(),
-        //     errorWidget: (context, url, error) => Icon(Icons.error),
-        // ),
-      ],)
+      body: Center(
+        child: CachedNetworkImage(
+          placeholder: (context, url) => new CircularProgressIndicator(),
+          errorWidget: (context, url, error) => Icon(Icons.error),
+          imageUrl: url,
+        ),
+      ),
     );
   }
 }

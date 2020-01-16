@@ -1,12 +1,19 @@
 import "package:flutter/material.dart";
 
-//[参考](https://juejin.im/post/5b4b31ee5188251a901877c4#heading-27)
+//https://api.flutter.dev/flutter/widgets/IntrinsicWidth-class.html
 /*
-作用是调整child到固定的调整宽度，会存在效率问题，能别使用就尽量别使用。
+作用：将它的子widget的宽度调整其本身实际的宽度，会存在效率问题，能别使用就尽量别使用。
 
 继承关系：
 Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > SingleChildRenderObjectWidget > IntrinsicWidth
 
+构造函数：
+const IntrinsicWidth({ 
+  Key key, 
+  this.stepWidth, 
+  this.stepHeight, 
+  Widget child 
+})
 
 IntrinsicWidth不同于IntrinsicHeight，它包含了额外的两个参数，stepHeight以及stepWidth。而IntrinsicWidth的布局行为跟这两个参数相关。
   当stepWidth不是null的时候，child的宽度将会是stepWidth的倍数，当stepWidth值比child最小宽度小的时候，这个值不起作用；

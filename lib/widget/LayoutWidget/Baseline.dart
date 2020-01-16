@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 
 //[参考](https://juejin.im/post/5b4b31ee5188251a901877c4#heading-0)
 /*
-作用：一般用于文字排版
+作用：根据子项的基线对它们的位置进行定位的widget；一般用于文字排版
 
 继承关系：Object > Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > SingleChildRenderObjectWidget > Baseline
 

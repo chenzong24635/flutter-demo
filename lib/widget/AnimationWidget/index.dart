@@ -2,40 +2,34 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
-import './ListView.dart';
-import './GridView.dart';
-import './CustomScrollView.dart';
-import './NestedScrollView.dart';
-import './SingleChildScrollView.dart';
-import './Scrollbar.dart';
-import './PageView.dart';
-import './NotificationListener.dart';
+import './Hero.dart';
+import './Dismissible.dart';
+import './Draggable.dart';
+import './GestureDetector.dart';
+import './AnimatedContainer.dart';
+import './AnimatedDefaultTextStyle.dart';
 
 
 final List<String> myRoutesName = <String>[
-  'ListView',
-  'GridView',
-  'CustomScrollView',
-  'NestedScrollView',
-  'SingleChildScrollView',
-  'Scrollbar',
-  'PageView',
-  'NotificationListener',
+  'Hero',
+  'Dismissible',
+  'Draggable',
+  'GestureDetector',
+  'AnimatedContainer',
+  'AnimatedDefaultTextStylePage',
 ];
 Map<String, WidgetBuilder> myRoutes = {
-  "/ListViewPage": (context) => ListViewPage(),
-  "/GridViewPage": (context) => GridViewPage(),
-  "/CustomScrollViewPage": (context) => CustomScrollViewPage(),
-  "/NestedScrollViewPage": (context) => NestedScrollViewPage(),
-  "/SingleChildScrollViewPage": (context) => SingleChildScrollViewPage(),
-  "/ScrollbarPage": (context) => ScrollbarPage(),
-  "/PageViewPage": (context) => PageViewPage(),
-  "/NotificationListenerPage": (context) => NotificationListenerPage(),
+  "/HeroPage": (context) => HeroPage(),
+  "/DismissiblePage": (context) => DismissiblePage(),
+  "/DraggablePage": (context) => DraggablePage(),
+  "/GestureDetectorPage": (context) => GestureDetectorPage(),
+  "/AnimatedContainerPage": (context) => AnimatedContainerPage(),
+  "/AnimatedDefaultTextStylePage": (context) => AnimatedDefaultTextStylePage(),
 };
 
 // void main() => runApp(MyApp());
 
-class ScrollWidget extends StatelessWidget{
+class AnimationWidget extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       home: MyHomePage(),
@@ -45,8 +39,6 @@ class ScrollWidget extends StatelessWidget{
 }
 
 class MyHomePage extends StatefulWidget {
-/*   MyHomePage({Key key, this.title}) : super(key: key);
-  final String title; */
 
   @override
   MyHomePageState createState() => MyHomePageState();
@@ -58,7 +50,7 @@ class MyHomePageState extends  State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('滚动组件'),
+        title: Text('动画'),
         leading: IconButton( //左边的 Widget。通常放返回键，或者 Drawer 开关
           icon: Icon(Icons.arrow_back),
           onPressed: () {

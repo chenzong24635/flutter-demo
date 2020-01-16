@@ -63,3 +63,4 @@ class _BottomNavigationBarPageState extends State<BottomNavigationBarPage> {
     );
   }
 }
+

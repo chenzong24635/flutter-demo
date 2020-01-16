@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 
 import './CustomMultiChildLayout1.dart';
 
-//[参考](https://docs.flutter.io/flutter/widgets/CustomSingleChildLayout-class.html)
+//https://docs.flutter.io/flutter/widgets/CustomSingleChildLayout-class.html
 /*
 作用：类似CustomSingleChildLayout，可控制多个
 

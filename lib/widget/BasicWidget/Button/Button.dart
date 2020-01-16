@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 
-import '../LayoutWidget/ButtonBar.dart';
-import '../IOSWidget/CupertinoButton.dart';
+import '../../LayoutWidget/ButtonBar.dart';
+import '../../IOSWidget/CupertinoButton.dart';
 
 //[RaisedButton](https://api.flutter.dev/flutter/widgets/RaisedButton-class.html)
 //[ToggleButtons](https://api.flutter.dev/flutter/material/ToggleButtons-class.html)
@@ -21,7 +21,8 @@ Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > Materi
 构造函数：（类型 属性 = 默认值）
 const RaisedButton({
   Key key,
-  @required VoidCallback onPressed, // 点击回调，必须值
+  @required VoidCallback onPressed, // 点击回调，必须值,设为null时表禁用
+  Widget child,
   VoidCallback onLongPress, // 长按回调
   ValueChanged<bool> onHighlightChanged,
 
@@ -50,7 +51,7 @@ const RaisedButton({
   bool autofocus = false, // 是否自动聚焦
   MaterialTapTargetSize materialTapTargetSize,
   Duration animationDuration,
-  Widget child,
+  
 }) 
 
 */
@@ -70,6 +71,11 @@ class _ButtonPageState extends State<ButtonPage> {
       appBar: AppBar(title: Text('Button')),
       body: ListView(
         children: <Widget>[
+          RaisedButton(
+            child: Text('一个禁用按钮'),
+            onPressed: null,
+            disabledColor: Colors.amber,
+          ),
           RaisedButton(
             hoverColor : Colors.red,
             autofocus: true,

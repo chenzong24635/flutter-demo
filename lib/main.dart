@@ -8,6 +8,10 @@ import 'package:flutter1/widget/ScrollWidget/index.dart';
 import 'package:flutter1/widget/AlertWidget/Alert.dart';
 import 'package:flutter1/widget/Cases/index.dart';
 import 'package:flutter1/widget/IOSWidget/index.dart';
+import 'package:flutter1/widget/AnimationWidget/index.dart';
+
+import 'package:flutter1/widget/Routes/index.dart';
+import 'package:flutter1/provider/index.dart';
 import 'package:flutter1/demo.dart';
 
 // https://api.flutter.dev/flutter/material/MaterialApp-class.html
@@ -19,7 +23,10 @@ final List<String> myRoutesName = <String>[
   '滚动组件',
   'Alert弹窗',
   'IOS风格',
+  '动画/交互组件',
   '常用例子',
+  '路由使用',
+  'Provider',
   'DemoPage',
 ];
 Map<String, WidgetBuilder> myRoutes = {
@@ -29,7 +36,10 @@ Map<String, WidgetBuilder> myRoutes = {
   "/ScrollWidget": (context) => ScrollWidget(),
   "/Alert": (context) => AlertPage(),
   "/IOSWidget": (context) => IOSWidget(),
+  "/AnimationWidget": (context) => AnimationWidget(),
   "/CasesWidget": (context) => CasesWidget(),
+  "/RoutePage": (context) => RoutePage(),
+  "/ProviderPage": (context) => ProviderPage(),
   "/DemoPage": (context) => DemoPage(),
 };
 
@@ -41,10 +51,11 @@ void main() {
 class MyApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
-      title: 'demo',
+      // title: 'demo',
       home: MyHomePage(),
-      // initialRoute: '/Scaffold', //初始 路由
+      // initialRoute: '/Scaffold', //初始路由
       routes: myRoutes,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData( //所有页面主题配置(会被Scaffold的appBar的样式覆盖)
         //应用程序整体主题的亮度
         brightness: Brightness.light,
@@ -130,3 +141,34 @@ class MyHomePageState extends  State<MyHomePage> {
     );
   }
 }
+
+/*  
+  const MaterialApp({
+    Key key,
+    this.navigatorKey,
+    this.home,
+    this.routes = const <String, WidgetBuilder>{}, //路由
+    this.initialRoute, //初始路由
+    this.onGenerateRoute,
+    this.onUnknownRoute,
+    this.navigatorObservers = const <NavigatorObserver>[],
+    this.builder,
+    this.title = '',
+    this.onGenerateTitle,
+    this.color,
+    this.theme, //主题样式
+    this.darkTheme,
+    this.themeMode = ThemeMode.system,
+    this.locale,
+    this.localizationsDelegates,
+    this.localeListResolutionCallback,
+    this.localeResolutionCallback,
+    this.supportedLocales = const <Locale>[Locale('en', 'US')],
+    this.debugShowMaterialGrid = false,
+    this.showPerformanceOverlay = false,
+    this.checkerboardRasterCacheImages = false,
+    this.checkerboardOffscreenLayers = false,
+    this.showSemanticsDebugger = false,
+    this.debugShowCheckedModeBanner = true, //显示右上角debug图标
+  }) 
+*/

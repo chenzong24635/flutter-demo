@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter1/main.dart';
 
 import './demo.dart';
-import './ScrollListenerDemo.dart';
+// import './ScrollListenerDemo.dart';
 import './RefreshListDemo.dart';
 import './RefreshListDemo2.dart';
 import './SliverTabDemo.dart';
@@ -25,7 +25,7 @@ import './bubble/bubble_demo_page.dart';
 
 final List<String> myRoutesName = <String>[
   'DemoPage',
-  '列表滑动监听',
+  // '列表滑动监听',
   '列表加载1 loading图标',
   '列表加载2 loading图标',
   '左右滑动列表',
@@ -42,7 +42,7 @@ final List<String> myRoutesName = <String>[
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "/DemoPage": (context) => TransformDemoPage(),
-  "/ScrollListenerPage": (context) => ScrollListenerPage(),
+  // "/ScrollListenerPage": (context) => ScrollListenerPage(),
   "/RefreshDemoPage": (context) => RefreshDemoPage(),
   "/RefreshDemoPage2": (context) => RefreshDemoPage2(),
   "/SliverTabDemoPage": (context) => SliverTabDemoPage(),

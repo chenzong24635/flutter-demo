@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter1/widget/LayoutWidget/Flexible.dart";
 
-//[]()
 //[官网](https://api.flutter.dev/flutter/widgets/Expanded-class.html)
 /*
 作用：控制Row、Column、Flex等子组件布局，继承自Flexible

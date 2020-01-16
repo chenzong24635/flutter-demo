@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 
 //[ConstrainedBox](https://api.flutter.dev/flutter/widgets/ConstrainedBox-class.html)
 /*
-作用：尺寸限制类容器
+作用：对子组件添加额外的尺寸约束
 
 继承：Object Diagnosticable DiagnosticableTree Widget RenderObjectWidget SingleChildRenderObjectWidget ConstrainedBox
 

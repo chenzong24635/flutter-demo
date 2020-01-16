@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
-//[Flutter实战](https://book.flutterchina.club/chapter4/alignment.html)
-//[官网](https://api.flutter.dev/flutter/widgets/Center-class.html)
+//https://api.flutter.dev/flutter/widgets/Center-class.html
 /*
 作用：居中布局； Center继承自Align，只不过是将alignment设置为Alignment.center
 

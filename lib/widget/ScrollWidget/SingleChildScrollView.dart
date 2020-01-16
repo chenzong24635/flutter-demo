@@ -28,19 +28,37 @@ class SingleChildScrollViewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title:Text('SingleChildScrollView')),
-      body: Container(
-        width: 200.0,
-        height: 140.0,
-        color: Colors.red,
-        child: SingleChildScrollView(
-          child:  Column(children: <Widget>[
-            Text('滑动试试',style: TextStyle(fontSize: 20.0)),
-            box(Colors.blue),
-            box(Colors.grey),
-            box(Colors.amber),
-          ],),
+      body: Column(children: <Widget>[
+        Text('水平滚动',style: TextStyle(fontSize: 22.0),),
+        Container(
+          width: 200.0,
+          height: 140.0,
+          color: Colors.red,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child:  Row(children: <Widget>[
+              box(Colors.blue),
+              box(Colors.grey),
+              box(Colors.amber),
+            ],),
+          ),
         ),
-      ),
+        SizedBox(height: 20.0,),
+        Text('垂直滚动',style: TextStyle(fontSize: 22.0),),
+        Container(
+          width: 200.0,
+          height: 140.0,
+          color: Colors.red,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: <Widget>[
+              box(Colors.blue),
+              box(Colors.grey),
+              box(Colors.amber),
+            ],),
+          ),
+        ),
+      ],)
     );
   }
 }

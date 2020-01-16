@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-import './SelectableText.dart';
+import './../Form/SelectableText.dart';
 
 //[Text](https://api.flutter.dev/flutter/widgets/Text-class.html)
 //[RichText](https://api.flutter.dev/flutter/widgets/RichText-class.html)
@@ -138,6 +138,7 @@ class TextPage extends StatelessWidget{
           Divider(),
           Text('RichText 用法:',style: TextStyle(color: Colors.black,fontSize: 24.0),),
           Text('可以显示多种样式(富文本)的widget',style: TextStyle(color: Colors.black,fontSize: 17.0),),
+          Text('Text和Text.rich都是RichText构建出来的',style: TextStyle(color: Colors.black,fontSize: 17.0),),
           RichText(
             text: TextSpan(
               children: <TextSpan>[

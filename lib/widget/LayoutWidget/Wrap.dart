@@ -2,7 +2,7 @@ import "package:flutter/material.dart";
 import "package:flutter1/widget/LayoutWidget/Flow.dart";
 
 //[Flutter实战](https://book.flutterchina.club/chapter4/wrap_and_flow.html)
-//[官网](https://api.flutter.dev/flutter/widgets/Wrap-class.html)
+//https://api.flutter.dev/flutter/widgets/Wrap-class.html)
 /*
 作用：流式布局，在多个水平或垂直运行中显示其子部件（即可换行的Row/Column)
 

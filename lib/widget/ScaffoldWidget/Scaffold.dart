@@ -62,7 +62,7 @@ final SnackBar snackBar = const SnackBar(content: Text('看这里 Showing Snackb
 class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStateMixin{
   
   TabController _tabController; //定义一个Controller
-  List tabs = ["A", "B", "C"];
+  List tabs = ["Tab1", "Tab2", "Tab3","Tab4","Tab5","Tab6","Tab7"];
   List<Widget> tabs1 = [
     Column(
       children: <Widget>[
@@ -79,17 +79,38 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
         Text('PageC',style: TextStyle(fontSize: 22.0),)
       ],
     ),
+    Text('D'),
+    Text('E'),
+    Text('F'),
+    Text('G'),
   ];
 
-  void _onAdd(){
-    scaffoldKey.currentState.showSnackBar(snackBar);
+  bool BarType = true;
+  
+  void _change(){
+    setState(() {
+      //改变悬浮窗样式
+      BarType = !BarType;
+    });
+    // scaffoldKey.currentState.showSnackBar(snackBar);
   }
 
   @override
   void initState() {
     super.initState();
     // 创建Controller  
-    _tabController = TabController(length: tabs.length, vsync: this);
+    _tabController = TabController(
+      initialIndex: 3, // 初始选中第几个
+      length: tabs.length, 
+      vsync: this
+    );
+  }
+
+  //当整个页面dispose时，把控制器也dispose掉，释放内存
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
   }
 
   @override
@@ -99,6 +120,11 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
       // backgroundColor: Colors.amber,
       appBar: AppBar(
         title: Text("Scaffold"), 
+        // title: TabBar( //也可以设在title位置
+        //   isScrollable: true,
+        //   controller: _tabController,
+        //   tabs: tabs.map((e) => Tab(text: e)).toList()
+        // ), 
         backgroundColor: Colors.red,
         toolbarOpacity: .8,
         bottomOpacity: .6,
@@ -115,6 +141,15 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
           }),
         ],
         bottom: TabBar(  
+          isScrollable: true, //是否滚动
+          labelColor: Colors.limeAccent,
+          labelPadding: EdgeInsets.only(left:30.0,right: 30.0),
+          unselectedLabelColor: Colors.white,
+          indicatorColor: Colors.amber,
+          indicatorWeight: 5.0,
+          indicatorPadding: EdgeInsets.all(3.0),
+          indicatorSize: TabBarIndicatorSize.tab,
+          // indicator: Decoration(),
           controller: _tabController,
           tabs: tabs.map((e) => Tab(text: e)).toList()
         ),
@@ -124,13 +159,12 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
       drawerEdgeDragWidth: 100.0,
       drawerScrimColor: Colors.brown,
       // bottomSheet: DrawerPage(), 
-      // bottomNavigationBar: BottomNavigationBarPage(),
       // 悬浮按钮设置
-      bottomNavigationBar: BottomNavigationBar1Page(),
+      bottomNavigationBar: BarType ? BottomNavigationBarPage() : BottomNavigationBar1Page(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( 
-          child: Icon(Icons.add),
-          onPressed:_onAdd
+          child: Icon(Icons.crop_16_9),
+          onPressed: _change
       ),
       body: TabBarView(
         controller: _tabController,
@@ -145,34 +179,27 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
   }
 }
 
+class Page1 extends StatelessWidget {
+  const Page1({Key key}) : super(key: key);
 
-//[AppBar](https://api.flutter.dev/flutter/material/Scaffold/AppBar.html)
-/*
-作用：页面头部栏
+  @override
+  Widget build(BuildContext context) {
+    return Text('1');
+  }
+}
+class Page2 extends StatelessWidget {
+  const Page2({Key key}) : super(key: key);
 
-继承：继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatefulWidget > AppBar
+  @override
+  Widget build(BuildContext context) {
+    return Text('2');
+  }
+}
+class Page3 extends StatelessWidget {
+  const Page3({Key key}) : super(key: key);
 
-构造函数：（类型 属性 = 默认值）
-  AppBar({
-    Key key,
-    this.leading, //左边的 Widget。通常放返回键，或者 Drawer 开关图标
-    this.automaticallyImplyLeading = true,
-    this.title, // 页面title
-    this.titleSpacing = NavigationToolbar.kMiddleSpacing,  // title 的间距
-    this.centerTitle, // title是否居中
-    this.actions, // 右边的Widget
-    this.toolbarOpacity = 1.0, // AppBar的透明度
-    this.flexibleSpace, //配合ScrollView实现下拉展开效果
-    this.bottom, // 头部栏下方的tab切换栏
-    this.bottomOpacity = 1.0, // 头部栏下方的tab切换栏的透明度
-    this.elevation, // AppBar 的悬浮高度。值越大下方阴影就越大
-    this.shape, // 形状及其阴影
-    this.backgroundColor, //背景色
-    this.brightness = Brightness.dark, // 状态栏上的颜色 
-    this.iconTheme,
-    this.actionsIconTheme,
-    this.textTheme,
-    this.primary = true, // 此应用栏是否显示在屏幕顶部
-  })
- */
-
+  @override
+  Widget build(BuildContext context) {
+    return Text('3');
+  }
+}
