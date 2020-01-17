@@ -35,7 +35,7 @@ class AnimatedContainerPage extends StatefulWidget {
 }
 
 class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
-  bool selected = false;
+  bool _change = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,16 +44,16 @@ class _AnimatedContainerPageState extends State<AnimatedContainerPage> {
       body: InkWell(
         onTap: () {
           setState(() {
-            selected = !selected;
+            _change = !_change;
           });
         },
         child: Center(
           child: AnimatedContainer(
-            width: selected ? 200.0 : 100.0,
-            height: selected ? 100.0 : 200.0,
-            color: selected ? Colors.red : Colors.blue,
-            transform: selected ? Matrix4.rotationZ(100.0) : Matrix4.rotationZ(0.0),
-            alignment: selected ? Alignment.center : AlignmentDirectional.topCenter,
+            width: _change ? 200.0 : 100.0,
+            height: _change ? 100.0 : 200.0,
+            color: _change ? Colors.red : Colors.blue,
+            transform: _change ? Matrix4.rotationZ(100.0) : Matrix4.rotationZ(0.0),
+            alignment: _change ? Alignment.center : AlignmentDirectional.topCenter,
             duration: Duration(seconds: 2),
             curve: Curves.fastOutSlowIn,
             child: FlutterLogo(size: 75),

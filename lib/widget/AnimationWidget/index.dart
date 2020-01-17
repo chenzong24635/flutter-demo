@@ -6,8 +6,29 @@ import './Hero.dart';
 import './Dismissible.dart';
 import './Draggable.dart';
 import './GestureDetector.dart';
-import './AnimatedContainer.dart';
-import './AnimatedDefaultTextStyle.dart';
+
+import './Transition/DecoratedBoxTransition.dart';
+import './Transition/FadeTransition.dart';
+import './Transition/PositionedTransition.dart';
+import './Transition/RelativePositionedTransition.dart';
+import './Transition/AlignTransition.dart';
+import './Transition/SlideTransition.dart';
+import './Transition/RotationTransition.dart';
+import './Transition/ScaleTransition.dart';
+import './Transition/SizeTransition.dart';
+
+import './Animated/AnimatedContainer.dart';
+import './Animated/AnimatedDefaultTextStyle.dart';
+import './Animated/AnimatedBuilder.dart';
+import './Animated/AnimatedCrossFade.dart';
+import './Animated/AnimatedOpacity.dart';
+
+import './Animated/AnimatedSwitcher.dart';
+
+import './Animated/AnimatedPhysicalModel.dart';
+import './Animated/AnimatedModalBarrier.dart';
+import './Animated/AnimatedListState.dart';
+import './Animated/AnimatedPositioned.dart';
 
 
 final List<String> myRoutesName = <String>[
@@ -15,16 +36,39 @@ final List<String> myRoutesName = <String>[
   'Dismissible',
   'Draggable',
   'GestureDetector',
+  'DecoratedBoxTransition',
+  'FadeTransition',
+  'PositionedTransition',
+  'SlideTransition',
+  'RotationTransition',
+  'ScaleTransition',
+  'SizeTransition',
   'AnimatedContainer',
   'AnimatedDefaultTextStylePage',
+  'AnimatedBuilder',
+  'AnimatedCrossFade',
+  'AnimatedOpacity',
+  'AnimatedSwitcher',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "/HeroPage": (context) => HeroPage(),
   "/DismissiblePage": (context) => DismissiblePage(),
   "/DraggablePage": (context) => DraggablePage(),
   "/GestureDetectorPage": (context) => GestureDetectorPage(),
+  '/DecoratedBoxTransitionPage': (context) => DecoratedBoxTransitionPage(),
+  '/FadeTransitionPage': (context) => FadeTransitionPage(),
+  '/PositionedTransitionPage': (context) => PositionedTransitionPage(),
+  '/SlideTransitionPage': (context) => SlideTransitionPage(),
+  '/RotationTransitionPage': (context) => RotationTransitionPage(),
+  '/ScaleTransitionPage': (context) => ScaleTransitionPage(),
+  '/SizeTransitionPage': (context) => SizeTransitionPage(),
   "/AnimatedContainerPage": (context) => AnimatedContainerPage(),
   "/AnimatedDefaultTextStylePage": (context) => AnimatedDefaultTextStylePage(),
+  '/AnimatedBuilderPage': (context) => AnimatedBuilderPage(),
+  '/AnimatedCrossFadePage': (context) => AnimatedCrossFadePage(),
+  '/AnimatedOpacityPage': (context) => AnimatedOpacityPage(),
+  '/AnimatedSwitcherPage': (context) => AnimatedSwitcherPage(),
+  
 };
 
 // void main() => runApp(MyApp());

@@ -14,6 +14,8 @@ border	Border (optional)
 import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
+// import 'package:fluttertoast/fluttertoast.dart';
+
 class ToastPage extends StatelessWidget {
   const ToastPage({Key key}) : super(key: key);
 
@@ -25,6 +27,15 @@ class ToastPage extends StatelessWidget {
         InkWell(
           child: Text('顶部的Toast ',style: TextStyle(fontSize: 22.0),),
           onTap: (){
+            /* Fluttertoast.showToast(
+                msg: "This is Center Short Toast",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                timeInSecForIos: 1,
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                fontSize: 16.0
+            ); */
             Toast.show(
               "Toast plugin app", context, 
               duration: Toast.LENGTH_SHORT,

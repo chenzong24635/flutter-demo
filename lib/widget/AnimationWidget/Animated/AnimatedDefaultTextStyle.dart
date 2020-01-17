@@ -29,7 +29,7 @@ class AnimatedDefaultTextStylePage extends StatefulWidget {
 }
 
 class _AnimatedDefaultTextStylePageState extends State<AnimatedDefaultTextStylePage> {
-  bool selected = false;
+  bool _change = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _AnimatedDefaultTextStylePageState extends State<AnimatedDefaultTextStyleP
             child: AnimatedDefaultTextStyle (
               //变化样式必须对应，若其中有个未写则不会有动画效果
               //去除 fontSize: 15.0,试试
-              style: selected ? 
+              style: _change ? 
                 TextStyle(fontSize: 70.0,color: Colors.blue) : 
                 TextStyle(fontSize: 15.0,color: Colors.deepPurple),
               duration: Duration(seconds: 3),
@@ -53,7 +53,7 @@ class _AnimatedDefaultTextStylePageState extends State<AnimatedDefaultTextStyleP
           RaisedButton(
             onPressed: () {
               setState(() {
-                selected = !selected;
+                _change = !_change;
               });
             },
             child: Text('Change',style:TextStyle(fontSize: 22.0,color: Colors.red))

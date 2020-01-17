@@ -10,6 +10,7 @@ class RoutePage extends StatelessWidget {
       title: 'MaterialApp示例',
       //路由配置
       routes: {
+        '/RoutePage': (BuildContext context) => RoutePage(),
         '/Page1': (BuildContext context) => Page1(), //添加路由
         '/Page2': (BuildContext context) => Page2(),
       },
@@ -29,66 +30,69 @@ class _RoutesPageState extends State<RoutePageBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('路由用法'),),
+      appBar: AppBar(title: Text('Page0 '),),
       body: Column(children: <Widget>[
         RaisedButton(
           child: Text('跳到Page1',style: TextStyle(fontSize: 22.0)),
           onPressed: (){
             //push--跳转路由
-            // Navigator.push(context,MaterialPageRoute(builder: (context) => Page1()));
             // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Page1()));
-            // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Page1('你好')));
+            // Navigator.push(context,MaterialPageRoute(builder: (context) => Page1()));
+            Navigator.push(context,MaterialPageRoute(builder: (context) => Page1(txt1: 'push 方法的传参')));
 
+            //pushReplacement --替换路由
+            // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Page1()));
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Page1(txt1: 'pushReplacement 方法的传参')));
 
-            //pushName --跳转
-            // Navigator.of(context).pushNamed("/Page1",);
+            //pushNamed --命名路由 跳转
+            // Navigator.of(context).pushNamed("/Page1",); 
+            // Navigator.of(context).pushNamed("/Page1", arguments: "pushNamed 方法的传参");
 
-            //传参跳转
-            Navigator.of(context).pushNamed("/Page1", arguments: "pushNamed传参");
+            // Navigator.of(context).pushReplacementNamed("/Page1"); //替换路由
           },
         ),
-
       ],),
     );
   }
 }
 
 Widget args = Builder(builder: (BuildContext context) {
-  return Text('路由参数：${ModalRoute.of(context).settings.arguments}');
+  return Text('命名路由参数：${ModalRoute.of(context).settings.arguments}');
 });
 
 //Page1
 class Page1 extends StatelessWidget {
-  
+
+  final String txt1;//获取路由传参的内容
+
+  final String txt2;//获取路由传参的内容 pop方法
+
+  Page1({Key key, this.txt1, this.txt2}):super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var args = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(title: Text('我是Page1'),),
-      body: Column(children: <Widget>[
-        args,
-        RaisedButton(
-          child: Text('跳到Page2 --push',style: TextStyle(fontSize: 22.0)),
-          onPressed: (){
-            Navigator.of(context).push(MaterialPageRoute(builder: (context) => Page2()));
-          },
-        ),
-        h10,
-        RaisedButton(
-          child: Text('跳到Page2--pushReplacement',style: TextStyle(fontSize: 22.0)),
-          onPressed: (){
-            //pushReplacement--替换路由
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Page2()));
-          },
-        ),
-        h10,
-        RaisedButton(
-          child: Text('pop--关闭当前路由并返回上一页',style: TextStyle(fontSize: 22.0)),
-          onPressed: (){
-            Navigator.of(context).pop();
-            // Navigator.of(context).pop('pop 传参');
-          },
-        ),
-      ],),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('Page0传递的参数(命名路由)： $args',style: TextStyle(fontSize: 20.0),),
+          SizedBox(height: 30.0,),
+          Text('Page0传递的参数： $txt1',style: TextStyle(fontSize: 20.0),),
+          SizedBox(height: 30.0,),
+          Text('Page2传递的参数： $txt2',style: TextStyle(fontSize: 20.0),),
+          SizedBox(height: 100.0,),
+          RaisedButton(
+            child: Text('跳到Page2',style: TextStyle(fontSize: 22.0)),
+            onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context) => Page2()));
+            },
+          ),
+          SizedBox(height:10.0),
+        ],
+      ),
     );
   }
 }
@@ -101,15 +105,27 @@ class Page2 extends StatelessWidget {
       appBar: AppBar(title: Text('我是Page2'),),
       body: Column(children: <Widget>[
         RaisedButton(
-          child: Text('pop',style: TextStyle(fontSize: 22.0)),
+          child: Text('返回page1',style: TextStyle(fontSize: 22.0)),
           onPressed: (){
-            Navigator.of(context).pop('pop 传参');
+            Navigator.pop(context,'Page2的pop传参');
           },
         ),
         RaisedButton(
-          child: Text('跳到跟路由',style: TextStyle(fontSize: 22.0)),
+          child: Text('跳到跟路由 page0',style: TextStyle(fontSize: 22.0)),
           onPressed: (){
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => RoutePage()),(route) => route == null,);
+            
+            Navigator.pushAndRemoveUntil(
+              context, 
+              MaterialPageRoute(builder: (context) => RoutePage()),
+              (route) => route == null,
+            );
+
+            /* Navigator.pushNamedAndRemoveUntil(
+              context,
+              "/RoutePage",
+              (route) => false
+            ); */
+
           },
         ),
       ],),
@@ -117,4 +133,3 @@ class Page2 extends StatelessWidget {
   }
 }
 
-Widget h10 = SizedBox(height: 10.0,);

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+// 此行代码作用是导入了Material UI组件库。
+//Material是一种标准的移动端和web端的视觉设计语言， Flutter默认提供了一套丰富的Material风格的UI组件。
+
+
 import 'package:flutter/rendering.dart';
 
 import 'package:flutter1/widget/ScaffoldWidget/Scaffold.dart';
@@ -10,6 +14,7 @@ import 'package:flutter1/widget/Cases/index.dart';
 import 'package:flutter1/widget/IOSWidget/index.dart';
 import 'package:flutter1/widget/AnimationWidget/index.dart';
 
+import 'package:flutter1/widget/Packages/index.dart';
 import 'package:flutter1/widget/Routes/index.dart';
 import 'package:flutter1/provider/index.dart';
 import 'package:flutter1/demo.dart';
@@ -19,12 +24,13 @@ import 'package:flutter1/demo.dart';
 final List<String> myRoutesName = <String>[
   'Scaffold',
   '基础/其他组件',
-  '布局/容器组件',
+  '布局/容器',
   '滚动组件',
-  'Alert弹窗',
+  '弹窗组件',
   'IOS风格',
-  '动画/交互组件',
+  '过渡/动画/交互',
   '常用例子',
+  '第三方包使用',
   '路由使用',
   'Provider',
   'DemoPage',
@@ -38,14 +44,15 @@ Map<String, WidgetBuilder> myRoutes = {
   "/IOSWidget": (context) => IOSWidget(),
   "/AnimationWidget": (context) => AnimationWidget(),
   "/CasesWidget": (context) => CasesWidget(),
+  "/PackagesPage": (context) => PackagesPage(),
   "/RoutePage": (context) => RoutePage(),
   "/ProviderPage": (context) => ProviderPage(),
   "/DemoPage": (context) => DemoPage(),
 };
 
-void main() {
-  debugPaintSizeEnabled = !true;
-  runApp(MyApp());
+void main() { // main函数为应用程序的入口
+  // debugPaintSizeEnabled = true; // 开启可视方式调试布局
+  runApp(MyApp()); //runApp启动Flutter应用
 }
 
 class MyApp extends StatelessWidget{
@@ -56,11 +63,12 @@ class MyApp extends StatelessWidget{
       // initialRoute: '/Scaffold', //初始路由
       routes: myRoutes,
       debugShowCheckedModeBanner: false,
+      
       theme: ThemeData( //所有页面主题配置(会被Scaffold的appBar的样式覆盖)
         //应用程序整体主题的亮度
         brightness: Brightness.light,
         //App主要部分的背景色
-        primaryColor: Colors.lightGreen[600],
+        primaryColor: Colors.blue[600],
         //前景色（文本、按钮等）
         accentColor: Colors.orange[600],
       ),

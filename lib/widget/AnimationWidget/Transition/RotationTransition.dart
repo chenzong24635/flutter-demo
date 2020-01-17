@@ -11,7 +11,12 @@ import 'package:flutter/animation.dart';
 继承：Object Diagnosticable DiagnosticableTree Widget StatefulWidget AnimatedWidget RotationTransition
 
 构造函数：（类型 属性 = 默认值）
-
+  const RotationTransition({
+    Key key,
+    @required Animation<double> turns,
+    this.alignment = Alignment.center,
+    this.child,
+  })
 */
 
 class RotationTransitionPage extends StatefulWidget {
@@ -41,35 +46,38 @@ class _RotationTransitionPageState extends State<RotationTransitionPage> with Si
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        RotationTransition(
-          turns: turnsTween.animate(_controller),
-          child: Container(
+    return Scaffold(
+      appBar: AppBar(title: Text('RotationTransition'),),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          RotationTransition(
+            turns: turnsTween.animate(_controller),
             child: Container(
-              width: 200,
-              height: 200,
-              padding: EdgeInsets.all(20),
-              child: FlutterLogo(),
+              child: Container(
+                width: 200,
+                height: 200,
+                padding: EdgeInsets.all(20),
+                child: FlutterLogo(),
+              ),
             ),
           ),
-        ),
-        SizedBox(height: 20,),
-        FlatButton(
-          onPressed: () {
-            if (_first) {
-              _controller.forward();
-            } else {
-              _controller.reverse();
-            }
-            _first = !_first;
-          },
-          child: Text(
-            "Click Me!",
-          ),
-        )
-      ],
+          SizedBox(height: 20,),
+          FlatButton(
+            onPressed: () {
+              if (_first) {
+                _controller.forward();
+              } else {
+                _controller.reverse();
+              }
+              _first = !_first;
+            },
+            child: Text(
+              "Click Me!",
+            ),
+          )
+        ],
+      ),
     );
   }
 }

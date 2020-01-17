@@ -33,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body:  Swiper(
         itemBuilder: (BuildContext context,int index){
-          return Image.network("http://via.placeholder.com/350x150",fit: BoxFit.fill,);
+          return Image.asset("images/a.jpg",fit: BoxFit.fill,);
         },
         itemCount: 3,
         pagination: SwiperPagination(),
