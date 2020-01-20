@@ -15,77 +15,44 @@ AppBar 和 SliverAppBar 都是继承StatefulWidget 类，都代表 Toobar，
 const SliverAppBar({
   Key key,
   this.leading,         //左侧标题
-  this.automaticallyImplyLeading = true,
+  this.automaticallyImplyLeading = true, //控制是否应该尝试暗示前导小部件为null
   this.title,               //标题
   this.actions,          //菜单
-  this.flexibleSpace,        //可以展开区域，通常是一个FlexibleSpaceBar
-  this.bottom,         //底部内容区域
+  this.flexibleSpace,   // 一个显示在 AppBar 下方的控件，高度和 AppBar 高度一样，可以展开区域，通常是一个FlexibleSpaceBar
+  this.bottom,         //通常是 TabBar。用来在 Toolbar 标题下面显示一个 Tab 导航栏
   this.elevation,            //阴影
   this.forceElevated = false, 
   this.backgroundColor,       //背景色
   this.brightness,   /主题明亮
-  this.iconTheme,  //图标主题
+  this.iconTheme,  //图标主题(颜色、透明度、和尺寸信息)
   this.textTheme,    //文字主题
-  this.primary = true,  //是否预留高度
+  this.primary = true,  //是否预留高度,应用栏是否显示在屏幕顶部
   this.centerTitle,     //标题是否居中
-  this.titleSpacing = NavigationToolbar.kMiddleSpacing,
+  this.titleSpacing = NavigationToolbar.kMiddleSpacing, //横轴上标题内容 周围的间距
   this.expandedHeight,     //展开高度
-  this.pinned = false,  //是否固定在顶部
-  this.floating = false,       //是否随着滑动隐藏AppBar
+  this.pinned = false,  //tab 是否固定在顶部
+  this.floating = false,       //是否随着滑动隐藏标题
   this.snap = false,   //与floating结合使用
 })
 
 */
 
-class SliverAppBarPage extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => DiscoverListState();
-}
 
-class DiscoverListState extends State<SliverAppBarPage>
-    with TickerProviderStateMixin {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: NestedScrollView(
-        headerSliverBuilder: _sliverBuilder,
-        body: Center(
-          child: ListView.builder(
-            itemBuilder: _itemBuilder,
-            itemCount: 15,
-          ),
-        )),
-    );
-  }
-
-  List<Widget> _sliverBuilder(BuildContext context, bool innerBoxIsScrolled) {
-    return <Widget>[
-      SliverAppBar(
-        centerTitle: true,//标题居中
-        expandedHeight: 200.0,//展开高度200
-        floating: false,//不随着滑动隐藏标题
-        pinned: true,//固定在顶部
-        flexibleSpace: FlexibleSpaceBar(
-          centerTitle: true,
-          title: Text('我是一个FlexibleSpaceBar'),
-          background: Image.asset(
-            "images/a.jpg",
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-      SliverPersistentHeader(
-        delegate: _SliverAppBarDelegate(TabBar(
-        labelColor: Colors.red,
-        unselectedLabelColor: Colors.grey,
-        tabs: [
-          Tab(icon: Icon(Icons.cake), text: '左侧'),
-          Tab(icon: Icon(Icons.golf_course), text: '右侧'),
-        ],
-        controller: TabController(length: 2, vsync: this),
-      )))
-    ];
-  }
+/* 
+SliverPersistentHeader(
+  delegate: _SliverAppBarDelegate(
+    TabBar(
+      labelColor: Colors.red,
+      unselectedLabelColor: Colors.grey,
+      tabs: [
+        Tab(icon: Icon(Icons.cake), text: '左侧'),
+        Tab(icon: Icon(Icons.golf_course), text: '右侧'),
+      ],
+      controller: TabController(length: 2, vsync: this),
+    ),
+  ),
+), 
+*/
 
   Widget _itemBuilder(BuildContext context, int index) {
     return ListTile(
@@ -93,7 +60,6 @@ class DiscoverListState extends State<SliverAppBarPage>
       title: Text('无与伦比的标题+$index'),
     );
   }
-}
 
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   _SliverAppBarDelegate(this._tabBar);

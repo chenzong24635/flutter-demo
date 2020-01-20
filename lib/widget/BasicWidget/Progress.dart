@@ -51,10 +51,11 @@ class _ProgressBoxState extends State<ProgressBox> with SingleTickerProviderStat
   @override
   void initState() {
     //动画执行时间3秒  
-    _animationController =
-        new AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animationController = AnimationController(vsync: this, duration: Duration(seconds: 5));
     _animationController.forward();
-    _animationController.addListener(() => setState(() => {}));
+    _animationController.addListener(() => setState(() => {
+
+    }));
     super.initState();
   }
 
@@ -101,7 +102,18 @@ class _ProgressBoxState extends State<ProgressBox> with SingleTickerProviderStat
                 value: .5,
               ),
               Padding(padding: EdgeInsets.all(20),),
-              Text('自定义尺寸',style: TextStyle(fontSize: 16.0),),
+              Text('进度条颜色动画'),
+              Padding(
+                padding: EdgeInsets.all(16),
+                child: LinearProgressIndicator(
+                  backgroundColor: Colors.grey[200],
+                  valueColor: ColorTween(begin: Colors.red, end: Colors.blue)
+                    .animate(_animationController), // 从灰色变成蓝色
+                  value: _animationController.value,
+                ),
+              ),
+              Padding(padding: EdgeInsets.all(20),),
+              Text('通过尺寸限制类Widget，如ConstrainedBox、SizedBox指定尺寸',style: TextStyle(fontSize: 24.0),),
               Padding(padding: EdgeInsets.all(5),),
               Text('线性进度条高度指定为10'),
               SizedBox(
@@ -134,16 +146,7 @@ class _ProgressBoxState extends State<ProgressBox> with SingleTickerProviderStat
                   value: .7,
                 ),
               ),
-              Text('进度条颜色动画'),
-              Padding(
-                padding: EdgeInsets.all(16),
-                child: LinearProgressIndicator(
-                  backgroundColor: Colors.grey[200],
-                  valueColor: ColorTween(begin: Colors.red, end: Colors.blue)
-                    .animate(_animationController), // 从灰色变成蓝色
-                  value: _animationController.value,
-                ),
-              ),
+              
             ],
           )
         ],

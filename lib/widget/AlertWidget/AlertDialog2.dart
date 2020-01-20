@@ -13,7 +13,7 @@ class _AlertDialogPageState extends State<AlertDialogPage2> {
     return RaisedButton(
       onPressed: () {
         _showDialog(context).then((val) {
-          print('点击了${val}');
+          print('点击了$val');
         });
       },
       child: Text(

@@ -1,35 +1,49 @@
+/*
+可滚动组件都直接或间接包含一个Scrollable组件
+  const Scrollable({
+    Key key,
+    this.axisDirection = AxisDirection.down, 滚动方向
+    ScrollController controller, 主要作用是控制滚动位置和监听滚动事件
+    ScrollPhysics physics, 决定可滚动组件如何响应用户操作
+    @required this.viewportBuilder,
+    this.excludeFromSemantics = false,
+    this.semanticChildCount,
+    this.dragStartBehavior = DragStartBehavior.start,
+  })
+*/
+
 import 'package:flutter/material.dart';
 
 import 'package:flutter1/main.dart';
 
+import './Scrollbar.dart';
 import './ListView.dart';
 import './GridView.dart';
 import './CustomScrollView.dart';
 import './NestedScrollView.dart';
-import './SingleChildScrollView.dart';
-import './Scrollbar.dart';
 import './PageView.dart';
+import './SingleChildScrollView.dart';
 import './NotificationListener.dart';
 
 
 final List<String> myRoutesName = <String>[
+  'Scrollbar',
   'ListView',
   'GridView',
   'CustomScrollView',
   'NestedScrollView',
-  'SingleChildScrollView',
-  'Scrollbar',
   'PageView',
+  'SingleChildScrollView',
   'NotificationListener',
 ];
 Map<String, WidgetBuilder> myRoutes = {
+  "/ScrollbarPage": (context) => ScrollbarPage(),
   "/ListViewPage": (context) => ListViewPage(),
   "/GridViewPage": (context) => GridViewPage(),
   "/CustomScrollViewPage": (context) => CustomScrollViewPage(),
   "/NestedScrollViewPage": (context) => NestedScrollViewPage(),
-  "/SingleChildScrollViewPage": (context) => SingleChildScrollViewPage(),
-  "/ScrollbarPage": (context) => ScrollbarPage(),
   "/PageViewPage": (context) => PageViewPage(),
+  "/SingleChildScrollViewPage": (context) => SingleChildScrollViewPage(),
   "/NotificationListenerPage": (context) => NotificationListenerPage(),
 };
 

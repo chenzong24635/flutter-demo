@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 //[Scrollbar](https://api.flutter.dev/flutter/material/Scrollbar-class.html)
 /*
@@ -20,18 +21,13 @@ class ScrollbarPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(title: Text('Scrollbar')),
-      body: Scrollbar(
+      body: Scrollbar( // 或者CupertinoScrollbar :iOS风格的滚动条
         child:ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            Text('AAAA  ',style: TextStyle(fontSize: 22.0),),
-            Text('BBB   ',style: TextStyle(fontSize: 22.0),),
-            Text('CCC   ',style: TextStyle(fontSize: 22.0),),
-            Text('DDDD  ',style: TextStyle(fontSize: 22.0),),
-            Text('AAAA111  ',style: TextStyle(fontSize: 22.0),),
-            Text('BBB222   ',style: TextStyle(fontSize: 22.0),),
-            Text('CCC333   ',style: TextStyle(fontSize: 22.0),),
-            Text('DDDD444  ',style: TextStyle(fontSize: 22.0),),
+            Text('A'*20,style: TextStyle(fontSize: 16.0),),
+            Text('B'*20,style: TextStyle(fontSize: 22.0),),
+            Text('C'*20,style: TextStyle(fontSize: 32.0),),
           ]
         ),
       ),

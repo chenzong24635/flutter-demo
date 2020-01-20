@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './CircleAvatar.dart';
 import '../Packages/transparent_image.dart';
 import '../Packages/cached_network_image.dart';
 
@@ -86,6 +87,10 @@ class ImagePage extends StatelessWidget {
               );
             }).toList(),
           ),
+          SizedBox(height: 20.0,),
+          Text('CircleAvatar ',textAlign:TextAlign.center),
+          CircleAvatarPage(),
+          SizedBox(height: 20.0,),
           RaisedButton(
             child: Text('用占位符淡入图片'),
             onPressed: (){

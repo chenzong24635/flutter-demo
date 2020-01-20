@@ -63,7 +63,6 @@ class MyApp extends StatelessWidget{
       // initialRoute: '/Scaffold', //初始路由
       routes: myRoutes,
       debugShowCheckedModeBanner: false,
-      
       theme: ThemeData( //所有页面主题配置(会被Scaffold的appBar的样式覆盖)
         //应用程序整体主题的亮度
         brightness: Brightness.light,
@@ -77,8 +76,6 @@ class MyApp extends StatelessWidget{
 }
 
 class MyHomePage extends StatefulWidget {
-/*   MyHomePage({Key key, this.title}) : super(key: key);
-  final String title; */
 
   @override
   MyHomePageState createState() => MyHomePageState();
@@ -94,37 +91,11 @@ class MyHomePageState extends  State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(msg + count.toString()),
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.blue,
         toolbarOpacity: .8,
         bottomOpacity: .6,
       ),
       backgroundColor: Colors.grey[300],
-      bottomNavigationBar: BottomNavigationBar(// 底部导航栏
-        items: [
-          BottomNavigationBarItem(
-            title: Text('首页'),
-            icon: Icon(Icons.home), 
-            activeIcon: Icon(Icons.pages), //选中时的icon，可略
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.favorite), title: Text('收藏')),
-          BottomNavigationBarItem(icon: Icon(Icons.add_shopping_cart), title: Text('订单')),
-        ],
-        currentIndex: _currentIndex, // 当前选中的item索引
-        fixedColor: Colors.blue, // 选中的item的颜色
-        onTap: (index) { // 点击item的回调
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
-      floatingActionButton: FloatingActionButton( // 特殊的漂浮Button
-        onPressed: () => setState(() {
-          count++;
-        }),
-        tooltip: 'Increment Counter',
-        child: Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked, // 设置floatingActionButton的位置
       body: Container(
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

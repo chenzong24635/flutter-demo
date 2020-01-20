@@ -51,14 +51,14 @@ class _InkWellPageState extends State<InkWellPage> {
       body: AnimatedContainer(
         height: sideLength,
         width: sideLength,
-        duration: Duration(seconds: 2),
+        duration: Duration(seconds: 1),
         curve: Curves.easeIn,
         child: Material(
           color: Colors.yellow,
           child: InkWell(
             onTap: () {
               setState(() {
-                sideLength == 50 ? sideLength = 100 : sideLength = 50;
+                sideLength == 50 ? sideLength = 300 : sideLength = 50;
               });
             },
           ),

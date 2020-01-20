@@ -13,7 +13,8 @@ Object > Diagnosticable > DiagnosticableTree > Widget > RenderObjectWidget > Mul
 构造函数：（类型 属性 = 默认值）
 Row(
   TextDirection textDirection = TextDirection.ltr,
-  MainAxisSize mainAxisSize = MainAxisSize.max, // 在主轴(水平)方向占用的空间;表示尽可能多的占用水平方向的空间，此时无论子widgets实际占用多少水平空间，Row的宽度始终等于水平方向的最大宽度；
+  MainAxisSize mainAxisSize = MainAxisSize.max, // 宽度为水平方向的最大宽度；
+                              MainAxisSize.min, // 宽度为所有子iWidget宽度和
   MainAxisAlignment mainAxisAlignment: MainAxisAlignment.start, //主轴 对齐方式
   CrossAxisAlignment crossAxisAlignment: CrossAxisAlignment.center, // 副轴对齐方式
   VerticalDirection verticalDirection = VerticalDirection.down,//在副轴（垂直）的对齐方向
@@ -41,6 +42,7 @@ class RowPage extends StatelessWidget {
           ],
         ),
         Text('Row和Column都只会在主轴方向占用尽可能大的空间'),
+        Text('如果Row，Column相互嵌套，只有对最外面的Row或Column会占用尽可能大的空间，里面Row或Column所占用的空间为实际大小'),
         Padding(padding: EdgeInsets.all(15),),
         Text('Row默认只有一行，如果超出屏幕不会折行，则会报溢出错误;同Column',style: TextStyle(fontSize: 16.0,color: Colors.red),),
         Text('可以使用Wrap，Flow布局;',style: TextStyle(fontSize: 16.0,color: Colors.red),),

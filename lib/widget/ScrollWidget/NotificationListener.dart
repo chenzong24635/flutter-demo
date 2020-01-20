@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //[](https://api.flutter.dev/flutter/widgets/NotificationListener-class.html)
 /*
 作用：
-用于监听气泡冒泡的通知
+用于监听气泡冒泡的通知,通过ScrollController来控制
 
 继承：Object Diagnosticable DiagnosticableTree Widget StatelessWidget NotificationListener
 
@@ -24,14 +24,12 @@ class NotificationListenerPage extends StatefulWidget {
 }
 
 class TestNotification extends Notification {
-  TestNotification({
-    @required this.count,
-  });
+  TestNotification({@required this.count,});
 
   final int count;
 }
 class _NotificationListenerPageState extends State<NotificationListenerPage> {
-  //标识是否显示返回最顶按钮
+  //是否显示返回最顶按钮
   bool toTop = false;
 
   //当前滚动的位置

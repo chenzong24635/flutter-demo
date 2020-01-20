@@ -22,10 +22,10 @@ class _PopupMenuButtonState extends State<PopupMenuButtonPage> {
   String title = 'PopupMenuButton';
 
   //菜单项
-  List<String> MyItems = const <String>['A', 'B', 'Cds'];
+  List<String> myItems = const <String>['A', 'B', 'Cds'];
 
   List<PopupMenuEntry<String>> _getItemBuilder() {
-    return MyItems
+    return myItems
       .map((item) => PopupMenuItem<String>(
         child: Text(item),
         value: item,//value一定不能少
@@ -43,14 +43,7 @@ class _PopupMenuButtonState extends State<PopupMenuButtonPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        actions: <Widget>[
-          
-        ],
-      ),
-      body: Center(
+    return Center(
         child: FlatButton(
           child: PopupMenuButton<String>(
             onSelected: _select,
@@ -60,7 +53,6 @@ class _PopupMenuButtonState extends State<PopupMenuButtonPage> {
           ),
           onPressed: (){},
         ),
-      ),
     );
   }
 }

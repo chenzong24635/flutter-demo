@@ -63,7 +63,7 @@ Future<void> _changeLanguage(BuildContext context) async {
 }
 
 _showDialog(BuildContext context) {
-  var index = -1;
+  int index = -1;
   return showDialog(
     context: context,
     builder: (context) {

@@ -52,6 +52,9 @@ import 'package:flutter/material.dart';
   }) 
 */
 
+import './GestureDetector_darg.dart';
+import './GestureDetector_scale.dart';
+
 class GestureDetectorPage extends StatefulWidget {
   GestureDetectorPage({Key key}) : super(key: key);
 
@@ -67,57 +70,68 @@ class _GestureDetectorPageState extends State<GestureDetectorPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('GestureDetector'),),
-      body: Container(
-        alignment: FractionalOffset.center,
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('手势：$_behavior',style: TextStyle(fontSize: 22.0),),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.lightbulb_outline,
-                color: _lights ? Colors.yellow.shade600 : Colors.black,
-                size: 60,
-              ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Text('手势：$_behavior',style: TextStyle(fontSize: 22.0),),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              Icons.lightbulb_outline,
+              color: _lights ? Colors.yellow.shade600 : Colors.black,
+              size: 60,
             ),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                setState(() {
-                  _lights = !_lights;
-                  _behavior = 'onTap';
-                });
-              },
-              onTapCancel: () { //按住移开
-                setState(() {
-                  _behavior = 'onTapCancel';
-                });
-              },
-              onDoubleTap: (){
-                setState(() {
-                  _behavior = 'onDoubleTap';
-                });
-              },
-              onLongPress: (){
-                setState(() {
-                  _behavior = 'onLongPress';
-                });
-              },
-              onLongPressUp: (){
-                setState(() {
-                  _behavior = 'onLongPressUp';
-                });
-              },
-              child: Container(
-                color: Colors.yellow.shade600,
-                padding: const EdgeInsets.all(8),
-                child: const Text('TURN LIGHTS ON'),
-              ),
+          ),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              setState(() {
+                _lights = !_lights;
+                _behavior = 'onTap';
+              });
+            },
+            onTapCancel: () { //按住移开
+              setState(() {
+                _behavior = 'onTapCancel';
+              });
+            },
+            onDoubleTap: (){
+              setState(() {
+                _behavior = 'onDoubleTap';
+              });
+            },
+            onLongPress: (){
+              setState(() {
+                _behavior = 'onLongPress';
+              });
+            },
+            onLongPressUp: (){
+              setState(() {
+                _behavior = 'onLongPressUp';
+              });
+            },
+            child: Container(
+              color: Colors.yellow.shade600,
+              padding: const EdgeInsets.all(8),
+              child: const Text('TURN LIGHTS ON'),
             ),
-          ],
-        ),
+          ),
+          SizedBox(height: 50.0,),
+          RaisedButton(
+            child: Text('拖动、滑动'),
+            onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=> GestureDetectorDargPage()));
+            },
+          ),
+          SizedBox(height: 50.0,),
+          RaisedButton(
+            child: Text('是'),
+            onPressed: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context)=> GestureDetectorScalePage()));
+            },
+          ),
+        ],
       ),
     );
   }

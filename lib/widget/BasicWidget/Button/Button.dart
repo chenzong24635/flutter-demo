@@ -1,7 +1,3 @@
-import "package:flutter/material.dart";
-
-import '../../LayoutWidget/ButtonBar.dart';
-import '../../IOSWidget/CupertinoButton.dart';
 
 //[RaisedButton](https://api.flutter.dev/flutter/widgets/RaisedButton-class.html)
 //[ToggleButtons](https://api.flutter.dev/flutter/material/ToggleButtons-class.html)
@@ -56,6 +52,14 @@ const RaisedButton({
 
 */
 
+import "package:flutter/material.dart";
+
+import './ToggleButtons.dart';
+import './DropdownButton.dart';
+import './PopupMenuButton.dart';
+import '../../LayoutWidget/ButtonBar.dart';
+import '../../IOSWidget/CupertinoButton.dart';
+
 class ButtonPage extends StatefulWidget {
   ButtonPage({Key key}) : super(key: key);
 
@@ -64,7 +68,7 @@ class ButtonPage extends StatefulWidget {
 }
 
 class _ButtonPageState extends State<ButtonPage> {
-  List<bool> isSelected = [true,false,false];
+  
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -98,7 +102,7 @@ class _ButtonPageState extends State<ButtonPage> {
             onPressed: () {},
             child: Text("自定义的按钮外观"),
           ),
-          H15,
+          myH,
           Divider(),
           Text('RaisedButton 即"漂浮"按钮，它默认带有阴影和灰色背景。按下后，阴影会变大',style:TextStyle(fontSize: 18.0)),
           RaisedButton(
@@ -106,14 +110,14 @@ class _ButtonPageState extends State<ButtonPage> {
             onPressed: () {},
             onLongPress: () {},
           ),
-          H15,
+          myH,
           Divider(),
           Text('FlatButton 即扁平按钮，默认背景透明并不带阴影。按下后，会有背景色。',style:TextStyle(fontSize: 18.0)),
           FlatButton(
             onPressed: () {},
             child: Text("FlatButton 扁平化按钮"),
           ),
-          H15,
+          myH,
           Divider(),
           Text('OutlineButton 默认有一个边框，不带阴影且背景透明。按下后，边框颜色会变亮、同时出现背景和阴影(较弱)，'),
           OutlineButton(
@@ -121,7 +125,7 @@ class _ButtonPageState extends State<ButtonPage> {
             onPressed: () {},
             child: Text("OutlineButton 带边框按钮"),
           ),
-          H15,
+          myH,
           Divider(),
           Text('IconButton 可点击的Icon，不包括文字，默认没有背景，点击后会出现背景',style:TextStyle(fontSize: 18.0)),
           IconButton(
@@ -133,7 +137,7 @@ class _ButtonPageState extends State<ButtonPage> {
             onPressed: () {
             },
           ),
-          H15,
+          myH,
           Divider(),
           Text('带图标的按钮',style:TextStyle(fontSize: 18.0)),
           RaisedButton.icon(
@@ -149,27 +153,22 @@ class _ButtonPageState extends State<ButtonPage> {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtonBarPage()));
             },
           ),
-          H15,
+          myH,
           Divider(),
-          Center(child: Text('IOS风格的按钮',style:TextStyle(fontSize: 20.0)),),
+          Text('IOS风格的按钮',style:TextStyle(fontSize: 20.0)),
           CupertinoButtonPage(),
-          H15,
-          ToggleButtons(
-            children: <Widget>[
-              Icon(Icons.ac_unit),
-              Icon(Icons.call),
-              Icon(Icons.cake),
-            ],
-            onPressed: (int index) {
-              setState(() {
-                isSelected[index] = !isSelected[index];
-              });
-            },
-            isSelected: isSelected,
-          ),
+          myH,
+          Text('ToggleButtons:',style:TextStyle(fontSize: 20.0)),
+          ToggleButtonsPage(),
+          myH,
+          Text('DropdownButton:',style:TextStyle(fontSize: 20.0)),
+          DropdownButtonPage(),
+          myH,
+          Text('PopupMenuButton:',style:TextStyle(fontSize: 20.0)),
+          PopupMenuButtonPage(),
         ],
       )
     );
   }
 }
-Widget H15 = SizedBox(height: 15.0,);
+Widget myH = SizedBox(height: 30.0,);

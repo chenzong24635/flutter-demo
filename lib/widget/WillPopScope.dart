@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-//[]()
+//https://api.flutter.dev/flutter/widgets/WillPopScope-class.html
 /*
-作用：
-导航返回拦截
-
+作用： 导航返回拦截
 为了避免用户误触返回按钮而导致APP退出
 
-继承：
+继承：Object Diagnosticable DiagnosticableTree Widget StatefulWidget WillPopScope
 
 构造函数：（类型 属性 = 默认值）
   const WillPopScope({

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // import './AppBar.dart';
-import './SliverAppBar.dart';
+// import './SliverAppBar.dart';
 import './Drawer.dart';
 import './BottomNavigationBar.dart';
 import './BottomNavigationBar1.dart';
@@ -85,12 +85,12 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
     Text('G'),
   ];
 
-  bool BarType = true;
+  bool barType = true;
   
   void _change(){
     setState(() {
       //改变悬浮窗样式
-      BarType = !BarType;
+      barType = !barType;
     });
     // scaffoldKey.currentState.showSnackBar(snackBar);
   }
@@ -129,13 +129,13 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
         toolbarOpacity: .8,
         bottomOpacity: .6,
         actions: <Widget>[ 
-          FlatButton(
+          /* FlatButton(
             child: Text('SliverAppBarPage用法'),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverAppBarPage()));
               // scaffoldKey.currentState.showSnackBar(snackBar);
             },
-          ), 
+          ), */ 
           IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
             Navigator.of(context).pop();
           }),
@@ -160,7 +160,7 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
       drawerScrimColor: Colors.brown,
       // bottomSheet: DrawerPage(), 
       // 悬浮按钮设置
-      bottomNavigationBar: BarType ? BottomNavigationBarPage() : BottomNavigationBar1Page(),
+      bottomNavigationBar: barType ? BottomNavigationBarPage() : BottomNavigationBar1Page(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( 
           child: Icon(Icons.crop_16_9),

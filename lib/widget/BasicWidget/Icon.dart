@@ -31,12 +31,21 @@ class IconPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //使用Material Design字体图标
+    String icons = "";
+    icons += "\uE914";
+    icons += " \uE000";
+    icons += " \uE90D";
+
     return Scaffold(
       appBar: AppBar(title: Text('Icon')),
-      body: GridView.count(
-        crossAxisCount: 2,
+      body: ListView(
         children: <Widget>[
-          Icon(Icons.account_box, color: Colors.black, size: 16,textDirection:TextDirection.rtl),
+          Icon(
+            Icons.account_box, 
+            color: Colors.black, 
+            size: 66,
+          ),
           Icon( // 自定义的Icon
             IconData( //字体图标
               0xe567,
@@ -45,21 +54,24 @@ class IconPage extends StatelessWidget {
             ),
             color: Colors.red
           ),
-          ImageIcon( //图片一定要png，加载出来是纯色的背景图片，颜色通过color定义
-            AssetImage('images/FittedBox.png'),
-            color: Colors.amber
-          ),
-          ImageIcon( //
-            AssetImage('images/a.jpg'),
-            color: Colors.red
-          ),
           IconTheme( //为图标提供属性，必须是Icon的父级
             data: IconThemeData(
               color: Colors.blue,
               opacity: .7,
             ),
             child: Icon(Icons.favorite)
-          )
+          ),
+          Text(icons,
+            style: TextStyle(
+                fontFamily: "MaterialIcons",
+                fontSize: 24.0,
+                color: Colors.green
+            ),
+          ),
+          ImageIcon( //图片一定要png，加载出来是纯色的背景图片，颜色通过color定义
+            AssetImage('images/FittedBox.png'),
+            color: Colors.amber
+          ),
         ],
       )
     );

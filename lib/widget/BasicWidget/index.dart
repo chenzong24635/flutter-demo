@@ -7,8 +7,6 @@ import 'package:flutter1/main.dart';
 import './Form/Text.dart';
 import './Button/Button.dart';
 import './Image.dart';
-import './Button/DropdownButton.dart';
-import './Button/PopupMenuButton.dart';
 import './Form/Checkbox.dart';
 import './Form/Radio.dart';
 import './Form/Switch.dart';
@@ -37,8 +35,6 @@ final List<String> myRoutesName = <String>[
   'Text',
   'Button',
   'Image',
-  'DropdownButton',
-  'PopupMenuButton',
   'Checkbox',
   'Radio',
   'Switch',
@@ -67,8 +63,6 @@ Map<String, WidgetBuilder> myRoutes = {
   "/TextPage": (context) {return new TextPage();},
   "/ButtonPage": (context) {return new ButtonPage();},
   "/ImagePage": (context) {return new ImagePage();},
-  "/DropdownButtonPage": (context) {return new DropdownButtonPage();},
-  "/PopupMenuButtonPage": (context) {return new PopupMenuButtonPage();},
   "/CheckboxPage": (context) {return new CheckboxPage();},
   "/RadioPage": (context) {return new RadioPage();},
   "/SwitchPage": (context) {return new SwitchPage();},

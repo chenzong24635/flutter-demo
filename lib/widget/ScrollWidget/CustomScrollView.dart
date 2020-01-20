@@ -34,7 +34,6 @@ class CustomScrollViewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text('CustomScrollView'),),
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(

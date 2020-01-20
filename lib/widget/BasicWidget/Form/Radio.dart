@@ -101,8 +101,8 @@ class _RadioPageState extends State<RadioPage> {
             subtitle: Text("Chinese"),
             // isThreeLine:true,  //三行展示，显示为顶层
             secondary: Image.asset("images/th.jpg"),
-            onChanged: (value) => {
-              setState(() { this.subject = value; print(value);})
+            onChanged: (value) {
+              setState(() { this.subject = value; print(value);});
             },
             // selected: false, //选中后文字高亮，默认false
             // dense: true, //使文本更小，并将所有内容打包在一起
@@ -116,8 +116,8 @@ class _RadioPageState extends State<RadioPage> {
             title: Text("数学"),
             subtitle: Text("Math"),
             secondary: Image.asset("images/a.jpg"),
-            onChanged: (value) => {
-              setState(() { this.subject = value; print(value);})
+            onChanged: (value) {
+              setState(() { this.subject = value; print(value);});
             },
             controlAffinity: ListTileControlAffinity.leading
           ),

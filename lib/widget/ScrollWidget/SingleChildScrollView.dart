@@ -5,6 +5,11 @@ import 'package:flutter/material.dart';
 /*
 作用：有一个子widget的可滚动的widget，子内容超过父容器时可以滚动。
 
+通常SingleChildScrollView只应在期望的内容不会超过屏幕太多时使用，
+这是因为SingleChildScrollView不支持基于Sliver的延迟实例化模型，
+所以如果预计视口可能包含超出屏幕尺寸太多的内容时，那么使用SingleChildScrollView将会非常昂贵（性能差），
+此时应该使用一些支持Sliver延迟加载的可滚动组件，如ListView。
+
 继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > SingleChildScrollView
 
 构造函数：（类型 属性 = 默认值）
@@ -37,9 +42,9 @@ class SingleChildScrollViewPage extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child:  Row(children: <Widget>[
-              box(Colors.blue),
-              box(Colors.grey),
-              box(Colors.amber),
+              MyBox(Colors.blue),
+              MyBox(Colors.grey),
+              MyBox(Colors.amber),
             ],),
           ),
         ),
@@ -52,9 +57,9 @@ class SingleChildScrollViewPage extends StatelessWidget {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: <Widget>[
-              box(Colors.blue),
-              box(Colors.grey),
-              box(Colors.amber),
+              MyBox(Colors.blue),
+              MyBox(Colors.grey),
+              MyBox(Colors.amber),
             ],),
           ),
         ),
@@ -63,9 +68,9 @@ class SingleChildScrollViewPage extends StatelessWidget {
   }
 }
 
-class box extends StatelessWidget {
-  Color color;
-  box(this.color);
+class MyBox extends StatelessWidget {
+  final  Color color;
+  MyBox(this.color);
 
   @override
   Widget build(BuildContext context) {

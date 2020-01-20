@@ -10,10 +10,10 @@ import 'package:flutter/material.dart';
 构造函数：（类型 属性 = 默认值）
   const Divider({
     Key key,
-    this.height,
-    this.thickness,
-    this.indent,
-    this.endIndent,
+    this.height,高度范围
+    this.thickness, 分隔线的粗细
+    this.indent, 分隔线前沿的空白空间
+    this.endIndent, 分隔线后沿的空白空间
     this.color,
   }) 
 */

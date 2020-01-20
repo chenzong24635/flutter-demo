@@ -40,7 +40,7 @@ showTimePicker没有提供locale参数,
 */
 
 class ShowDatePickerPage extends StatelessWidget {
-  const ShowDatePickerPage({Key key}) : super(key: key);
+  var time1;
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ _datePicker1(BuildContext context){
       initialDate: date,
       firstDate: date.subtract(Duration(days: 30)), // 前 30天可选
       lastDate: date.add(Duration(days: 30)), //后 30天可选
-      // locale: Locale('zh'),//中文
+      locale: Locale('zh'),//中文
   ).then((DateTime val) {
       print(val);   // 2018-07-12 00:00:00.000
   }).catchError((err) {
@@ -143,7 +143,8 @@ Future<DateTime> _datePicker2(BuildContext context) {
           ),
           maximumYear: date.year + 1,
           onDateTimeChanged: (DateTime value) {
-            print(value);
+            return value;
+            // print(value);
           },
         ),
       );

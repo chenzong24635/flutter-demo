@@ -21,8 +21,8 @@ import "package:flutter/material.dart";
   })
 */
 class MyBox extends StatelessWidget{
+  final String cnt;
   MyBox({@required this.cnt});
-  String cnt;
   @override
   Widget build(BuildContext context){
     return DecoratedBox(
@@ -32,7 +32,7 @@ class MyBox extends StatelessWidget{
   }
 }
 class ConstrainedBoxPage extends StatelessWidget {
-  String str = 'box box box box box box box box box box box box box box';
+  final String cnt = 'box box box box box box box box box box box box box box';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +51,7 @@ class ConstrainedBoxPage extends StatelessWidget {
               ),
               child: Container(
                 height: 5.0, 
-                child: MyBox(cnt: str),
+                child: MyBox(cnt: cnt),
               ),
             ),
             Padding(padding: EdgeInsets.all(10),),
@@ -59,7 +59,7 @@ class ConstrainedBoxPage extends StatelessWidget {
               constraints: BoxConstraints.tightFor(width: 80.0,height: 80.0),
               //等价于
               //constraints: BoxConstraints(minHeight: 80.0,maxHeight: 80.0,minWidth: 80.0,maxWidth: 80.0)
-              child: MyBox(cnt: str),
+              child: MyBox(cnt: cnt),
             ),
             Padding(padding: EdgeInsets.all(10),),
             Text('如果某一个组件有多个父级ConstrainedBox限制，那么最终会是哪个生效?',style: TextStyle(fontSize: 18.0)),
@@ -69,7 +69,7 @@ class ConstrainedBoxPage extends StatelessWidget {
               constraints: BoxConstraints(maxWidth: 200.0,minWidth: 60.0, minHeight: 100.0), //父
               child: ConstrainedBox(
                 constraints: BoxConstraints(maxWidth: 310.0,minWidth: 100.0, minHeight: 20.0),//子
-                child: MyBox(cnt: str),
+                child: MyBox(cnt: cnt),
               )
             ),
             Padding(padding: EdgeInsets.all(10),),

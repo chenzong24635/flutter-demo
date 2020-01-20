@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 //
 /*
 作用：
@@ -9,6 +7,8 @@ import 'package:flutter/material.dart';
 构造函数：（类型 属性 = 默认值）
 
 */
+
+import 'package:flutter/material.dart';
 
 
 # 学习Flutter记录

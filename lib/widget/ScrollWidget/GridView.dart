@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+
 
 //[Grid](https://docs.flutter.io/flutter/widgets/GridView-class.html)
 /*
-作用：GridView和ListView的大多数参数都是相同的
+作用：构建一个二维网格列表, 和ListView的大多数参数都是相同的
 
 继承：Object > Diagnosticable > DiagnosticableTree > Widget > StatelessWidget > ScrollView > BoxScrollView > GridView
 
@@ -20,13 +20,13 @@ GridView({
   bool addRepaintBoundaries = true,
   double cacheExtent,
   List<Widget> children = const <Widget>[],
-  @required SliverGridDelegate gridDelegate, //控制子widget layout的委托
+  @required SliverGridDelegate gridDelegate, //控制子widget排列
 })
 
 Flutter中提供了两个SliverGridDelegate的子类 :
 
 1.SliverGridDelegateWithFixedCrossAxisCount
-该子类实现了一个横轴为固定数量子元素的layout算法
+设定 横轴为固定数量的子元素
 SliverGridDelegateWithFixedCrossAxisCount({
   @required double crossAxisCount, // 横轴子元素的数量。此属性值确定后子元素在横轴的宽度就确定了，即ViewPort横轴宽度除以crossAxisCount的商。
   double mainAxisSpacing = 0.0, // 主轴方向的间距。
@@ -35,7 +35,7 @@ SliverGridDelegateWithFixedCrossAxisCount({
 })
 
 2. SliverGridDelegateWithMaxCrossAxisExtent
-该子类实现了一个横轴子元素为固定最大宽度的layout算法
+设定 横轴子元素的固定最大宽度
 SliverGridDelegateWithMaxCrossAxisExtent({
   double maxCrossAxisExtent, //子元素在横轴上的最大宽度
   double mainAxisSpacing = 0.0,
@@ -71,7 +71,6 @@ GridView.extent(
 
 /*
 GridView.builder({
-  // GridView 公共参数已省略  
   ...
   @required IndexedWidgetBuilder itemBuilder, // 	子 Widget 构建器
   int itemCount, // 列表项的数量
@@ -79,7 +78,24 @@ GridView.builder({
 })
 */
 
+import 'package:flutter/material.dart';
 
+class GridViewPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("GridView"),
+      ),
+      // body: grid,
+      // body: grid1,
+      // body: gridExtent,
+      // body: gridCount,
+      body: gridBuilder,
+    );
+  }
+}
 
 Widget grid = GridView(
   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -116,7 +132,7 @@ Widget grid1 = GridView(
 
 // 等价于
 
-Widget grid_count = GridView.count( 
+Widget gridCount = GridView.count( 
   crossAxisCount: 3,
   childAspectRatio: 1.0,
   children:<Widget>[
@@ -131,7 +147,7 @@ Widget grid_count = GridView.count(
 
 //等价于
 
-Widget grid_extent = GridView.extent(
+Widget gridExtent = GridView.extent(
   maxCrossAxisExtent: 120.0,
   childAspectRatio: 2.0,
   children: <Widget>[
@@ -147,24 +163,13 @@ Widget grid_extent = GridView.extent(
 
 
 
-/* Widget grid_builder = GridView.builder(
-  itemCount: 11,
-  itemBuilder: (BuildContext context, int index) {
-  }
-) */
-
-class GridViewPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("GridView"),
-      ),
-      body: grid,
-      // body: grid1,
-      // body: grid_extent,
-      // body: grid_count,
-    );
-  }
-}
+Widget gridBuilder = GridView.builder(
+  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    crossAxisCount: 5,
+    childAspectRatio: 2.0 //宽高比为2
+  ),
+  itemCount: 100,
+  itemBuilder: (BuildContext ctx, int i) {
+    return Text('$i',style: TextStyle(fontSize: 22.0),);
+  },
+);

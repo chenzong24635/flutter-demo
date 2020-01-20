@@ -42,13 +42,10 @@ class _DropdownButtonPageState extends State<DropdownButtonPage> {
   String selectValue;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("DropdownButton"),
-      ),
-      body: DropdownButton(
+    return DropdownButton(
         //要显示的条目
         items: _getItems(),
+        // items: _getCityList(),
         //默认显示的值
         hint: Text("请选择城市"),
         //下拉菜单选中的值（注意：在初始化时，要么为null，这时显示默认hint的值；
@@ -58,7 +55,6 @@ class _DropdownButtonPageState extends State<DropdownButtonPage> {
           print("itemValue=$itemValue");
           _onChanged(itemValue);
         },
-      ),
     );
   }
   _onChanged(String value) {

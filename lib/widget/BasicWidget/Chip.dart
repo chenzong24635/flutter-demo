@@ -33,7 +33,6 @@ class ChipPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 头像  
-    Widget avatar = Image.asset("images/a.jpg", width: 200.0);
     return Scaffold(
       appBar: AppBar(title:Text('Chip')),
       body:ListView(
@@ -41,8 +40,9 @@ class ChipPage extends StatelessWidget {
           children: <Widget>[
             Chip(
               avatar: CircleAvatar(
-                backgroundColor: Colors.grey.shade800,
-                child: Text('AB'),
+                // backgroundColor: Colors.grey.shade800,
+                radius: 36.0,
+                backgroundImage: AssetImage("images/th.jpg"),
               ),
               label: Text('Aaron Burr'),
             ),

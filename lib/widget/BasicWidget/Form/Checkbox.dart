@@ -65,7 +65,7 @@ class _CheckBoxState extends State<CheckBox> {
             });
           } ,
         ),
-        Text('${_checkboxSelected}'),
+        Text('$_checkboxSelected'),
         Padding(padding:EdgeInsets.all(15.0)),
         Text('Checkbox的大小是固定的，无法自定义',style:TextStyle(fontSize: 20.0)),
         Row(

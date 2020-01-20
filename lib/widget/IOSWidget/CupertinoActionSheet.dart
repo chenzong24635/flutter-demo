@@ -13,7 +13,7 @@ class CupertinoActionSheetPage extends StatelessWidget {
         child: Text('底部弹窗栏-IOS风格',style: TextStyle(fontSize: 18),),
         onPressed: (){
           _handleClickMe(context).then((val) {
-            print('点击了${val}');
+            print('点击了$val');
           });
         },
       ),
