@@ -119,14 +119,14 @@ class _GestureDetectorPageState extends State<GestureDetectorPage> {
           ),
           SizedBox(height: 50.0,),
           RaisedButton(
-            child: Text('拖动、滑动'),
+            child: Text('监听拖动、滑动'),
             onPressed: (){
               Navigator.push(context,MaterialPageRoute(builder: (context)=> GestureDetectorDargPage()));
             },
           ),
           SizedBox(height: 50.0,),
           RaisedButton(
-            child: Text('是'),
+            child: Text('监听缩放事件'),
             onPressed: (){
               Navigator.push(context,MaterialPageRoute(builder: (context)=> GestureDetectorScalePage()));
             },

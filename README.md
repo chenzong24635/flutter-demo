@@ -21,6 +21,8 @@ import 'package:flutter/material.dart';
 
 [我看完掘金上的227篇文章，总结出一份 Flutter 入门教程](https://juejin.im/post/5b3c8a4be51d4519935860d5)
 
+[万字长文轻松彻底入门 Flutter，秒变大前端](https://zhuanlan.zhihu.com/p/90836859)
+
 [Flutter完整开发实战详解系列，GSY Flutter 系列专栏整合，不定期更新](https://guoshuyu.cn/home/wx/)--   [gsy_flutter_demo](https://github.com/CarGuo/gsy_flutter_demo)  
 
 [flutter-widget](https://flutter-widget.live/basics/introduction)    
@@ -29,3 +31,4 @@ import 'package:flutter/material.dart';
 
 
 [flutter-go - flutter 开发者帮助 APP，包含 flutter 常用 140+ 组件的demo 演示与中文文档](https://github.com/alibaba/flutter-go)  
+

@@ -61,6 +61,7 @@ final SnackBar snackBar = const SnackBar(content: Text('看这里 Showing Snackb
 
 class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStateMixin{
   
+  final PageController _pageController = PageController();
   TabController _tabController; //定义一个Controller
   List tabs = ["Tab1", "Tab2", "Tab3","Tab4","Tab5","Tab6","Tab7"];
   List<Widget> tabs1 = [
@@ -129,13 +130,6 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
         toolbarOpacity: .8,
         bottomOpacity: .6,
         actions: <Widget>[ 
-          /* FlatButton(
-            child: Text('SliverAppBarPage用法'),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SliverAppBarPage()));
-              // scaffoldKey.currentState.showSnackBar(snackBar);
-            },
-          ), */ 
           IconButton(icon: Icon(Icons.arrow_back), onPressed: () {
             Navigator.of(context).pop();
           }),
@@ -149,7 +143,6 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
           indicatorWeight: 5.0,
           indicatorPadding: EdgeInsets.all(3.0),
           indicatorSize: TabBarIndicatorSize.tab,
-          // indicator: Decoration(),
           controller: _tabController,
           tabs: tabs.map((e) => Tab(text: e)).toList()
         ),

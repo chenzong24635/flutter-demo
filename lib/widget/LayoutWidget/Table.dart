@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 
-import "package:flutter1/widget/LayoutWidget/Table1.dart";
+import "./DataTable.dart";
 
 //[参考](https://api.flutter.dev/flutter/widgets/Table-class.html)
 /*
@@ -169,9 +169,9 @@ class _TableBoxState extends State<TableBox>{
         children: <Widget>[
           dataTable,
           OutlineButton(
-            child: Text('更多Table用法'),
+            child: Text('更多'),
             onPressed: (){
-              Navigator.of(context).push(MaterialPageRoute(builder:(context) => Table1Page()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context) => DataTablePage()));
             },
           )
         ],

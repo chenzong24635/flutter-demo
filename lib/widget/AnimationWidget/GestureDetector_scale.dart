@@ -12,8 +12,6 @@ class GestureDetectorScalePage extends StatefulWidget {
 }
 
 class _DragState extends State<GestureDetectorScalePage> with SingleTickerProviderStateMixin {
-  double _top = 0.0; //距顶部的偏移
-  double _left = 0.0;//距左边的偏移
 
  double _width = 200.0; //通过修改图片宽度来达到缩放效果
 

@@ -20,7 +20,7 @@ import 'package:flutter/material.dart';
     @required this.rows,
   }) 
 */
-
+import './DataTable1.dart';
 class DataTablePage extends StatefulWidget {
   DataTablePage({Key key}) : super(key: key);
 
@@ -33,7 +33,15 @@ class _DataTablePageState extends State<DataTablePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('DataTable'),),
-      body: _buildTable(sortColumnIndex: 0, sortAscending: true),
+      body: Column(children: <Widget>[
+        _buildTable(sortColumnIndex: 0, sortAscending: true),
+        OutlineButton(
+            child: Text('更多'),
+            onPressed: (){
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) => DataTable1Page()));
+            },
+          )
+      ],),
     );
   }
 }

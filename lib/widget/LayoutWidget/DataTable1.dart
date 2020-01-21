@@ -28,12 +28,12 @@ source 使用PaginatedDataTable应配合DataTableSource一起
   int get selectedRowCount => _selectCount;//选中的行数
 */
 
-class Table1Page extends StatefulWidget {
+class DataTable1Page extends StatefulWidget {
   @override
   _Table1State createState() => _Table1State();
 }
 
-class _Table1State extends State<Table1Page> {
+class _Table1State extends State<DataTable1Page> {
   // 默认一页行数
   int _defalutRowPageCount = PaginatedDataTable.defaultRowsPerPage;
   MyTable table = MyTable();

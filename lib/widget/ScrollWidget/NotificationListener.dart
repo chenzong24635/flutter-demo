@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 //[](https://api.flutter.dev/flutter/widgets/NotificationListener-class.html)
 /*
-作用：
-用于监听气泡冒泡的通知,通过ScrollController来控制
+作用：用于监听气泡冒泡的通知,称为通知冒泡
+每一个节点都可以分发通知，通知会沿着当前节点向上传递，所有父节点都可以通过NotificationListener来监听通知。
+通知冒泡和用户触摸事件冒泡是相似的，但有一点不同：通知冒泡可以中止（return false;），但用户触摸事件不行。
 
 继承：Object Diagnosticable DiagnosticableTree Widget StatelessWidget NotificationListener
 
@@ -102,8 +103,14 @@ class _NotificationListenerPageState extends State<NotificationListenerPage> {
         onNotification: (ScrollNotification notification){
           ScrollMetrics metrics = notification.metrics;
 
+          print('滚动情况：${notification.runtimeType}');
+
           double progress = metrics.pixels / metrics.maxScrollExtent;
           setState(() {
+            //阻止冒泡
+            /* if(_scrollController.offset>=1000){
+              return false; 
+            } */
             offset = metrics.pixels;
             percent = "${(progress*100).toInt()}%";
           });

@@ -4,6 +4,7 @@ import 'package:flutter1/main.dart';
 
 import './GestureDetector.dart';
 import './Listener.dart';
+import './WillPopScope.dart';
 import './Dismissible.dart';
 import './Draggable.dart';
 import './Hero.dart';
@@ -18,23 +19,28 @@ import './Transition/RotationTransition.dart';
 import './Transition/ScaleTransition.dart';
 import './Transition/SizeTransition.dart';
 
-import './Animated/AnimatedContainer.dart';
-import './Animated/AnimatedDefaultTextStyle.dart';
+import './Animated/AnimatedWidget.dart';
 import './Animated/AnimatedBuilder.dart';
+import './Animated/AnimatedContainer.dart';
+import './Animated/AnimatedPadding.dart';
+import './Animated/AnimatedAlign.dart';
+import './Animated/AnimatedPositioned.dart';
+import './Animated/AnimatedDefaultTextStyle.dart';
 import './Animated/AnimatedCrossFade.dart';
 import './Animated/AnimatedOpacity.dart';
-
 import './Animated/AnimatedSwitcher.dart';
 
-import './Animated/AnimatedPhysicalModel.dart';
-import './Animated/AnimatedModalBarrier.dart';
-import './Animated/AnimatedListState.dart';
-import './Animated/AnimatedPositioned.dart';
+// import './Animated/AnimatedSize.dart';
+// import './Animated/AnimatedPhysicalModel.dart';
+// import './Animated/AnimatedModalBarrier.dart';
+// import './Animated/AnimatedListState.dart';
+// import './Animated/AnimatedWidgetBaseState.dart';
 
 
 final List<String> myRoutesName = <String>[
   'GestureDetector',
   'Listener',
+  'WillPopScope',
   'Dismissible',
   'Draggable',
   'Hero',
@@ -45,16 +51,22 @@ final List<String> myRoutesName = <String>[
   'RotationTransition',
   'ScaleTransition',
   'SizeTransition',
-  'AnimatedContainer',
-  'AnimatedDefaultTextStylePage',
+  'AnimatedWidget',
   'AnimatedBuilder',
+  'AnimatedContainer',
+  'AnimatedPadding',
+  'AnimatedAlign',
+  'AnimatedPositioned',
+  'AnimatedDefaultTextStylePage',
   'AnimatedCrossFade',
   'AnimatedOpacity',
   'AnimatedSwitcher',
+  // 'AnimatedSize',
 ];
 Map<String, WidgetBuilder> myRoutes = {
   "/GestureDetectorPage": (context) => GestureDetectorPage(),
   "/ListenerPage": (context) => ListenerPage(),
+  "/WillPopScopePage": (context) => WillPopScopePage(),
   "/DismissiblePage": (context) => DismissiblePage(),
   "/DraggablePage": (context) => DraggablePage(),
   "/HeroPage": (context) => HeroPage(),
@@ -65,16 +77,19 @@ Map<String, WidgetBuilder> myRoutes = {
   '/RotationTransitionPage': (context) => RotationTransitionPage(),
   '/ScaleTransitionPage': (context) => ScaleTransitionPage(),
   '/SizeTransitionPage': (context) => SizeTransitionPage(),
-  "/AnimatedContainerPage": (context) => AnimatedContainerPage(),
-  "/AnimatedDefaultTextStylePage": (context) => AnimatedDefaultTextStylePage(),
+  '/AnimatedWidgetPage': (context) => AnimatedWidgetPage(),
   '/AnimatedBuilderPage': (context) => AnimatedBuilderPage(),
+  "/AnimatedContainerPage": (context) => AnimatedContainerPage(),
+  "/AnimatedPaddingPage": (context) => AnimatedPaddingPage(),
+  "/AnimatedAlignPage": (context) => AnimatedAlignPage(),
+  "/AnimatedPositionedPage": (context) => AnimatedPositionedPage(),
+  "/AnimatedDefaultTextStylePage": (context) => AnimatedDefaultTextStylePage(),
   '/AnimatedCrossFadePage': (context) => AnimatedCrossFadePage(),
   '/AnimatedOpacityPage': (context) => AnimatedOpacityPage(),
   '/AnimatedSwitcherPage': (context) => AnimatedSwitcherPage(),
+  // '/AnimatedSizePage': (context) => AnimatedSizePage(),
   
 };
-
-// void main() => runApp(MyApp());
 
 class AnimationWidget extends StatelessWidget{
   Widget build(BuildContext context){

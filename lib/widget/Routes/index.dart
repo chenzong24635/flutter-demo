@@ -113,12 +113,18 @@ class Page2 extends StatelessWidget {
         RaisedButton(
           child: Text('跳到跟路由 page0',style: TextStyle(fontSize: 22.0)),
           onPressed: (){
-            
-            Navigator.pushAndRemoveUntil(
+            /* Navigator.popUntil(
+              context,
+              ModalRoute.withName("/RoutePage")
+            ); */
+
+            // Navigator.popAndPushNamed(context, '/RoutePage');
+
+            /* Navigator.pushAndRemoveUntil(
               context, 
               MaterialPageRoute(builder: (context) => RoutePage()),
               (route) => route == null,
-            );
+            ); */
 
             /* Navigator.pushNamedAndRemoveUntil(
               context,

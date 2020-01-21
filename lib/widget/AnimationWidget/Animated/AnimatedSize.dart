@@ -18,11 +18,27 @@ class AnimatedSizePage extends StatefulWidget {
 }
 
 class _AnimatedSizePageState extends State<AnimatedSizePage> with SingleTickerProviderStateMixin {
+  double _width = 50.0;
+  double _height = 50.0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('AnimatedSize'),),
-      body: Text(''),
+      body: InkWell(
+        child: AnimatedSize(
+          duration: Duration(seconds: 3),
+          child: Container(
+            height: _width, 
+            width: _height, 
+            color: Colors.red,
+          ),
+          vsync: this
+        ),
+        onTap: (){
+          _height = 300.0;
+        },
+      ),
     );
   }
 }

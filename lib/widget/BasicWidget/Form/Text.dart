@@ -1,8 +1,3 @@
-import "package:flutter/material.dart";
-
-import './DefaultTextStyle.dart';
-import './RichText.dart';
-import './../Form/SelectableText.dart';
 
 //[Text](https://api.flutter.dev/flutter/widgets/Text-class.html)
 
@@ -68,8 +63,33 @@ const TextSpan({
   this.semanticsLabel,
 })
 */
+import "package:flutter/material.dart";
 
-class TextPage extends StatelessWidget{
+import './DefaultTextStyle.dart';
+import './RichText.dart';
+import './../Form/SelectableText.dart';
+import 'package:flutter/gestures.dart';
+
+class TextPage extends StatefulWidget {
+  TextPage({Key key}) : super(key: key);
+
+  @override
+  _TextPageState createState() => _TextPageState();
+}
+
+class _TextPageState extends State<TextPage> {
+  TapGestureRecognizer _tapGestureRecognizer = new TapGestureRecognizer();
+  bool _toggle = false; //变色开关
+
+  @override
+  void dispose() {
+     //用到GestureRecognizer的话一定要调用其dispose方法释放资源
+    _tapGestureRecognizer.dispose();
+    super.dispose();
+  }
+
+  @override
+
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(title: Text("Text"),),
@@ -108,17 +128,23 @@ class TextPage extends StatelessWidget{
               style: TextStyle(fontSize: 18.0),
               children: [
                 TextSpan(
-                  text: "Flutter: ",
-                  semanticsLabel:'中文官网',
+                  text: "Text: ",
+                  semanticsLabel:'',
                   style: TextStyle(
-                    color: Colors.red
+                    color: Colors.blueGrey
                   ), 
                 ),
                 TextSpan(
-                  text: "https://flutterchina.club/widgets/",
+                  text: "点我变色",
                   style: TextStyle(
-                    color: Colors.blue
+                    color: _toggle ? Colors.blue : Colors.red
                   ),  
+                  recognizer: _tapGestureRecognizer
+                  ..onTap = () {
+                    setState(() {
+                      _toggle = !_toggle;
+                    });
+                  },
                   // recognizer: , //点击链接后的一个处理器
                 ),
               ],

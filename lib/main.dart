@@ -24,13 +24,13 @@ import 'package:flutter1/demo.dart';
 final List<String> myRoutesName = <String>[
   'Scaffold',
   '基础/其他组件',
-  '布局/容器',
+  '布局/容器组件',
   '滚动组件',
   '弹窗组件',
   'IOS风格',
-  '过渡/动画/交互',
+  '过渡/动画/交互等',
   '常用例子',
-  '第三方包使用',
+  '第三方包',
   '路由使用',
   'Provider',
   'DemoPage',
@@ -109,9 +109,12 @@ class MyHomePageState extends  State<MyHomePage> {
                 Navigator.of(context).pushNamed(routeLists[index]);
               },
               child: Card(
-                child: Center(
-                  child: Text(myRoutesName[index],style:TextStyle(fontSize: 18.0)),
-                ),
+                child: Padding(
+                  padding: EdgeInsets.all(10.0),
+                  child: Center(
+                    child: Text(myRoutesName[index],style:TextStyle(fontSize: 18.0)),
+                  ),
+                )
               ),
             );
           },

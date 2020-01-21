@@ -5,6 +5,7 @@ import 'package:flutter1/main.dart';
 import './toast.dart';
 import './cached_network_image.dart';
 import './transparent_image.dart';
+import './image_picker.dart';
 import './flutter_swiper.dart';
 import './english_words.dart';
 import './modal_progress_hud.dart';
@@ -15,6 +16,7 @@ final List<String> myRoutesName = <String>[
   'toast',
   // 'cached_network_image',
   'transparent_image',
+  'image_picker',
   'flutter_swiper',
   'english_words',
   'modal_progress_hud',
@@ -24,6 +26,7 @@ Map<String, WidgetBuilder> myRoutes = {
   "/toast": (context) => ToastPage(),
   // "/cached_network_image": (context) => cached_image_network_page(),
   "/transparent_image": (context) => transparent_image_page(),
+  "/image_picker": (context) => image_picker_page(),
   "/flutter_swiper_page": (context) => flutter_swiper_page(),
   "/english_words": (context) => english_words_page(),
   "/modal_progress_hud_page": (context) => modal_progress_hud_page(),

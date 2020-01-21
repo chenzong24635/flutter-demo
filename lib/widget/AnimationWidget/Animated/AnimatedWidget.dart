@@ -18,29 +18,52 @@ class AnimatedWidgetPage extends StatefulWidget {
 class _AnimatedWidgetPageState extends State<AnimatedWidgetPage>
     with SingleTickerProviderStateMixin {
 
-  Animation<double> animation;
-  AnimationController controller;
+  Animation<double> _animation;
+  AnimationController _controller;
 
   initState() {
     super.initState();
-    controller = new AnimationController(
-        duration: const Duration(seconds: 3), vsync: this);
+    _controller = AnimationController(
+      duration: Duration(seconds: 3),
+      vsync: this,
+    );
+
+    //使用弹性曲线
+    _animation=CurvedAnimation(parent: _controller, curve: Curves.easeInOut);
+
     //图片宽高从0变到300
-    animation = new Tween(begin: 0.0, end: 300.0).animate(controller);
+    _animation = Tween(begin: 50.0, end: 300.0)
+      .animate(_animation)
+      ..addListener(() {
+        setState((){
+          print('1');
+        });
+      })
+      ..addStatusListener((status) {//动画状态监听
+        if (status == AnimationStatus.completed) {
+          //动画执行结束时反向执行动画
+          _controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          //动画恢复到初始状态时执行动画（正向）
+          _controller.forward();
+        }
+      });
+
     //启动动画
-    controller.forward();
+    _controller.forward();
+  }
+  
+  dispose() {
+    //路由销毁时需要释放动画资源
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedImage(animation: animation,);
+    return AnimatedImage(animation: _animation,);
   }
 
-  dispose() {
-    //路由销毁时需要释放动画资源
-    controller.dispose();
-    super.dispose();
-  }
 }
 
 
@@ -52,11 +75,16 @@ class AnimatedImage extends AnimatedWidget {
     
     final Animation<double> animation = listenable;
 
-    return new Center(
-      child: Image.asset("imgs/a.jpg",
-          width: animation.value,
-          height: animation.value
-      ),
+    return Scaffold(
+      appBar: AppBar(title: Text('AnimatedWidget'),),
+      body: Column(children: <Widget>[
+        Center(
+          child: Image.asset("images/a.jpg",
+              width: animation.value,
+              height: animation.value
+          ),
+        ),
+      ],),
     );
   }
 }
