@@ -156,7 +156,7 @@ class _ScaffoldBoxState extends State<ScaffoldBox> with SingleTickerProviderStat
       bottomNavigationBar: barType ? BottomNavigationBarPage() : BottomNavigationBar1Page(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton( 
-          child: Icon(Icons.crop_16_9),
+          child: Icon(Icons.access_alarm),
           onPressed: _change
       ),
       body: TabBarView(

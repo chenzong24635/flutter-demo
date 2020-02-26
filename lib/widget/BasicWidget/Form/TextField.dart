@@ -33,6 +33,23 @@ class _TextFieldBoxState extends State<TextFieldBox> {
 
   final TextEditingController controller = new TextEditingController(text: "init Text");
 
+  @override 
+  void initState() {
+    super.initState();
+    controller.addListener(
+      (){
+        print('${controller.value}');
+      }
+    );
+  }
+
+  @override 
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context){
     return  ListView(

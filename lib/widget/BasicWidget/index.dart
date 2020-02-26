@@ -26,7 +26,7 @@ import './Tooltip.dart';
 import './Opacity.dart';
 import './Clip.dart';
 import './BoxDecoration.dart';
-import './Chip.dart';
+import './Chip/Chip.dart';
 import './Banner.dart';
 import './BackdropFilter.dart';
 

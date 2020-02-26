@@ -28,7 +28,7 @@ class PageViewPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('PageView'),),
       body: PageView(
-        scrollDirection: Axis.vertical,
+        scrollDirection: Axis.horizontal,
         pageSnapping: true,
         children: <Widget>[
           Container(

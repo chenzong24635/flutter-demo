@@ -1,5 +1,7 @@
-import 'package:flutter/material.dart';
+//https://mp.weixin.qq.com/s/HMztpgOIS65__TEMahL-kg
 
+import 'package:flutter/material.dart';
+import '404.dart';
 
 class RoutePage extends StatelessWidget {
   //这是整个应用的主组件
@@ -14,6 +16,10 @@ class RoutePage extends StatelessWidget {
         '/Page1': (BuildContext context) => Page1(), //添加路由
         '/Page2': (BuildContext context) => Page2(),
       },
+      //未知路由处理
+      onUnknownRoute: (RouteSettings setting) {
+        return MaterialPageRoute(builder: (context) => UnknownPage());
+      }
       // initialRoute: '/Page1',//初始路由页面
     );
   }
@@ -38,7 +44,10 @@ class _RoutesPageState extends State<RoutePageBox> {
             //push--跳转路由
             // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Page1()));
             // Navigator.push(context,MaterialPageRoute(builder: (context) => Page1()));
-            Navigator.push(context,MaterialPageRoute(builder: (context) => Page1(txt1: 'push 方法的传参')));
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Page1(txt1: 'push 方法的传参'))
+            );
 
             //pushReplacement --替换路由
             // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Page1()));
@@ -46,9 +55,17 @@ class _RoutesPageState extends State<RoutePageBox> {
 
             //pushNamed --命名路由 跳转
             // Navigator.of(context).pushNamed("/Page1",); 
-            // Navigator.of(context).pushNamed("/Page1", arguments: "pushNamed 方法的传参");
+            // Navigator.of(context).pushNamed("/Page1", arguments: "pushNamed方法的传参");
 
             // Navigator.of(context).pushReplacementNamed("/Page1"); //替换路由
+          },
+        ),
+        SizedBox(height: 30,),
+        RaisedButton(
+          child: Text('不存在的路由'),
+          onPressed: (){
+            //跳转到一个不存在的路由
+            Navigator.of(context).pushNamed("/unknow",); 
           },
         ),
       ],),

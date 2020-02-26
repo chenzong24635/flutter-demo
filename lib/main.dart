@@ -19,6 +19,8 @@ import 'package:flutter1/widget/Routes/index.dart';
 import 'package:flutter1/provider/index.dart';
 import 'package:flutter1/demo.dart';
 
+import 'package:provider/provider.dart';
+import './provider/counter.dart';
 // https://api.flutter.dev/flutter/material/MaterialApp-class.html
 
 final List<String> myRoutesName = <String>[
@@ -52,7 +54,31 @@ Map<String, WidgetBuilder> myRoutes = {
 
 void main() { // main函数为应用程序的入口
   // debugPaintSizeEnabled = true; // 开启可视方式调试布局
-  runApp(MyApp()); //runApp启动Flutter应用
+  final counter = CounterModel();
+  final textSize = 48;
+
+  runApp(
+    // 嵌套绑定
+    // Provider<int>.value(
+    //   value: textSize,
+    //   child: ChangeNotifierProvider.value(
+    //     value: counter,
+    //     child: MyApp(),
+    //   ),
+    // ),
+
+    //聚合绑定
+    MultiProvider(
+      providers: [
+        Provider.value(value: textSize),
+        ChangeNotifierProvider.value(value: counter)
+      ],
+      child: MyApp(),
+    ),
+
+  );
+
+  // runApp(MyApp()); //runApp启动Flutter应用
 }
 
 class MyApp extends StatelessWidget{

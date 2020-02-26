@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// import
+
 //[Chilp](https://api.flutter.dev/flutter/material/Chip-class.html)
 /*
 作用：
@@ -39,13 +41,35 @@ class ChipPage extends StatelessWidget {
         children: <Widget>[Column(
           children: <Widget>[
             Chip(
+              // delete: ,
               avatar: CircleAvatar(
                 // backgroundColor: Colors.grey.shade800,
                 radius: 36.0,
                 backgroundImage: AssetImage("images/th.jpg"),
               ),
-              label: Text('Aaron Burr'),
+              label: Text('Chip'),
             ),
+            ActionChip(
+              onPressed: (){
+                print('click');
+              },
+              avatar: CircleAvatar(
+                // backgroundColor: Colors.grey.shade800,
+                radius: 36.0,
+                backgroundImage: AssetImage("images/a.jpg"),
+              ),
+              label: Text('ActionChip'),
+            ),
+            /* FilterChip(
+              onSelected: true,
+              avatar: CircleAvatar(
+                // backgroundColor: Colors.grey.shade800,
+                radius: 36.0,
+                backgroundImage: AssetImage("images/a.jpg"),
+              ),
+              label: Text('ActionChip'),
+            ), */
+
           ],
         )],
       ),

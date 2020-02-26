@@ -69,6 +69,19 @@ class CustomScrollViewPage extends StatelessWidget {
               childCount: 15,
             ),
           ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return Container(
+                  padding: EdgeInsets.all(20.0),
+                  alignment: Alignment.center,
+                  color: Colors.yellow[100 * (index % 9)],
+                  child: Text('SliverList $index'),
+                );
+              },
+              childCount: 15,
+            ),
+          ),
           SliverFixedExtentList(
             itemExtent: 40.0,
             delegate: SliverChildBuilderDelegate(
@@ -76,7 +89,7 @@ class CustomScrollViewPage extends StatelessWidget {
                 return Container(
                   alignment: Alignment.center,
                   color: Colors.lightBlue[100 * (index % 9)],
-                  child: Text('list item $index'),
+                  child: Text('SliverFixedExtentList $index'),
                 );
               },
               childCount: 10,

@@ -114,7 +114,7 @@ Widget list3 = ListView.builder(
   },
 );
 
-//类似ListView.builder，在生成的列表项之间添加一个分割组件
+//类似ListView.builder，实现Item之间的分割线
 Widget list4 = ListView.separated(
   // 必须指定列表项的长度,为null，则为无限列表。
   itemCount: 34,
